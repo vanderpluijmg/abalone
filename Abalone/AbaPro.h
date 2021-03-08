@@ -17,7 +17,7 @@ public:
 /**
  * Parses String to get single command to execute move.
  */
-string getCommand();
+vector<string> getCommand();
     
 /**
  * @param source

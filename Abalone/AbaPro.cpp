@@ -14,8 +14,9 @@
  * Parses String to get single command to execute move.
  * @return String
  */
-string AbaPro::getCommand() {
-    return "";
+vector<string> AbaPro::getCommand() {
+    vector<string> a;
+    return a;
 }
 
 /**
@@ -23,7 +24,8 @@ string AbaPro::getCommand() {
  * @return Direction
  */
 Direction AbaPro::getDirection(vector<string> source) {
-    return null;
+    Direction a;
+    return a;
 }
 
 /**
@@ -31,5 +33,4 @@ Direction AbaPro::getDirection(vector<string> source) {
  * @return void
  */
 void AbaPro::moveBall( map<vector<Position>, Direction> moves) {
-    return;
 }
