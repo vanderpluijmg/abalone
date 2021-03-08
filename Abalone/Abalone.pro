@@ -4,6 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        AbaPro.cpp \
+        Player.cpp \
         ball.cpp \
         board.cpp \
         direction.cpp \
@@ -12,6 +14,8 @@ SOURCES += \
         position.cpp
 
 HEADERS += \
+    AbaPro.h \
+    Player.h \
     ball.h \
     board.h \
     direction.h \
