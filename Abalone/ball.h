@@ -6,7 +6,11 @@
  * @brief The Color enum represents the color of a ball.
  * The ball can either be white or black.
  */
-enum Color {white, black};
+enum Color
+{
+    white,
+    black
+};
 
 /**
  * @brief The Ball class represents a ball on the board.
@@ -16,15 +20,17 @@ class Ball
 private:
     Position p;
     Color c;
+
 public:
     /**
      * @brief Ball constructor with parametres.
      * @param ballPos Position of ball.
      * @param color Color of ball.
      */
-    Ball(Position ballPos, Color color){
-    p=ballPos;
-    c=color;
+    Ball(Position ballPos, Color color)
+    {
+        p = ballPos;
+        c = color;
     }
     /**
      * @brief Default Ball constructor
@@ -34,21 +40,23 @@ public:
      * @brief Copy constructor of Ball
      * @param playerBall
      */
-    Ball (const Ball &playerBall){
+    Ball(const Ball &playerBall)
+    {
         p = playerBall.p;
         c = playerBall.c;
     };
-    Position getPositionBall() {
+    Position getPositionBall()
+    {
         return p;
     }
-    Color getColorBall(){
+    Color getColorBall()
+    {
         return c;
     }
-    void setPosition(Color c){
-        c=c;
+    void setPosition(Color c)
+    {
+        c = c;
     }
-
-
 };
 
 #endif // BALL_H

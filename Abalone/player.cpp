@@ -6,27 +6,30 @@
  * Player implementation
  */
 
-
 /**
  * @return List<Ball>
  */
-list<Ball> Player::getBalls() {
+list<Ball> Player::getBalls()
+{
     return balls;
 }
 
 /**
  * @return Integer
  */
-int Player::getCurBalls() {
+int Player::getCurBalls()
+{
     return curBalls;
 }
 
 /**
- * @param value
+ * @brief 
+ * 
  * @return Integer
  */
-int Player::setCurBalls(int value) {
-    curBalls=value;
+int Player::setCurBalls(int value)
+{
+    curBalls = value;
     return curBalls;
 }
 
@@ -36,8 +39,9 @@ int Player::setCurBalls(int value) {
  * @param name
  * @return Player
  */
-Player Player::initPlayer(bool color, string name) {
-    Player a= Player();
+Player Player::initPlayer(bool color, string name)
+{
+    Player a = Player();
     return a;
 }
 
@@ -46,8 +50,9 @@ Player Player::initPlayer(bool color, string name) {
  * @param direction
  * @return Position
  */
-Position Player::move(Position position, Direction direction) {
-    Position a ;
+Position Player::move(Position position, Direction direction)
+{
+    Position a;
     return a;
 }
 
@@ -55,7 +60,8 @@ Position Player::move(Position position, Direction direction) {
  * @param position
  * @return boolean
  */
-bool Player::validatePos(Position position) {
+bool Player::validatePos(Position position)
+{
     return false;
 }
 
@@ -64,6 +70,7 @@ bool Player::validatePos(Position position) {
  * @param direction
  * @return boolean
  */
-bool Player::validateMove(Position position, Direction direction) {
+bool Player::validateMove(Position position, Direction direction)
+{
     return false;
 }

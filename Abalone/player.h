@@ -7,48 +7,47 @@
 #include <list>
 
 using namespace std;
-class Player {
-
+class Player
+{
 
 public:
+   list<Ball> getBalls();
 
-    list<Ball> getBalls();
+   int getCurBalls();
 
-    int getCurBalls();
-
-    /**
+   /**
  * @param value
  */
-    int setCurBalls(int value);
+   int setCurBalls(int value);
 
-    /**
+   /**
  * Pseudo constructeur pour player.
  * @param color
  * @param name
  */
-    Player initPlayer(bool color, string name);
+   Player initPlayer(bool color, string name);
 
-    /**
+   /**
  * @param position
  * @param direction
  */
-    Position move(Position position, Direction direction);
+   Position move(Position position, Direction direction);
 
-    /**
+   /**
  * @param position
  */
-    bool validatePos(Position position);
+   bool validatePos(Position position);
 
-    /**
+   /**
  * @param position
  * @param direction
  */
-    bool validateMove(Position position, Direction direction);
+   bool validateMove(Position position, Direction direction);
 
 private:
-    list<Ball> balls;
-    int curBalls;
-    string  name;
+   list<Ball> balls;
+   int curBalls;
+   string name;
 };
 
 #endif //_PLAYER_H

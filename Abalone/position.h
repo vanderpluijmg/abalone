@@ -1,22 +1,17 @@
 #ifndef POSITION_H
 #define POSITION_H
 
-
 class Position
 {
 private:
-    int col,row;
+    int col, row;
+
 public:
-    Position(int x, int y){col=x;row=y;}
-    Position (){row= 0; col=0;}
-    Position(const Position &pos){row = pos.row, col = pos.col;}
-    void next (){
-    }
-    int getRow(){
-        return row;
-    }
-    int getColumn(){
-        return col;
-    }
+    Position(int x, int y);
+    Position();
+    Position(const Position &pos);
+    void next();
+    int getRow();
+    int getColumn();
 };
 #endif // POSITION_H

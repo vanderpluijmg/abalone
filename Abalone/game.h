@@ -7,18 +7,17 @@
 class Game
 {
 private:
-    std::vector<Player>Players;
+    std::vector<Player> Players;
     Board board;
+
 public:
     /**
      * @brief Pseudo constructor for Board.
      * Initializes a game.
      */
-    void initGame(){
-
+    void initGame()
+    {
     }
-
-
 };
 
 #endif // GAME_H

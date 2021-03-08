@@ -2,19 +2,18 @@
  * Project Untitled
  */
 
-
 #include "AbaPro.h"
 
 /**
  * AbaPro implementation
  */
 
-
 /**
  * Parses String to get single command to execute move.
  * @return String
  */
-vector<string> AbaPro::getCommand() {
+vector<string> AbaPro::getCommand()
+{
     vector<string> a;
     return a;
 }
@@ -23,7 +22,8 @@ vector<string> AbaPro::getCommand() {
  * @param source
  * @return Direction
  */
-Direction AbaPro::getDirection(vector<string> source) {
+Direction AbaPro::getDirection(vector<string> source)
+{
     Direction a;
     return a;
 }
@@ -32,5 +32,6 @@ Direction AbaPro::getDirection(vector<string> source) {
  * @param moves
  * @return void
  */
-void AbaPro::moveBall( map<vector<Position>, Direction> moves) {
+void AbaPro::moveBall(map<vector<Position>, Direction> moves)
+{
 }

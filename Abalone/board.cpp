@@ -2,5 +2,4 @@
 
 Board::Board()
 {
-
 }

@@ -5,26 +5,29 @@
  * @brief The different directions the player can take
  * to move his balls.
  */
-class Direction{
+class Direction
+{
 private:
     int col, row;
+
 public:
-    enum values {
-        northEast=(1,1),
-        northWest=(-1,1),
-        southEast=(1,-1),
-        southWest=(-1,-1),
-        east=(1,0),
-        west=(-1,0)
+    enum values
+    {
+        northEast = (1, 1),
+        northWest = (-1, 1),
+        southEast = (1, -1),
+        southWest = (-1, -1),
+        east = (1, 0),
+        west = (-1, 0)
     };
-    int getY (){
+    int getY()
+    {
         return row;
     }
-    int getX(){
+    int getX()
+    {
         return col;
     }
 };
-
-
 
 #endif // DIRECTION_H
