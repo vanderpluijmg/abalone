@@ -1,0 +1,34 @@
+#ifndef BALL_H
+#define BALL_H
+#include "position.h"
+
+/**
+ * @brief The Color enum represents the color of a ball.
+ * The ball can either be white or black. 
+ */
+enum Color {white, black};
+
+/**
+ * @brief The Ball class represents a ball on the board.
+ * @param p Position of the ball.
+ * @param c Color of the ball.
+ */
+class Ball
+{
+private:
+    Position p;
+    Color c;
+public:
+    /**
+     * @brief Ball constructor.
+     * @param ballPos Position of ball.
+     * @param color Color of ball.
+     */
+    Ball(Position ballPos, Color color){
+    p=ballPos;
+    c=color;
+    }
+    
+};
+
+#endif // BALL_H
