@@ -1,0 +1,28 @@
+#ifndef DIRECTION_H
+#define DIRECTION_H
+
+/**
+ * @brief The different directions the player can take
+ * to move his balls.
+ */
+class Direction{
+private:
+    int col, int row;
+public:
+    Direction
+    enum values {
+        northEast;
+        northWest=(1,1),
+        southEast=(1,1),
+        southWest=(1,1),
+        east=(1,1),
+        west=(1,1)
+    };
+    int getY (){
+        return
+    }
+};
+
+
+
+#endif // DIRECTION_H
