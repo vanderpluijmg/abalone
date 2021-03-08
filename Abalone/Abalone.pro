@@ -5,11 +5,15 @@ CONFIG -= qt
 
 SOURCES += \
         ball.cpp \
+        board.cpp \
+        direction.cpp \
         hexagon.cpp \
         main.cpp \
         position.cpp
 
 HEADERS += \
     ball.h \
+    board.h \
+    direction.h \
     hexagon.h \
     position.h

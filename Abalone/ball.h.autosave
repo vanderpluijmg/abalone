@@ -1,34 +1,110 @@
 #ifndef BALL_H
 #define BALL_H
+#include "list"
 #include "position.h"
 
 /**
  * @brief The Color enum represents the color of a ball.
- * The ball can either be white or black. 
+ * The ball can either be white or black.
  */
 enum Color {white, black};
 
 /**
  * @brief The Ball class represents a ball on the board.
- * @param p Position of the ball.
- * @param c Color of the ball.
  */
 class Ball
 {
 private:
-    Position p;
-    Color c;
+    Position _p;
+    Color _c;
+    bool _onBoard;
 public:
     /**
-     * @brief Ball constructor.
+     * @brief Ball constructor with parametres.
      * @param ballPos Position of ball.
      * @param color Color of ball.
      */
     Ball(Position ballPos, Color color){
-    p=ballPos;
-    c=color;
+    _p=ballPos;
+    _c=color;
+    _onBoard = true;
+    }
+    /**
+     * @brief Default Ball constructor
+     */
+    Ball(){};
+    /**
+     * @brief Copy constructor of Ball
+     * @param playerBall
+     */
+    Ball (const Ball &playerBall){
+        _p = playerBall._p;
+        _c = playerBall._c;
+    };
+    /**
+     * @brief Gets status of onBoard.
+     * @return True if ball is on board.
+     */
+    bool getOnBoardBall (){
+        return _onBoard;
+    }
+    void setOnBoardBall(bool onBoard){
+        _onBoard = onBoard;
+    }
+    /**
+     * @brief gets position of ball.
+     * @return Position of current ball.
+     */
+    Position getPositionBall() {
+        return _p;
+    }
+    /**
+     * @brief sets position of Ball
+     * @param p Position to set.
+     */
+    void setPosition(Position p){
+        _p=p;
     }
     
+    /**
+     * @brief gets color of Ball.
+     * @return Color of current ball.
+     */
+    
+    Color getColorBall(){
+        return _c;
+    }
+    /**
+     * @brief sets color of ball
+     * @param c Color of ball to set.
+     */
+    void setColorBall(Color c){
+        _c = c;
+    }
+    /**
+     * @brief fall procedure of Ball. Called upon
+     * when a ball is ready to fall.
+     */
+    void fallProcedure(){
+        
+    }
+    /**
+     * @brief Initializes the balls at the start of the
+     * game in function of their color. 
+     * @param Color of ball.
+     * @return List of balls with correct start 
+     * position and color.
+     */
+    std::list<Ball> initBalls (Color c){
+        std::list<Ball> balls;
+        if (c==black){
+            
+        }
+        else {
+            
+        }
+        return balls;
+    }
 };
 
 #endif // BALL_H
