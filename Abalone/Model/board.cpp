@@ -9,5 +9,5 @@ void Board::initBoard (){
 }
 
 std::vector<std::vector<Hexagon>> Board::getHexagon(){
-    return gameBoard;
+    return _gameBoard;
 }

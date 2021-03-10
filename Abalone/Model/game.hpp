@@ -8,15 +8,15 @@
 class Game
 {
 private:
-    std::map<Color, std::list<Ball>> players;
-    Board board;
+    std::map<Color, std::list<Ball>> _players;
+    Board _board;
 
 public:
     /**
      * @brief Default constructor for Game.
      */
-    Game(){
-        
+    Game()
+    {
     }
     /**
      * @brief Pseudo constructor for Board.
@@ -24,7 +24,7 @@ public:
      */
     void startGame()
     {
-        Game::board.initBoard();
+        Game::_board.initBoard();
         //Initialize every player with its name and its set of colors.
     }
     void fallBall(Ball ball)

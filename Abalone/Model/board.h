@@ -6,7 +6,8 @@
 class Board
 {
 private:
-    std::vector<std::vector<Hexagon>> gameBoard;
+    std::vector<std::vector<Hexagon>> _gameBoard;
+
 public:
     /**
      * @brief Default board constructor.
@@ -16,7 +17,8 @@ public:
     /**
      * @brief Pseudo constructor for board.
      */
-    void initBoard ();
+    void initBoard();
+
     /**
      * @brief Gets all the hexagons on the board.
      * @return Returns a vector of vector for 2 players.

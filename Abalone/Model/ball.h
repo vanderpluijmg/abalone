@@ -7,7 +7,11 @@
  * @brief The Color enum represents the color of a ball.
  * The ball can either be white or black.
  */
-enum Color {white, black};
+enum Color
+{
+    white,
+    black
+};
 
 /**
  * @brief The Ball class represents a ball on the board.
@@ -18,8 +22,8 @@ private:
     Position _p;
     Color _c;
     bool _onBoard;
-public:
 
+public:
     /**
      * @brief Ball constructor with parametres.
      * @param ballPos Position of ball.
@@ -36,13 +40,13 @@ public:
      * @brief Copy constructor of Ball
      * @param playerBall
      */
-    Ball (const Ball &playerBall);
+    Ball(const Ball &playerBall);
 
     /**
      * @brief Gets status of onBoard.
      * @return True if ball is on board.
      */
-    bool getOnBoardBall ();
+    bool getOnBoardBall();
 
     /**
      * @brief sets ball on Board.
@@ -82,13 +86,13 @@ public:
     void fall();
 
     /**
-     * @brief Initializes the balls at the start of the
-     * game in function of their color.
+     * @brief Initializes the balls at the start of the game in function of their color.
+     * 
      * @param Color of ball.
      * @return List of balls with correct start
      * position and color.
      */
-    std::list<Ball> initBalls (Color c);
+    std::list<Ball> initBalls(Color c);
 };
 
 #endif // BALL_H
