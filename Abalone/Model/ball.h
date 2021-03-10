@@ -1,7 +1,7 @@
 #ifndef BALL_H
 #define BALL_H
 #include "list"
-#include "position.h"
+#include "position.hpp"
 
 /**
  * @brief The Color enum represents the color of a ball.

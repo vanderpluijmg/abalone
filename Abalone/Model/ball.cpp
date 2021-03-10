@@ -1,7 +1,7 @@
 #include "ball.h"
 #include "stdbool.h"
 #include "iostream"
-#include "game.h"
+#include "game.hpp"
 
 Ball::Ball(Position ballPos, Color color){
     _p=ballPos;

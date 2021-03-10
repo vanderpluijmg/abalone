@@ -1,7 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include "vector"
-#include "hexagon.h"
+#include "hexagon.hpp"
 
 class Board
 {
