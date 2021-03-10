@@ -30,6 +30,7 @@ Position Player::move(Position position, Direction direction)
 {
     Position a;
     return a;
+    //If ball falls curball --, (take ball out of list. TBD)
 }
 
 bool Player::validatePos(Position position)

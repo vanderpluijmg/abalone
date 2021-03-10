@@ -1,7 +1,7 @@
 #ifndef _ABAPRO_H
 #define _ABAPRO_H
 #include "direction.h"
-#include "position.h"
+#include "position.hpp"
 #include <vector>
 #include <map>
 #include <string>

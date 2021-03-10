@@ -1,4 +1,4 @@
-#include "position.h"
+#include "position.hpp"
 #include "direction.h"
 
 using namespace std;
