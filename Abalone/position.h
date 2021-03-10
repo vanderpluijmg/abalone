@@ -6,14 +6,15 @@
 class Position
 {
 private:
-    int col,row;
+    int col, row;
+
 public:
     /**
      * @brief Position constructor
      * @param x value of position.
      * @param y value of position.
      */
-    Position(int x=0, int y=0);
+    Position(int x = 0, int y = 0);
 
     /**
      * @brief Copy constructor of Position.
@@ -26,7 +27,7 @@ public:
      * @param direction Direction to go in.
      * @return new position.
      */
-    Position next (Direction direction);
+    Position next(Direction direction);
 
     /**
      * @brief get's Row.
@@ -45,8 +46,9 @@ public:
      * @param stream Input.
      * @return String of position.
      */
-    friend std::ostream& operator<< (std::ostream& stream, Position& pos){
-        return stream << "Position = " << std::to_string(pos.getCol())<<", " << std::to_string(pos.getRow());
+    friend std::ostream &operator<<(std::ostream &stream, Position &pos)
+    {
+        return stream << "Position = " << std::to_string(pos.getCol()) << ", " << std::to_string(pos.getRow());
     }
 };
 #endif // POSITION_H
