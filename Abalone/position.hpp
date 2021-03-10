@@ -14,32 +14,49 @@ public:
      * @param x value of position.
      * @param y value of position.
      */
-    Position(int x = 0, int y = 0);
+    Position(int x = 0, int y = 0)
+    {
+        col = x;
+        row = y;
+    }
 
     /**
      * @brief Copy constructor of Position.
      * @param pos Position to copy.
      */
-    Position(const Position &pos);
+    Position(const Position &pos)
+    {
+        row = pos.row, col = pos.col;
+    }
 
     /**
      * @brief Creates a new posistion in the given direction
      * @param direction Direction to go in.
      * @return new position.
-     */
-    Position next(Direction direction);
+     */   
+    Position next(Direction direction)
+    {
+        Position p(getRow() + direction.getDeltaX(), getCol() + direction.getDeltaY());
+        return p;
+    }
 
     /**
      * @brief get's Row.
      * @return Row.
      */
-    int getRow();
+    int getRow()
+    {
+        return row;
+    }
 
     /**
      * @brief get's Column.
      * @return Col.
      */
-    int getCol();
+    int getCol()
+    {
+        return col;
+    }
 
     /**
      * @brief Overload of osStream. For display purposes.

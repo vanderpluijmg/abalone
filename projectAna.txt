@@ -21,4 +21,7 @@ Class Ball :
 
 
  
-	
+	j'ai mis en hpp:
+    position
+    player
+    hexagon

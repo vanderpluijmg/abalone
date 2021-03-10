@@ -15,7 +15,9 @@ public:
     /**
      * @brief Default constructor for Game.
      */
-    Game();
+    Game(){
+        
+    }
     /**
      * @brief Pseudo constructor for Board.
      * Initializes a game.
