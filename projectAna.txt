@@ -1,0 +1,24 @@
+Class Position : DONE
+
+ - Constructor with both X and Y parameters with default 0 0 values.
+ - Copy constructor of Position. 
+ - Next : Takes a Direction and adds its X and Y parameters. Returns new Position
+ - Getters for row and col
+ - OsStream overload.
+
+Class Direction & Enum directionChoice : DONE
+ 
+ - Constructor takes directionChoice and in function, creates a new direction with appropriate X and Y values.
+ - Getter for delta's.
+
+Class Ball : 
+
+ - Ball constructor with ball Position and Color. On board set to true.
+ - Copy constructor.
+ - Getters and setter.
+ - fall : makes the ball fall of the board.
+ - InitBalls : initializes the balls in function of color.
+
+
+ 
+	
