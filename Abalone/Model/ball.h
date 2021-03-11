@@ -92,7 +92,7 @@ public:
      * @return List of balls with correct start
      * position and color.
      */
-    std::list<Ball> initBalls(Color c);
+    void initBalls(std::list<Ball> &listeVide, Color c);
 };
 
 #endif // BALL_H

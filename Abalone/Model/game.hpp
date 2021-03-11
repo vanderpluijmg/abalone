@@ -8,7 +8,7 @@
 class Game
 {
 private:
-    std::map<Color, std::list<Ball>> _players;
+    std::map<Color, Player> _players;
     Board _board;
 
 public:
@@ -24,6 +24,8 @@ public:
      */
     void startGame()
     {
+        //Initializes two players with l.
+        //Initializes Board.
         Game::_board.initBoard();
         //Initialize every player with its name and its set of colors.
     }

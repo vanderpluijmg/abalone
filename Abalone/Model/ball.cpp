@@ -41,14 +41,3 @@ void Ball::setColorBall(Color c){
 void Ball::fall(){
     setOnBoardBall(false);
 }
-
-std::list<Ball> Ball::initBalls (Color c){
-    std::list<Ball> balls;
-    if (c==black){
-
-    }
-    else {
-
-    }
-    return balls;
-}

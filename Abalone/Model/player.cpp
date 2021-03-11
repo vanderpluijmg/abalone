@@ -1,8 +1,15 @@
 #include "player.h"
+#include "ball.h"
+#include "direction.h"
+#include <string>
+#include <list>
 
-/**
- * @return List<Ball>
- */
+
+Player::Player (std::string name, Color c){
+    std::list<Ball> balls;
+    initBalls(c);
+
+}
 std::list<Ball> Player::getBalls()
 {
     return balls;
@@ -13,17 +20,15 @@ int Player::getCurBalls()
     return curBalls;
 }
 
-int Player::setCurBalls(int value)
+void Player::setCurBalls(int value)
 {
     curBalls = value;
-    return curBalls;
 }
 
 
 Player Player::initPlayer(bool color, std::string name)
 {
-    Player a = Player();
-    return a;
+
 }
 
 Position Player::move(Position position, Direction direction)
@@ -42,4 +47,15 @@ bool Player::validateMove(Position position, Direction direction)
 {
     return false;
 }
+
+void Player::initPlayerBalls (Color c){
+    if (c==black){
+        for (auto &x : balls){
+
+        }
+    }
+    else {
+
+}
+
 

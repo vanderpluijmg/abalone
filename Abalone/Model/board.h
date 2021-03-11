@@ -17,7 +17,7 @@ public:
     /**
      * @brief Pseudo constructor for board.
      */
-    void initBoard();
+    void getInitBoard();
 
     /**
      * @brief Gets all the hexagons on the board.

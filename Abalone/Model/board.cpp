@@ -4,7 +4,7 @@
 Board::Board(){
 
 }
-void Board::initBoard (){
+void Board::getInitBoard (){
 
 }
 

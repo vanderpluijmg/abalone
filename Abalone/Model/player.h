@@ -14,15 +14,15 @@ private:
   std::string name;
 
 public:
-  /**
+
+  Player (std::string name, Color c);
+
+ /**
  * @brief Returns the list of balls that the player in the game.
  * 
  * @return std::list<Ball> 
  */
-  std::list<Ball> getBalls()
-  {
-    return balls;
-  }
+  std::list<Ball> getBalls();
 
   /**
  * @brief Get the amount of balls that the player has left in the game.
@@ -36,11 +36,11 @@ public:
  * @param value 
  * @return int 
  */
-  int setCurBalls(int value);
+  void setCurBalls(int value);
   /**
  * @brief Initialises a Player with the given parametres. 
  * 
- * @param color a desired color. Either false for black or true for white.
+ * @param color a desired color. Either white or black.
  * @param name the name of the Player.
  * @return Player the constructed object.
  */
@@ -70,6 +70,8 @@ public:
  * @return false if cannot move.
  */
   bool validateMove(Position position, Direction direction);
+
+  void initPlayerBalls (Color c);
 };
 
 #endif //_PLAYER_H
