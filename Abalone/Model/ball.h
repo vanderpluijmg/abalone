@@ -2,12 +2,13 @@
 #define BALL_H
 #include "list"
 #include "position.hpp"
+#include "map"
 
 /**
  * @brief The Color enum represents the color of a ball.
  * The ball can either be white or black.
  */
-enum Color
+enum Color  //Find way to print color.
 {
     white,
     black
@@ -85,14 +86,10 @@ public:
      */
     void fall();
 
-    /**
-     * @brief Initializes the balls at the start of the game in function of their color.
-     * 
-     * @param Color of ball.
-     * @return List of balls with correct start
-     * position and color.
-     */
-    void initBalls(std::list<Ball> &listeVide, Color c);
+    friend std::ostream &operator<<(std::ostream &stream, Ball &ball)
+    {
+        return stream << "Ball = " << ball.getPositionBall().getRow() << ", "<<ball.getPositionBall().getCol();
+    }
 };
 
 #endif // BALL_H

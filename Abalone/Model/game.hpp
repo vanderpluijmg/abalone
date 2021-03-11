@@ -26,7 +26,7 @@ public:
     {
         //Initializes two players with l.
         //Initializes Board.
-        Game::_board.initBoard();
+        //Game::_board.initBoard();
         //Initialize every player with its name and its set of colors.
     }
     void fallBall(Ball ball)

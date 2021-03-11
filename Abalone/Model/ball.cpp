@@ -41,3 +41,7 @@ void Ball::setColorBall(Color c){
 void Ball::fall(){
     setOnBoardBall(false);
 }
+
+
+
+
