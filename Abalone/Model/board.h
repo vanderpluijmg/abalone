@@ -7,6 +7,17 @@ class Board
 {
 private:
     std::vector<std::vector<Hexagon>> _gameBoard;
+    Hexagon _gameBoard[9][9] ={
+        (nullptr,nullptr,nullptr,nullptr,Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
+        (nullptr,nullptr,nullptr,Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
+        (nullptr,nullptr,Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
+        (nullptr,Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
+        (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
+        (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
+        (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
+        (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
+        (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon())
+        };
 
 public:
     /**
