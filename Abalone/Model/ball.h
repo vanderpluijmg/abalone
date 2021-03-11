@@ -10,8 +10,8 @@
  */
 enum Color  //Find way to print color.
 {
-    white,
-    black
+    WHITE,
+    BLACK
 };
 
 /**
