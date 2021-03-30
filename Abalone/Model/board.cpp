@@ -42,5 +42,10 @@ void Board::getInitBoard()
 
 Hexagon Board::getHexagon(int x, int y)
 {
+    std::string a="";
+    a.append("aaaaa"
+    )
     return _gameBoard[x][y];
 }
+
+std::string 
