@@ -7,8 +7,8 @@ QMAKE_CXXFLAGS += -pedantic-errors
 
 HEADERS += \
     Model/abapro.h \
-    Model/ball.h \
     Model/board.h \
+    Model/color.hpp \
     Model/direction.h \
     Model/game.hpp \
     Model/hexagon.hpp \
@@ -18,7 +18,6 @@ HEADERS += \
 SOURCES += \
     Model/Main.cpp \
     Model/abapro.cpp \
-    Model/ball.cpp \
     Model/board.cpp \
     Model/direction.cpp \
     Model/player.cpp
