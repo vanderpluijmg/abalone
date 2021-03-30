@@ -12,5 +12,6 @@ int main (void) {
     moveUtils a;
     AbaPro::addPositionUtils(a,AbaPro::getPosition("I8"));
     //a=AbaPro::getCommand(move);
-    std::cout<<a.pos1;
+    std::cout<<a.pos1<<std::endl;
+    std::cout<<55;
     }

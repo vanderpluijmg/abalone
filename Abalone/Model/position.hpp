@@ -6,7 +6,8 @@
 class Position
 {
 private:
-    int col, row;
+    int col;
+    int row;
 
 public:
     /**
@@ -24,7 +25,7 @@ public:
      * @brief Copy constructor of Position.
      * @param pos Position to copy.
      */
-    Position(const Position &pos)
+    Position( Position &pos)
     {
         row = pos.row, col = pos.col;
     }
@@ -57,6 +58,10 @@ public:
     {
         return col;
     }
+    void static setPosition(Position &target, Position source){
+        target.col=source.col;
+        target.row=source.row;
+    }
 
     /**
      * @brief Overload of osStream. For display purposes.
@@ -67,5 +72,6 @@ public:
     {
         return stream << "Position = " << std::to_string(pos.getCol()) << ", " << std::to_string(pos.getRow());
     }
+
 };
 #endif // POSITION_H

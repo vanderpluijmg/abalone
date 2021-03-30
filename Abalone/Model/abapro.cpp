@@ -66,9 +66,12 @@ Position AbaPro::getPosition(const std::string command){
 }
 
 void AbaPro::addPositionUtils(moveUtils& a, Position p){
-    if (a.pos1.getCol()==-5&&a.pos1.getRow()==-5)
-        a.pos1 = p;
-    a.pos2 = p;
+    if (a.pos1.getCol()==-5&&a.pos1.getRow()==-5){
+        Position::setPosition(a.pos1,p);
+        Position::setPosition(a.pos2,p);
+        /*a.pos1 = Position(p.getCol(),p.getRow());
+        a.pos2 = p;*/
+    }
 
 }
 
