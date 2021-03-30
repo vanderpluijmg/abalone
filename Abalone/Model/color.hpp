@@ -5,7 +5,7 @@ enum Color{
     WHITE,
     BLACK,
     EMPTY,
-    NONE
+    OUTOFBOUND
 };
 
 #endif // COLOR_HPP

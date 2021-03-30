@@ -28,9 +28,9 @@ public:
         //Game::_board.initBoard();
         //Initialize every player with its name and its set of colors.
     }
-    void fallBall(Ball ball)
+    void fallBall(Player player)
     {
-        ball.fall();
+        player.lostBall();
         //players.at(BLACK).;
         //In map player find player with correct color ball and reduce his count of balls
     }

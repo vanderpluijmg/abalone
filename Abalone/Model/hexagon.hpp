@@ -14,9 +14,9 @@ public:
     /**
      * @brief Default Hexagon constructor
      */
-    Hexagon::Hexagon();
+    Hexagon();
 
-    Hexagon::Hexagon(Color color, int x, int y)
+    Hexagon(Color color, int x, int y)
     {
         _marbleColor = color;
         _position = Position(x, y);
@@ -26,7 +26,7 @@ public:
      * @brief Gets color of hexagon.
      * @return Returns color of current hexagon.
      */
-    Color Hexagon::getColor()
+    Color getMarbleColor()
     {
         return _marbleColor;
     }
@@ -35,14 +35,14 @@ public:
      * @brief Sets a new color to the hexagon.
      * @param color New color of hexagon.
      */
-    void Hexagon::setColor(Color color)
+    void setMarbleColor(Color color)
     {
         _marbleColor = color;
     }
     /**
     * @brief Sets the hexagon as EMPTY.
     */
-    void Hexagon::setEmpty()
+    void setEmpty()
     {
         _marbleColor = EMPTY;
     }
@@ -51,7 +51,7 @@ public:
      * @brief Gets position of Hexagon.
      * @return Position of current hexagon.
      */
-    Position Hexagon::getPosition()
+    Position getPosition()
     {
         return _position;
     }

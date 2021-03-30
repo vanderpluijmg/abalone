@@ -1,15 +1,13 @@
 #include "player.h"
-#include "ball.h"
 #include "direction.h"
+#include "position.hpp"
 #include <string>
 #include <list>
 
 
 Player::Player (std::string name, Color c){
-    std::list<Ball> balls;
-    initPlayerBalls(c);
     _name = name;
-    curBalls = 14;
+    _curBalls = 14;
 }
 
 std::list<Ball> Player::getBalls()
@@ -19,26 +17,26 @@ std::list<Ball> Player::getBalls()
 
 int Player::getCurBalls()
 {
-    return curBalls;
+    return _curBalls;
 }
 
 void Player::setCurBalls(int value)
 {
-    curBalls = value;
+    _curBalls = value;
 }
 
-bool Player::blackPositionGood(int i, int j){
-     return((i==4&&j==0) || (i==5&&j==0) || (i==6&&j==0) || (i==7&&j==0) || (i==8&&j==0)
-            || (i==3&&j==1) || (i==4&&j==1) || (i==5&&j==1) || (i==6&&j==1) || (i==7&&j==1) || (i==8&&j==1 )
-            || (i==4&&j==2)|| (i==5&&j==2)|| (i==6&&j==2))? true:false;
+//bool Player::blackPositionGood(int i, int j){
+//     return((i==4&&j==0) || (i==5&&j==0) || (i==6&&j==0) || (i==7&&j==0) || (i==8&&j==0)
+//            || (i==3&&j==1) || (i==4&&j==1) || (i==5&&j==1) || (i==6&&j==1) || (i==7&&j==1) || (i==8&&j==1 )
+//            || (i==4&&j==2)|| (i==5&&j==2)|| (i==6&&j==2))? true:false;
 
-}
+//}
 
-bool Player::whitePositionGood(int i, int j){
-    return((i==0&&j==8) || (i==1&&j==8) || (i==2&&j==8) || (i==3&&j==8) || (i==4&&j==8)
-           || (i==0&&j==7) || (i==1&&j==7) || (i==2&&j==7) || (i==3&&j==7) || (i==4&&j==7) || (i==5&&j==7 )
-           || (i==2&&j==6)|| (i==3&&j==6)|| (i==4&&j==6))? true:false;
-}
+//bool Player::whitePositionGood(int i, int j){
+//    return((i==0&&j==8) || (i==1&&j==8) || (i==2&&j==8) || (i==3&&j==8) || (i==4&&j==8)
+//           || (i==0&&j==7) || (i==1&&j==7) || (i==2&&j==7) || (i==3&&j==7) || (i==4&&j==7) || (i==5&&j==7 )
+//           || (i==2&&j==6)|| (i==3&&j==6)|| (i==4&&j==6))? true:false;
+//}
 
 Position Player::move(Position position, Direction direction)
 {
