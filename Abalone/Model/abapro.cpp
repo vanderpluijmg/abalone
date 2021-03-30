@@ -1,23 +1,67 @@
 #include "abapro.h"
 #include "direction.h"
+#include "cstring"
+#include <cctype>
+#include <iostream>
+#include <cstdio>
 
-std::vector<std::string> AbaPro::getCommand()
-{
-    std::string move;
-    std::cout<<"Voules vous bouger un pion(p) ou un groupe(g)?";
-    std::cin >> move;
-    std::vector<std::string> command;
-    bool a;
-    a = true;
-    while(a){
-        
+void AbaPro::split(const std::string& move, const std::string& space, std::vector<std::string>& response){
+    size_t start, end = 0;
+    while (end < move.size()) {
+        start = end;
+        while (start < move.size() && (space.find(move[start]) != std::string::npos)) {
+            start++;
+        }
+        end = start;
+        while (end < move.size() && (space.find(move[end]) == std::string::npos)) {
+            end++;
+        }
+        if (end-start != 0) {
+            response.push_back(std::string(move, start, end-start));
+        }
     }
-
-    } //I8 H7
-
-Direction AbaPro::getDirection(std::vector<std::string>){ //I8 H7
-
 }
+
+
+moveUtils AbaPro::getCommand(std::string move)
+{
+    //Create moveUtils
+
+    std::vector<std::string> command;
+     for (int i = 0; i<(int)move.size();i++)
+         if (i%2==0)
+             move.append(" ");
+     AbaPro::split(move, " ", command);//User enters 66 66 isAlpha isDigit
+      for (auto& x : command)
+          AbaPro::getPosition(x); //Add pos to utils.
+}
+
+Position AbaPro::getPosition(const std::string command){
+    char row = std::toupper(command.at(0));
+    int col = command.at(1);
+    switch (row){
+    case 'I': return Position(0,col--);
+    case 'H': return Position(1,col--);
+    case 'G': return Position(2,col--);
+    case 'F': return Position(3,col--);
+    case 'E': return Position(4,col--);
+    case 'D': return Position(5,col--);
+    case 'C': return Position(6,col--);
+    case 'B': return Position(7,col--);
+    case 'A': return Position(8,col--);
+    }
+    return Position();
+}
+
+Direction AbaPro::getDirection(Position init, Position final){
+    //overide - symbol in pos.
+}
+
+
+
+
+
+
 
 
 

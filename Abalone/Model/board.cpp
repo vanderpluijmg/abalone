@@ -1,5 +1,6 @@
 #include "board.h"
-
+#include "hexagon.hpp"
+/**
 Board::Board()
 {
 }
@@ -42,10 +43,6 @@ void Board::getInitBoard()
 
 Hexagon Board::getHexagon(int x, int y)
 {
-    std::string a="";
-    a.append("aaaaa"
-    )
     return _gameBoard[x][y];
 }
-
-std::string 
+*/
