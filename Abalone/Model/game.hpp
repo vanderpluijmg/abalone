@@ -3,7 +3,6 @@
 #include "board.h"
 #include "player.h"
 #include "map"
-#include "ball.h"
 
 class Game
 {

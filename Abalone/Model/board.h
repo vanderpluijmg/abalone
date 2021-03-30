@@ -1,23 +1,13 @@
 #ifndef BOARD_H
 #define BOARD_H
+
 #include "vector"
 #include "hexagon.hpp"
 
 class Board
 {
 private:
-    std::vector<std::vector<Hexagon>> _gameBoard;
-    Hexagon _gameBoard[9][9] ={
-        (nullptr,nullptr,nullptr,nullptr,Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
-        (nullptr,nullptr,nullptr,Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
-        (nullptr,nullptr,Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
-        (nullptr,Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
-        (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
-        (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
-        (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
-        (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
-        (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon())
-        };
+    Hexagon _gameBoard[9][9];
 
 public:
     /**
@@ -34,7 +24,9 @@ public:
      * @brief Gets all the hexagons on the board.
      * @return Returns a vector of vector for 2 players.
      */
-    std::vector<std::vector<Hexagon>> getHexagon();
+    Hexagon Board::getHexagon(int x, int y);
 };
+
+}
 
 #endif // BOARD_H

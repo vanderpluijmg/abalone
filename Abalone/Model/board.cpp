@@ -5,9 +5,11 @@ Board::Board(){
 
 }
 void Board::getInitBoard (){
+    _gameBoard[0][0].
 
 }
 
-std::vector<std::vector<Hexagon>> Board::getHexagon(){
-    return _gameBoard;
+Hexagon Board::getHexagon(int x, int y){
+    return _gameBoard[x][y];
 }
+
