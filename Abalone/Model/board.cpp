@@ -1,6 +1,6 @@
 #include "board.h"
 #include "hexagon.hpp"
-
+/**
 Board::Board()
 {
 }
@@ -55,11 +55,11 @@ bool Board::checkNeigbourSameColor(Position position, Direction direction)
 std::ostream &operator<<(std::ostream &stream,Board board){
 for (int i = 0; i < 9; i++)
 {
-stream << lineToString(stream,board,i);
+//stream << lineToString(stream,board,i);
 }
 
 }
 
 std::ostream lineToString(std::ostream &stream,Board board,int line){
 
-}
+}*/

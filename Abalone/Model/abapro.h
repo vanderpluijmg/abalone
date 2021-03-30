@@ -10,7 +10,7 @@
  * @brief All utils needed to preform a move.
  */
 struct moveUtils {
-    Position pos1;
+    Position pos1 = Position(-5,-5);
     Position pos2;//optional
     Direction dir;
 };
@@ -27,16 +27,28 @@ public:
      * @brief Extracts the direction from a vector of String.
      * @return
      */
-
     static Direction getDirection (Position init, Position final);
 
-    static void split (const std::string& str, const std::string& delim, std::vector<std::string>& parts);
+    /**
+     * @brief Tokenises a string with a delimeter in a new vector.
+     * @param move String to tokenise.
+     * @param space Split after every delimiter.
+     * @param response Each token goes in to response.
+     */
+    static void split (const std::string& move, const std::string& space, std::vector<std::string>& response);
 
     /**
      * @brief Takes a string and turns it to know posisitons.
      * @param command string format to turn into position
      */
     static Position getPosition (const std::string command);
+
+    /**
+     * @brief Adds a position to the utils.
+     * @param a utils to add position to.
+     * @param p Position to add to utils.
+     */
+    static void addPositionUtils (moveUtils& a, Position p);
 };
 
 #endif //_ABAPRO_H

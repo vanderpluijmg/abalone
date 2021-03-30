@@ -4,6 +4,10 @@
 #include <cctype>
 #include <iostream>
 #include <cstdio>
+#include <ctype.h>
+#include <stdlib.h>
+#include <cctype>
+
 
 void AbaPro::split(const std::string& move, const std::string& space, std::vector<std::string>& response){
     size_t start, end = 0;
@@ -22,18 +26,26 @@ void AbaPro::split(const std::string& move, const std::string& space, std::vecto
     }
 }
 
-
 moveUtils AbaPro::getCommand(std::string move)
 {
-    //Create moveUtils
-
-    std::vector<std::string> command;
-     for (int i = 0; i<(int)move.size();i++)
-         if (i%2==0)
-             move.append(" ");
-     AbaPro::split(move, " ", command);//User enters 66 66 isAlpha isDigit
-      for (auto& x : command)
-          AbaPro::getPosition(x); //Add pos to utils.
+    moveUtils mv;
+    if (move.size()<5){
+        std::vector<std::string> command;
+        for (int i = 0; i<(int)move.size();i++)
+            if (i%2==0)
+                move.append(" ");
+        AbaPro::split(move, " ", command);
+        if (command.size()==2){
+            AbaPro::addPositionUtils(mv,getPosition(command[0]));
+            //mv.dir = getDirection(mv.pos1, getPosition(command[1]));
+        } else {
+             AbaPro::addPositionUtils(mv,getPosition(command[0]));
+             AbaPro::addPositionUtils(mv,getPosition(command[1]));
+             //mv.dir = getDirection(mv.pos1, getPosition(command[2]));
+        }
+        return mv;
+    }
+    else {throw "Sorry you move is not valid";}
 }
 
 Position AbaPro::getPosition(const std::string command){
@@ -53,8 +65,10 @@ Position AbaPro::getPosition(const std::string command){
     return Position();
 }
 
-Direction AbaPro::getDirection(Position init, Position final){
-    //overide - symbol in pos.
+void AbaPro::addPositionUtils(moveUtils& a, Position p){
+    if (a.pos1.getCol()==-5&&a.pos1.getRow()==-5)
+        a.pos1 = p;
+    a.pos2 = p;
 }
 
 

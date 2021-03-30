@@ -1,5 +1,9 @@
 #include "direction.h"
 
+Direction::Direction(){
+
+}
+
 Direction::Direction(directionChoice directionC){
     switch (directionC) {
         case northEast: _directionC=directionC; _deltaX=1; _deltaY=-1; break;

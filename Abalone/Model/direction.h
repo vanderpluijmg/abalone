@@ -25,6 +25,7 @@ class Direction{
     int _deltaY;
 public:
 
+    Direction();
     /**
      * @brief Direction constructor with axies.
      * @param directionC Direction choice of user.
