@@ -3,7 +3,10 @@
 Direction::Direction(){
 
 }
-
+Direction::Direction (int deltaX, int deltaY){
+    _deltaX=deltaX;
+    _deltaY=deltaY;
+}
 Direction::Direction(directionChoice directionC){
     switch (directionC) {
         case northEast: _directionC=directionC; _deltaX=1; _deltaY=-1; break;

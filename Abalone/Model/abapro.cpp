@@ -29,19 +29,19 @@ void AbaPro::split(const std::string& move, const std::string& space, std::vecto
 moveUtils AbaPro::getCommand(std::string move)
 {
     moveUtils mv;
-    if (move.size()<5){
+    if (move.size()<=5){
         std::vector<std::string> command;
         for (int i = 0; i<(int)move.size();i++)
-            if (i%2==0)
-                move.append(" ");
+            if (i==2 || i==5)
+                move.insert(i, " ");
         AbaPro::split(move, " ", command);
         if (command.size()==2){
             AbaPro::addPositionUtils(mv,getPosition(command[0]));
-            //mv.dir = getDirection(mv.pos1, getPosition(command[1]));
+            mv.dir = getDirection(mv.pos1, getPosition(command[1]));
         } else {
              AbaPro::addPositionUtils(mv,getPosition(command[0]));
              AbaPro::addPositionUtils(mv,getPosition(command[1]));
-             //mv.dir = getDirection(mv.pos1, getPosition(command[2]));
+             mv.dir = getDirection(mv.pos1, getPosition(command[2]));
         }
         return mv;
     }
@@ -49,8 +49,8 @@ moveUtils AbaPro::getCommand(std::string move)
 }
 
 Position AbaPro::getPosition(const std::string command){
-    char row = std::toupper(command.at(0));
-    int col = command.at(1);
+    auto row = command[0];
+    auto col = command[1];
     switch (row){
     case 'I': return Position(0,col--);
     case 'H': return Position(1,col--);
@@ -69,6 +69,11 @@ void AbaPro::addPositionUtils(moveUtils& a, Position p){
     if (a.pos1.getCol()==-5&&a.pos1.getRow()==-5)
         a.pos1 = p;
     a.pos2 = p;
+
+}
+
+Direction AbaPro::getDirection(Position init, Position final){
+    return Direction((init.getCol()-final.getCol()),(init.getRow()-final.getRow()));
 }
 
 

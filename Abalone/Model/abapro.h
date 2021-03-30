@@ -25,7 +25,7 @@ public:
 
     /**
      * @brief Extracts the direction from a vector of String.
-     * @return
+     * @return Direction in wich to go to.
      */
     static Direction getDirection (Position init, Position final);
 
