@@ -6,14 +6,14 @@ CONFIG -= qt
 QMAKE_CXXFLAGS += -pedantic-errors
 
 HEADERS += \
-    Controller/game.hpp \
     Model/abapro.h \
     Model/board.h \
     Model/color.hpp \
     Model/direction.h \
     Model/hexagon.hpp \
     Model/player.h \
-    Model/position.hpp
+    Model/position.hpp \
+    Model/game.h \
 
 SOURCES += \
     Main.cpp \
@@ -21,6 +21,7 @@ SOURCES += \
     Model/board.cpp \
     Model/direction.cpp \
     Model/player.cpp \
-    View/View.cpp
+    View/View.cpp \
+    Model/game.cpp \
 
 

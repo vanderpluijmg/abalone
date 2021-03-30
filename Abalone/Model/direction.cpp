@@ -1,11 +1,22 @@
 #include "direction.h"
-
+#include "position.hpp"
 Direction::Direction(){
 
 }
 Direction::Direction (int deltaX, int deltaY){
     _deltaX=deltaX;
     _deltaY=deltaY;
+    if (_deltaX==1&&_deltaY==-1)
+        _directionC = northEast;
+    else if (_deltaX==0&&_deltaY==1)
+        _directionC = southEast;
+    else if (_deltaX==-1&&_deltaY==1)
+        _directionC = southWest;
+    else if (_deltaX==-1&&_deltaY==0)
+        _directionC = west;
+    else if (_deltaX==-0&&_deltaY==-1)
+        _directionC = northWest;
+    else _directionC = east;
 }
 Direction::Direction(directionChoice directionC){
     switch (directionC) {
@@ -31,4 +42,8 @@ int Direction::getDeltaY(){
 
 int Direction::getDeltaX(){
     return _deltaX;
+}
+
+directionChoice Direction::getDirection(){
+    return _directionC;
 }

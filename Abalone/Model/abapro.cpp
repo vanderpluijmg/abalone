@@ -29,7 +29,7 @@ void AbaPro::split(const std::string& move, const std::string& space, std::vecto
 moveUtils AbaPro::getCommand(std::string move)
 {
     moveUtils mv;
-    if (move.size()<=5){
+    if (move.size()<=6){
         std::vector<std::string> command;
         for (int i = 0; i<(int)move.size();i++)
             if (i==2 || i==5)
@@ -49,8 +49,8 @@ moveUtils AbaPro::getCommand(std::string move)
 }
 
 Position AbaPro::getPosition(const std::string command){
-    auto row = command[0];
-    auto col = command[1];
+    char row = command[0];
+    int col = (command[1] - '0') - 1;
     switch (row){
     case 'I': return Position(0,col--);
     case 'H': return Position(1,col--);
@@ -67,8 +67,9 @@ Position AbaPro::getPosition(const std::string command){
 
 void AbaPro::addPositionUtils(moveUtils& a, Position p){
     if (a.pos1.getCol()==-5&&a.pos1.getRow()==-5)
-        a.pos1 = p;
-    a.pos2 = p;
+            Position::setPosition(a.pos1,p);
+    else
+            Position::setPosition(a.pos2,p);
 
 }
 

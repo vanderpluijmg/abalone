@@ -50,6 +50,8 @@ public:
      * @return delta X.
      */
     int getDeltaX();
+
+    directionChoice getDirection();
 };
 
 

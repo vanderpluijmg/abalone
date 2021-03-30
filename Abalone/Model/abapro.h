@@ -11,7 +11,7 @@
  */
 struct moveUtils {
     Position pos1 = Position(-5,-5);
-    Position pos2;//optional
+    Position pos2 = Position(-15,-15);;//optional
     Direction dir;
 };
 

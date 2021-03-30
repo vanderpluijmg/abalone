@@ -39,6 +39,16 @@ public:
         Position p(getRow() + direction.getDeltaX(), getCol() + direction.getDeltaY());
         return p;
     }
+    /**
+     * @brief setter for position
+     * @param target First position
+     * @param source Last position
+     */
+    void static setPosition(Position &target, Position source){
+            target.col=source.col;
+            target.row=source.row;
+        }
+
 
     /**
      * @brief get's Row.
