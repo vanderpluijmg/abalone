@@ -18,9 +18,9 @@ public:
   /**
    * @brief Constructor of player.
    * @param name Name of player.
-   * @param c Color of player.
+   * @param color Color of player.
    */
-  Player (std::string name, Color c);
+  Player (std::string name, Color color);
 
   /**
   * @brief Get the amount of balls that the player has left in the game.
@@ -33,12 +33,6 @@ public:
    * @return Color of the current player.
    */
   Color getColor();
-
-  /**
-   * @brief Sets the current ball value;
-   * @param value Value to set the current balls to;
-   */
-  void setCurBalls(int value);
 
   /**
    * @brief Reduces by one the number of curBalls;
