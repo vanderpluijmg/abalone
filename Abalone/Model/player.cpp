@@ -60,9 +60,9 @@ bool Player::validateMove(Position position, Direction direction)
 void Player::initPlayerBalls (Color c){
     for (int i = 0; i <= 8; i++){
         for (int j = 0; j <= 8; j++){
-            if (c==black && blackPositionGood(i,j))
+            if (c==BLACK && blackPositionGood(i,j))
              balls.push_back(Ball(Position(i,j), c));
-            else if (c==white &&whitePositionGood(i,j))
+            else if (c==WHITE &&whitePositionGood(i,j))
                 balls.push_back(Ball(Position(i,j), c));
         }
     }

@@ -12,6 +12,6 @@
 
 // void Game::fallBall(Ball ball){
 //     ball.fall();
-//     //players.at(black).;
+//     //players.at(BLACK).;
 //     //In map player find player with correct color ball and reduce his count of balls
 // }

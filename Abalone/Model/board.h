@@ -7,19 +7,7 @@ class Board
 {
 private:
     std::vector<std::vector<Hexagon>> _gameBoard;
-    Hexagon _gameBoard[9][9];
-
-public:
-    /**
-     * @brief Default board constructor.
-     */
-    Board();
-
-    /**
-     * @brief Pseudo constructor for board.
-     */
-    void initBoard(){
-        _gameBoard = {
+    Hexagon _gameBoard[9][9] ={
         (nullptr,nullptr,nullptr,nullptr,Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
         (nullptr,nullptr,nullptr,Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
         (nullptr,nullptr,Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
@@ -30,7 +18,17 @@ public:
         (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon()),
         (Hexagon(),Hexagon(),Hexagon(),Hexagon(),Hexagon())
         };
-    }
+
+public:
+    /**
+     * @brief Default board constructor.
+     */
+    Board();
+
+    /**
+     * @brief Pseudo constructor for board.
+     */
+    void getInitBoard();
 
     /**
      * @brief Gets all the hexagons on the board.

@@ -9,7 +9,7 @@ int main () {
     cout<<p1<<endl;
     Position p2 = p1.next(northWest);
     cout<<p2<<endl;
-    Player g("Gregory", black);
+    Player g("Gregory", BLACK);
     for (auto& x : g.getBalls()){
         cout<<x<<endl;
     }
