@@ -10,10 +10,7 @@
 using namespace::std;
 
 int main (void) {
-    std::vector<std::string> command;
-    moveUtils a;
-    a =AbaPro::getCommand("G2E2D3");
-    cout<<a.pos1<<std::endl;
-    cout<<a.pos2<<std::endl;
-    cout<<game::validateVerticalAndSameColor(a.pos1,a.pos2);
+    Board efd;
+    efd.getInitBoard();
+    cout<<efd.toString();
 }

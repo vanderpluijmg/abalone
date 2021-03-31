@@ -2,7 +2,6 @@
 #define POSITION_H
 #include "direction.h"
 #include "iostream"
-#include "hexagon.hpp"
 
 class Position
 {
@@ -68,10 +67,6 @@ public:
     int getX()
     {
         return _x;
-    }
-
-    bool isEmpty (){//Checks if case is empty
-        return true;
     }
 
     /**

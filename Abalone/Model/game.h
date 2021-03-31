@@ -9,16 +9,9 @@ class game
 public:
     game();
 
-
     static bool validateMove (moveUtils a);
 
     static bool validateHorizontalAndSameColor (Position i, Position f);
-
-    static bool horizontalMoveCheckOne(moveUtils a);
-
-    static bool validateSingleMove(moveUtils a);
-
-    static Position getInBetweenH(Position a, Position b);
 };
 
 #endif // GAME_H
