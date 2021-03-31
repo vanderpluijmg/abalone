@@ -14,7 +14,8 @@ public:
     /**
      * @brief Default Hexagon constructor
      */
-    Hexagon();
+    Hexagon(){
+    }
 
     Hexagon(Color color, int x, int y)
     {

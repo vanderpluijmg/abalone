@@ -7,7 +7,7 @@
 class Board
 {
 private:
-    Hexagon _gameBoard[9][9] = {};
+    Hexagon _gameBoard[9][9];
 
 public:
     /**
@@ -43,13 +43,13 @@ public:
     */
     std::string toString();
 
-    /**
-     * @brief Sends back the requested line of the _gameBoard as a string.
-     *
-     * @param line indicates which line it is.
-     * @return std::string the outcome.
-     */
-    void lineToString(int i,std::string &result)
+//    /**
+//     * @brief Sends back the requested line of the _gameBoard as a string.
+//     *
+//     * @param line indicates which line it is.
+//     * @return std::string the outcome.
+//     */
+//    void lineToString(int i,std::string &result);
 };
 
 #endif // BOARD_H

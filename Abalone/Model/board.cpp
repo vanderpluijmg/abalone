@@ -1,18 +1,18 @@
 #include "board.h"
 #include "hexagon.hpp"
 
-Board::Board()
-{
+Board::Board(){
+
 }
 void Board::getInitBoard()
 {
     for (int y = 0; y < 9; y++)
     {
-        for (int x = 0; y < 9; y++)
+        for (int x = 0; x < 9; x++)
         {
             if ((y == 0 && (x == 4 || x == 5 || x == 6 || x == 7 || x == 8)) ||
-                (y == 1 && (x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8)) ||
-                (y == 2 && (x == 4 || x == 5 || x == 6)))
+                    (y == 1 && (x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8)) ||
+                    (y == 2 && (x == 4 || x == 5 || x == 6)))
             {
                 _gameBoard[y][x] = Hexagon(WHITE, x, y);
             }
@@ -54,17 +54,10 @@ bool Board::checkNeigbourSameColor(Position position, Direction direction)
 
 std::string Board::toString(){
     std::string result="";
-for (int i = 0; i < 9; i++)
-{
-lineToString(i,result);
-}
-return result;
-}
-//pas encore fini faut ajouterles décorations autours
-void Board::lineToString(int y,std::string &result){
-    for (int x = 0; x < 9; x++)
-    {
-        switch (_gameBoard[y][x].getMarbleColor()){
+    for (int y = 0; y < 9; y++){
+        for (int x = 0; x < 9; x++)
+        {
+            switch (_gameBoard[y][x].getMarbleColor()){
             case OUTOFBOUND:break;
             case EMPTY:{
                 result.append(".");
@@ -78,9 +71,14 @@ void Board::lineToString(int y,std::string &result){
                 result.append("x");
                 break;
             }
+            }
         }
         result.append("\n");
     }
-    
+
+    return result;
 }
+//pas encore fini faut ajouterles décorations autours
+
+
 
