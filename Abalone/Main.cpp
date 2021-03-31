@@ -4,6 +4,7 @@
 #include "Model/abapro.h"
 #include <iostream>
 #include <string>
+#include "Model/game.h"
 
 using namespace::std;
 
@@ -11,11 +12,5 @@ int main (void) {
     std::vector<std::string> command;
     moveUtils a;
     a =AbaPro::getCommand("C3C5D3");
-
-    int deltaX;
-    a.pos2.getRow()>a.pos1.getRow()? deltaX =2 : deltaX=-2;
-    Position inBetween ((a.pos1.getCol()+(deltaX+1)), a.pos2.getRow());
-    cout<<a.pos1<<endl;
-    cout<<a.pos2<<endl;
-    cout<<inBetween;
-    }
+    cout<<a.pos1;
+}

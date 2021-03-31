@@ -6,8 +6,8 @@
 class Position
 {
 private:
-    int col;
-    int row;
+    int _x;
+    int _y;
 
 public:
     /**
@@ -17,8 +17,8 @@ public:
      */
     Position(int x = 0, int y = 0)
     {
-        col = x;
-        row = y;
+        _x = x;
+        _y = y;
     }
 
     /**
@@ -27,7 +27,7 @@ public:
      */
     Position( Position &pos)
     {
-        row = pos.row, col = pos.col;
+        _y = pos._y, _x = pos._x;
     }
 
     /**
@@ -37,7 +37,7 @@ public:
      */
     Position next(Direction direction)
     {
-        Position p(getRow() + direction.getDeltaX(), getCol() + direction.getDeltaY());
+        Position p(getY() + direction.getDeltaX(), getX() + direction.getDeltaY());
         return p;
     }
     /**
@@ -46,8 +46,8 @@ public:
      * @param source Last position
      */
     void static setPosition(Position &target, Position source){
-            target.col=source.col;
-            target.row=source.row;
+            target._x=source._x;
+            target._y=source._y;
         }
 
 
@@ -55,18 +55,18 @@ public:
      * @brief get's Row.
      * @return Row.
      */
-    int getRow()
+    int getY()
     {
-        return row;
+        return _y;
     }
 
     /**
      * @brief get's Column.
      * @return Col.
      */
-    int getCol()
+    int getX()
     {
-        return col;
+        return _x;
     }
 
     /**
@@ -76,7 +76,7 @@ public:
      */
     friend std::ostream &operator<<(std::ostream &stream, Position &pos)
     {
-        return stream << "Position = " << std::to_string(pos.getCol()) << ", " << std::to_string(pos.getRow());
+        return stream << "Position = " << std::to_string(pos.getX()) << ", " << std::to_string(pos.getY());
     }
 
 };

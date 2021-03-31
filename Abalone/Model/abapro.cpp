@@ -52,29 +52,29 @@ Position AbaPro::getPosition(const std::string command){
     char row = command[0];
     int col = (command[1] - '0') - 1;
     switch (row){
-    case 'I': return Position(0,col--);
-    case 'H': return Position(1,col--);
-    case 'G': return Position(2,col--);
-    case 'F': return Position(3,col--);
-    case 'E': return Position(4,col--);
-    case 'D': return Position(5,col--);
-    case 'C': return Position(6,col--);
-    case 'B': return Position(7,col--);
-    case 'A': return Position(8,col--);
+    case 'I': return Position(col--,0);
+    case 'H': return Position(col--,1);
+    case 'G': return Position(col--,2);
+    case 'F': return Position(col--,3);
+    case 'E': return Position(col--,4);
+    case 'D': return Position(col--,5);
+    case 'C': return Position(col--,6);
+    case 'B': return Position(col--,7);
+    case 'A': return Position(col--,8);
     }
     return Position();
 }
 
 void AbaPro::addPositionUtils(moveUtils& a, Position p){
-    if (a.pos1.getCol()==-5&&a.pos1.getRow()==-5)
+    if (a.pos1.getX()==-5&&a.pos1.getY()==-5)
             Position::setPosition(a.pos1,p);
     else
             Position::setPosition(a.pos2,p);
 
 }
-
+//Does not work
 Direction AbaPro::getDirection(Position init, Position final){
-    return Direction((init.getCol()-final.getCol()),(init.getRow()-final.getRow()));
+    return Direction((init.getX()-final.getX()),(init.getY()-final.getY()));
 }
 
 
