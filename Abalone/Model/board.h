@@ -43,13 +43,8 @@ public:
     */
     std::string toString();
 
-//    /**
-//     * @brief Sends back the requested line of the _gameBoard as a string.
-//     *
-//     * @param line indicates which line it is.
-//     * @return std::string the outcome.
-//     */
-//    void lineToString(int i,std::string &result);
+    std::string addLeftDecorations(int y);
+    std::string addRightDecorations(int y);
 };
 
 #endif // BOARD_H
