@@ -63,3 +63,4 @@ for (int i = 0; i < 9; i++)
 std::ostream lineToString(std::ostream &stream,Board board,int line){
 
 }*/
+

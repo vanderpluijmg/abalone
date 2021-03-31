@@ -66,26 +66,16 @@ Position AbaPro::getPosition(const std::string command){
 }
 
 void AbaPro::addPositionUtils(moveUtils& a, Position p){
-<<<<<<< HEAD
     if (a.pos1.getCol()==-5&&a.pos1.getRow()==-5)
             Position::setPosition(a.pos1,p);
     else
             Position::setPosition(a.pos2,p);
-=======
-    if (a.pos1.getCol()==-5&&a.pos1.getRow()==-5){
-        Position::setPosition(a.pos1,p);
-        Position::setPosition(a.pos2,p);
-        /*a.pos1 = Position(p.getCol(),p.getRow());
-        a.pos2 = p;*/
-    }
->>>>>>> 1b15062c22834194039ce6bb917339d7cca71f7e
 
 }
 
 Direction AbaPro::getDirection(Position init, Position final){
     return Direction((init.getCol()-final.getCol()),(init.getRow()-final.getRow()));
 }
-
 
 
 

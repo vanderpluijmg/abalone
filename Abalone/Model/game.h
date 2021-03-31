@@ -12,6 +12,6 @@ public:
     static bool validateMove (moveUtils a);
 
     static bool validateInOneLine (Position i, Position f);
-};s
+};
 
 #endif // GAME_H

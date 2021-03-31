@@ -10,15 +10,12 @@ using namespace::std;
 int main (void) {
     std::vector<std::string> command;
     moveUtils a;
-<<<<<<< HEAD
     a =AbaPro::getCommand("C3C5D3");
+
+    int deltaX;
+    a.pos2.getRow()>a.pos1.getRow()? deltaX =2 : deltaX=-2;
+    Position inBetween ((a.pos1.getCol()+(deltaX+1)), a.pos2.getRow());
     cout<<a.pos1<<endl;
     cout<<a.pos2<<endl;
-    cout<<a.dir.getDirection();
-=======
-    AbaPro::addPositionUtils(a,AbaPro::getPosition("I8"));
-    //a=AbaPro::getCommand(move);
-    std::cout<<a.pos1<<std::endl;
-    std::cout<<55;
->>>>>>> 1b15062c22834194039ce6bb917339d7cca71f7e
+    cout<<inBetween;
     }

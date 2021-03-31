@@ -34,7 +34,7 @@ public:
      * @brief Creates a new posistion in the given direction
      * @param direction Direction to go in.
      * @return new position.
-     */   
+     */
     Position next(Direction direction)
     {
         Position p(getRow() + direction.getDeltaX(), getCol() + direction.getDeltaY());
@@ -67,10 +67,6 @@ public:
     int getCol()
     {
         return col;
-    }
-    void static setPosition(Position &target, Position source){
-        target.col=source.col;
-        target.row=source.row;
     }
 
     /**

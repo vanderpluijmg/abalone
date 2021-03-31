@@ -17,7 +17,8 @@ bool game::validateMove(moveUtils a){
     }
     else {
         if (game::validateInOneLine(a.pos1, a.pos2))
-            if (game::verifySameColor)
+            return false;
     }
+    return true;
 
 }

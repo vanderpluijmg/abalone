@@ -28,7 +28,7 @@ public:
 
     /**
     * @brief Verifies if a neighbour of a specific position in a given Direction has the same Color.
-    * 
+    *
     * @param position a given Position.
     * @param direction a given direction to follow.
     * @return true if they are the same Color.
@@ -38,14 +38,14 @@ public:
 
     /**
     * @brief Returns the Board as a string that can then be used to Display it in the terminal.
-    * 
+    *
     * @return std::string the board as a String.
     */
     friend std::ostream &operator<<(std::ostream &stream,Board board);
 
     /**
      * @brief Sends back the requested line of the _gameBoard as a string.
-     * 
+     *
      * @param line indicates which line it is.
      * @return std::string the outcome.
      */
