@@ -36,15 +36,12 @@ bool game::horizontalMoveCheckOne(moveUtils a){
             dir=directionChoice::west;
     if (a.pos1.next(dir).getX()==a.pos2.getX() &&
             a.pos1.next(dir).getY()==a.pos2.getY()){//They are next to each other
-        //a.pos1.next(a.dir) check if at this position its empty
-        //a.pos2.next(a.dir) check if at this position its empty
-        //if both empty ok
+        if (a.pos1.next(a.dir).isEmpty() && (a.pos2.next(a.dir)).isEmpty())
+            return true;
     } else {
         Position inBetween = getInBetweenH(a.pos1, a.pos2);
-        //a.pos1.next(a.dir) check if at this position its empty
-        //a.pos1.next(a.dir) check if at this position its empty
-        //inBetween.next(a.dir) check if at this position its empty
-        //if all 3 empty ok
+        if(a.pos1.next(a.dir).isEmpty() && (a.pos1.next(a.dir)).isEmpty() && (inBetween.next(a.dir)).isEmpty())
+            return true;
     }
 }
 
