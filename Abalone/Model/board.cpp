@@ -216,4 +216,8 @@ std::string Board::addRightDecorations(int y)
     return result;
 }
 
+bool Board::isEmpty(Position p){
+    return true;
+}
+
 //pas encore fini faut ajouterles décorations autours

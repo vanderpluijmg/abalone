@@ -11,7 +11,11 @@ public:
 
     static bool validateMove (moveUtils a);
 
-    static bool validateHorizontalAndSameColor (Position i, Position f);
+    static bool validateLateralAndSameColor (Position i, Position f);
+
+    static bool horizontalMoveCheckOne(moveUtils a);
+
+    static Position getInBetweenH(Position i, Position f);
 };
 
 #endif // GAME_H

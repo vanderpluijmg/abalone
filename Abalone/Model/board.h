@@ -45,6 +45,8 @@ public:
 
     std::string addLeftDecorations(int y);
     std::string addRightDecorations(int y);
+
+    static bool isEmpty (Position p);
 };
 
 #endif // BOARD_H
