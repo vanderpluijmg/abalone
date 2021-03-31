@@ -41,7 +41,7 @@ public:
     *
     * @return std::string the board as a String.
     */
-    friend std::ostream &operator<<(std::ostream &stream,Board board);
+    std::string toString();
 
     /**
      * @brief Sends back the requested line of the _gameBoard as a string.
@@ -49,7 +49,7 @@ public:
      * @param line indicates which line it is.
      * @return std::string the outcome.
      */
-    friend std::ostream lineToString(std::ostream &stream,Board board,int line);
+    void lineToString(int i,std::string &result)
 };
 
 #endif // BOARD_H

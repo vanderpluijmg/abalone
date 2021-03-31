@@ -1,41 +1,41 @@
 #include "board.h"
 #include "hexagon.hpp"
-/**
+
 Board::Board()
 {
 }
 void Board::getInitBoard()
 {
-    for (int i = 0; i < 9; i++)
+    for (int y = 0; y < 9; y++)
     {
-        for (int j = 0; i < 9; i++)
+        for (int x = 0; y < 9; y++)
         {
-            if ((i == 0 && (j == 4 || j == 5 || j == 6 || j == 7 || j == 8)) ||
-                (i == 1 && (j == 3 || j == 4 || j == 5 || j == 6 || j == 7 || j == 8)) ||
-                (i == 2 && (j == 4 || j == 5 || j == 6)))
+            if ((y == 0 && (x == 4 || x == 5 || x == 6 || x == 7 || x == 8)) ||
+                (y == 1 && (x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8)) ||
+                (y == 2 && (x == 4 || x == 5 || x == 6)))
             {
-                _gameBoard[j][i] = Hexagon(WHITE, j, i);
+                _gameBoard[y][x] = Hexagon(WHITE, x, y);
             }
-            else if ((i == 6 && (j == 2 || j == 3 || j == 4)) ||
-                     (i == 7 && (j == 0 || j == 1 || j == 2 || j == 3 || j == 4 || j == 5)) ||
-                     (i == 8 && (j == 0 || j == 1 || j == 2 || j == 3 || j == 4)))
+            else if ((y == 6 && (x == 2 || x == 3 || x == 4)) ||
+                     (y == 7 && (x == 0 || x == 1 || x == 2 || x == 3 || x == 4 || x == 5)) ||
+                     (y == 8 && (x == 0 || x == 1 || x == 2 || x == 3 || x == 4)))
             {
-                _gameBoard[j][i] = Hexagon(BLACK, j, i);
+                _gameBoard[y][x] = Hexagon(BLACK, x, y);
             }
-            else if (((i == 0 && (j == 0 || j == 1 || j == 2 || j == 3)) ||
-                      (i == 1 && (j == 0 || j == 1 || j == 2)) ||
-                      (i == 2 && (j == 0 || j == 1)) ||
-                      (i == 3 && (j == 0))) ||
-                     ((i == 5 && (j == 8)) ||
-                      (i == 6 && (j == 7 || j == 8)) ||
-                      (i == 7 && (j == 6 || j == 7 || j == 8)) ||
-                      (i == 8 && (j == 5 || j == 6 || j == 7 || j == 8))))
+            else if (((y == 0 && (x == 0 || x == 1 || x == 2 || x == 3)) ||
+                      (y == 1 && (x == 0 || x == 1 || x == 2)) ||
+                      (y == 2 && (x == 0 || x == 1)) ||
+                      (y == 3 && (x == 0))) ||
+                     ((y == 5 && (x == 8)) ||
+                      (y == 6 && (x == 7 || x == 8)) ||
+                      (y == 7 && (x == 6 || x == 7 || x == 8)) ||
+                      (y == 8 && (x == 5 || x == 6 || x == 7 || x == 8))))
             {
-                _gameBoard[j][j] = Hexagon(OUTOFBOUND, j, i);
+                _gameBoard[y][x] = Hexagon(OUTOFBOUND, x, y);
             }
             else
             {
-                _gameBoard[j][i] = Hexagon(EMPTY, j, i);
+                _gameBoard[y][x] = Hexagon(EMPTY, x, y);
             }
         }
     }
@@ -43,24 +43,44 @@ void Board::getInitBoard()
 
 Hexagon Board::getHexagon(int x, int y)
 {
-    return _gameBoard[x][y];
+    return _gameBoard[y][x];
 }
 bool Board::checkNeigbourSameColor(Position position, Direction direction)
 {
-    Color origin = _gameBoard[position.getCol()][position.getRow()].getMarbleColor();
-    Color comparedTo = _gameBoard[position.getCol() + direction.getDeltaX()][position.getRow() + direction.getDeltaY()].getMarbleColor();
+    Color origin = _gameBoard[position.getY()][position.getX()].getMarbleColor();
+    Color comparedTo = _gameBoard[position.getY() + direction.getDeltaY()][position.getX() + direction.getDeltaX()].getMarbleColor();
     return origin == comparedTo;
 }
 
-std::ostream &operator<<(std::ostream &stream,Board board){
+std::string Board::toString(){
+    std::string result="";
 for (int i = 0; i < 9; i++)
 {
-//stream << lineToString(stream,board,i);
+lineToString(i,result);
 }
-
+return result;
 }
-
-std::ostream lineToString(std::ostream &stream,Board board,int line){
-
-}*/
+//pas encore fini faut ajouterles décorations autours
+void Board::lineToString(int y,std::string &result){
+    for (int x = 0; x < 9; x++)
+    {
+        switch (_gameBoard[y][x].getMarbleColor()){
+            case OUTOFBOUND:break;
+            case EMPTY:{
+                result.append(".");
+                break;
+            }
+            case WHITE:{
+                result.append("o");
+                break;
+            }
+            case BLACK:{
+                result.append("x");
+                break;
+            }
+        }
+        result.append("\n");
+    }
+    
+}
 
