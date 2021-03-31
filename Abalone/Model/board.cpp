@@ -73,25 +73,26 @@ std::string Board::toString()
             }
             case WHITE:
             {
-                result.append("o");
+                result.append("O");
                 break;
             }
             case BLACK:
             {
-                result.append("x");
+                result.append("X");
                 break;
             }
             }
             try
             {
-                if ((_gameBoard[y][x + 1].getMarbleColor() == EMPTY || _gameBoard[y][x + 1].getMarbleColor() == WHITE || _gameBoard[y][x + 1].getMarbleColor() == BLACK) &&
-                    (_gameBoard[y][x].getMarbleColor() == EMPTY || _gameBoard[y][x].getMarbleColor() == WHITE || _gameBoard[y][x].getMarbleColor() == BLACK))
+                if ((_gameBoard[y][x + 1].getMarbleColor() == EMPTY || _gameBoard[y][x + 1].getMarbleColor() == WHITE || _gameBoard[y][x + 1].getMarbleColor() == BLACK) 
+                 && (_gameBoard[y][x].getMarbleColor() == EMPTY || _gameBoard[y][x].getMarbleColor() == WHITE || _gameBoard[y][x].getMarbleColor() == BLACK) && x + 1 < 9)
                 {
                     result.append(" ");
                 }
             }
             catch (const std::exception &e)
             {
+                 result.append("mm");
             }
         }
         result.append(addRightDecorations(y));
