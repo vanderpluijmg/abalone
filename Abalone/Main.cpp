@@ -12,9 +12,8 @@ using namespace::std;
 int main (void) {
     std::vector<std::string> command;
     moveUtils a;
-    a =AbaPro::getCommand("C3C5D3");
+    a =AbaPro::getCommand("G2E2D3");
     cout<<a.pos1<<std::endl;
-    Board efd;
-    efd.getInitBoard();
-    cout<<efd.toString();
+    cout<<a.pos2<<std::endl;
+    cout<<game::validateVerticalAndSameColor(a.pos1,a.pos2);
 }
