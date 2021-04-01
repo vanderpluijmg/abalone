@@ -3,7 +3,7 @@
 
 /**
  * @brief The different directions the player can take
- * to move his game pieces.
+ * to move his balls.
  */
 enum directionChoice {
 
@@ -15,7 +15,8 @@ enum directionChoice {
         west
     };
 /**
- * @brief The Direction class represents the axies in which the game pieces can move.
+ * @brief The Direction class represents a
+ * choice with its axis.
  */
 class Direction{
    private:
@@ -25,14 +26,14 @@ class Direction{
 public:
 
     /**
-     * @brief Direction constructor with x and y parameters.
-     * @param x Represents the horizontal axis.
-     * @param y Represents vertical axis.
+     * @brief Direction constructor with x and y params.
+     * @param x param for direction.
+     * @param y param for direction.
      */
     Direction (int x, int y);
 
     /**
-     * @brief Default Direction constructor.
+     * @brief Default direction constructor.
      */
     Direction();
 
@@ -47,22 +48,21 @@ public:
      * @param direction Direction to copy.
      */
     Direction (const Direction &direction);
-
     /**
-     * @brief Getter for vertical position.
-     * @return Returns _deltaY.
+     * @brief getter for DeltaY.
+     * @return Returns DeltaY.
      */
     int getDeltaY();
 
     /**
-     * @brief Getter for horiszontal position.
-     * @return Returns _deltaX.
+     * @brief getter for DeltaX
+     * @return delta X.
      */
     int getDeltaX();
 
     /**
      * @brief Gets directions choice.
-     * @return Returns direction choice.
+     * @return direction choice
      */
     directionChoice getDirection();
 };
