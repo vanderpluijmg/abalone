@@ -7,7 +7,7 @@
  */
 enum directionChoice {
 
-        northEast,
+        northEast=1,
         northWest,
         southEast,
         southWest,

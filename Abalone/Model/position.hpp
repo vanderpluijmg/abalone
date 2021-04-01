@@ -83,6 +83,9 @@ public:
     {
         return stream << "Position = " << std::to_string(pos.getX()) << ", " << std::to_string(pos.getY());
     }
+    bool operator==(const Position & rhs) const {
+       return (_x==rhs._x && _y==rhs._y);
+    }
 
 };
 #endif // POSITION_H

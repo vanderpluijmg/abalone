@@ -26,7 +26,7 @@ bool game::validateLineAndSameColor(moveUtils a){
         posMove = posMove.next(a.dir);
         sizeGroupMove++;
     }
-    if (sizeGroupMove>=3){
+    if (sizeGroupMove>=3){ //Check for same color.
         throw "Error";
     }
     Position posDefend = groupToMove[sizeGroupMove];
@@ -65,14 +65,6 @@ bool game::allSameColor(moveUtils a, Position inBetween){
             == (_board.getColor(inBetween)));
 }
 
-bool game::allSameColor(std::vector<Position> p){
-    Color color = _board.getColor(p[0]);
-    for (auto& x : p){
-        if (!(_board.getColor(x) == color))
-            return false;
-    }
-    return true;
-}
 
 
 

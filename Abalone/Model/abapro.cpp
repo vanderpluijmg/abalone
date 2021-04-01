@@ -25,7 +25,7 @@ void AbaPro::split(const std::string& move, const std::string& space, std::vecto
         }
     }
 }
-
+//Must parse with isDigit and isAlpha
 moveUtils AbaPro::getCommand(std::string move)
 {
     moveUtils mv;
@@ -35,6 +35,7 @@ moveUtils AbaPro::getCommand(std::string move)
             if (i==2 || i==5)
                 move.insert(i, " ");
         AbaPro::split(move, " ", command);
+        parseString(command);
         if (command.size()==2){
             AbaPro::addPositionUtils(mv,getPosition(command[0]));
             mv.dir = getDirection(mv.pos1, getPosition(command[1]));
@@ -48,7 +49,14 @@ moveUtils AbaPro::getCommand(std::string move)
     else {throw "Sorry you move is not valid";}
 }
 
-Position AbaPro::getPosition(const std::string command){
+bool AbaPro::parseString(const std::vector<std::string> &command){
+    for (auto& x : command)
+        if (std::isalpha(x[0]) && std::isdigit(x[1]))
+            return true;
+    return false;
+}
+
+Position AbaPro::getPosition(const std::string& command){
     char row = command[0];
     int col = (command[1] - '0') - 1;
     switch (row){
@@ -72,9 +80,18 @@ void AbaPro::addPositionUtils(moveUtils& a, Position p){
             Position::setPosition(a.pos2,p);
 
 }
-//Does not work
+//Must give correct direction and check it first to see if valid.
+//C3C5D3  // 2 6 // 2 5
+//I8H7
+//if return direction = init.next ok
 Direction AbaPro::getDirection(Position init, Position final){
-    return Direction((init.getX()-final.getX()),(init.getY()-final.getY()));
+    Direction d((final.getX()-init.getX()),(final.getY()-init.getY()));
+    std::cout<<final<<std::endl;
+    Position p = init.next(d);
+    std::cout<<p<<std::endl;
+    if ((init.next(d)) == (final))
+        return d;
+    throw "error";
 }
 
 

@@ -41,8 +41,6 @@ public:
      */
     bool allSameColor(moveUtils a, Position inBetween);
 
-    bool allSameColor(std::vector<Position> p);
-
     /**
      * @brief Validates a line move.
      * @param a moveUtils.

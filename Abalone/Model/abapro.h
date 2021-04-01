@@ -42,7 +42,7 @@ public:
      * @brief Takes a string and turns it to know posisitons.
      * @param command string format to turn into position
      */
-    static Position getPosition (const std::string command);
+    static Position getPosition (const std::string& command);
 
     /**
      * @brief Adds a position to the utils.
@@ -50,6 +50,8 @@ public:
      * @param p Position to add to utils.
      */
     static void addPositionUtils (moveUtils& a, Position p);
+
+    static bool parseString (const std::vector<std::string>& command);
 };
 
 #endif //_ABAPRO_H
