@@ -26,10 +26,10 @@ bool game::validateLineAndSameColor(moveUtils a){
         posMove = posMove.next(a.dir);
         sizeGroupMove++;
     }
-    if (sizeGroupMove>=3){ //Check for same color.
+    if (sizeGroupMove>3){
         throw "Error";
     }
-    Position posDefend = groupToMove[sizeGroupMove];
+    Position posDefend = groupToMove[sizeGroupMove].next(a.dir);
     while (_board.getColor(posDefend) == (_board.getOppositeColor(a.pos1))) {
         groupToDefend[sizeGroupMove].setPosition(posDefend);
         posDefend = posDefend.next(a.dir);

@@ -48,12 +48,12 @@ moveUtils AbaPro::getCommand(std::string move)
     }
     else {throw "Sorry you move is not valid";}
 }
-
+//Checks outer and inner limits of char and int
 bool AbaPro::parseString(const std::vector<std::string> &command){
     for (auto& x : command)
-        if (std::isalpha(x[0]) && std::isdigit(x[1]))
-            return true;
-    return false;
+        if (!(std::isalpha(x[0]) && std::isdigit(x[1])))
+            return false;
+    return true;
 }
 
 Position AbaPro::getPosition(const std::string& command){
@@ -86,12 +86,12 @@ void AbaPro::addPositionUtils(moveUtils& a, Position p){
 //if return direction = init.next ok
 Direction AbaPro::getDirection(Position init, Position final){
     Direction d((final.getX()-init.getX()),(final.getY()-init.getY()));
-    std::cout<<final<<std::endl;
-    Position p = init.next(d);
-    std::cout<<p<<std::endl;
-    if ((init.next(d)) == (final))
+    std::cout<<d.getDirection()<<std::endl;
+    //Position p = init.next(d);
+    //std::cout<<p<<std::endl;
+    //if ((init.next(d)) == (final))
         return d;
-    throw "error";
+    //throw "error";
 }
 
 

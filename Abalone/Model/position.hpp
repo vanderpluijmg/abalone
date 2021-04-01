@@ -50,9 +50,13 @@ public:
             target._y=source._y;
         }
 
-    void setPosition(Position target){
-        _x = target._x;
-        _y = target._y;
+    /**
+     * @brief setPosition
+     * @param source
+     */
+    void setPosition(Position source){
+        _x = source._x;
+        _y = source._y;
     }
 
 

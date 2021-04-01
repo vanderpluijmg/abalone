@@ -17,6 +17,12 @@ public:
     Hexagon(){
     }
 
+    /**
+     * @brief Hexagon
+     * @param color
+     * @param x
+     * @param y
+     */
     Hexagon(Color color, int x, int y)
     {
         _marbleColor = color;
@@ -40,6 +46,7 @@ public:
     {
         _marbleColor = color;
     }
+
     /**
     * @brief Sets the hexagon as EMPTY.
     */

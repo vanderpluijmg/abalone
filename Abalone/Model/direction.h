@@ -25,9 +25,18 @@ class Direction{
     int _deltaY;
 public:
 
+    /**
+     * @brief Direction constructor with x and y params.
+     * @param x param for direction.
+     * @param y param for direction.
+     */
     Direction (int x, int y);
 
+    /**
+     * @brief Default direction constructor.
+     */
     Direction();
+
     /**
      * @brief Direction constructor with axies.
      * @param directionC Direction choice of user.
@@ -51,6 +60,10 @@ public:
      */
     int getDeltaX();
 
+    /**
+     * @brief Gets directions choice.
+     * @return direction choice
+     */
     directionChoice getDirection();
 };
 
