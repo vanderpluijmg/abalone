@@ -1,39 +1,41 @@
 #ifndef DIRECTION_H
 #define DIRECTION_H
 
+#include "position.hpp"
+
+
 /**
  * @brief The different directions the player can take
- * to move his balls.
+ * to move his game pieces.
  */
-enum directionChoice {
+enum DirectionChoice {
 
-        northEast=1,
-        northWest,
-        southEast,
-        southWest,
-        east,
-        west
-    };
+    northEast=1,
+    northWest,
+    southEast,
+    southWest,
+    east,
+    west
+};
 /**
- * @brief The Direction class represents a
- * choice with its axis.
+ * @brief The Direction class represents the axies in which the game pieces can move.
  */
 class Direction{
-   private:
-    directionChoice _directionC;
+private:
+    DirectionChoice _directionC;
     int _deltaX;
     int _deltaY;
 public:
 
     /**
-     * @brief Direction constructor with x and y params.
-     * @param x param for direction.
-     * @param y param for direction.
+     * @brief Direction constructor with x and y parameters.
+     * @param x Represents the horizontal axis.
+     * @param y Represents vertical axis.
      */
     Direction (int x, int y);
 
     /**
-     * @brief Default direction constructor.
+     * @brief Default Direction constructor.
      */
     Direction();
 
@@ -41,30 +43,31 @@ public:
      * @brief Direction constructor with axies.
      * @param directionC Direction choice of user.
      */
-    Direction(directionChoice directionC);
+    Direction(DirectionChoice directionC);
 
     /**
      * @brief Direction copy constructor.
      * @param direction Direction to copy.
      */
     Direction (const Direction &direction);
+
     /**
-     * @brief getter for DeltaY.
-     * @return Returns DeltaY.
+     * @brief Getter for vertical position.
+     * @return Returns _deltaY.
      */
     int getDeltaY();
 
     /**
-     * @brief getter for DeltaX
-     * @return delta X.
+     * @brief Getter for horiszontal position.
+     * @return Returns _deltaX.
      */
     int getDeltaX();
 
     /**
      * @brief Gets directions choice.
-     * @return direction choice
+     * @return Returns direction choice.
      */
-    directionChoice getDirection();
+    DirectionChoice getDirection();
 };
 
 

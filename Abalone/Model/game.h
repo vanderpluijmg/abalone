@@ -4,7 +4,9 @@
 #include <stdbool.h>
 #include <Model/abapro.h>
 #include "board.h"
-
+/**
+ * @brief The game class
+ */
 class game
 {
 private:
@@ -14,39 +16,39 @@ public:
 
     /**
      * @brief Validates a move.
-     * @param a Move utils to get move details
-     * @return true if move is allowed
+     * @param a MoveUtils to get move details.
+     * @return true if the desired move found in the MoveUtils object is allowed
      */
-    bool validateMove (moveUtils a);
+    bool validateMove (MoveUtils a);
 
     /**
      * @brief Validates a lateral move.
      * @param a moveUtils.
-     * @return True if move is allowed.
+     * @return true if move is allowed.
      */
-    bool validateLateralAndSameColor (moveUtils a);
+    bool validateLateralAndSameColor (MoveUtils a);
 
     /**
-     * @brief Checks if in given direction there is obstruction.
-     * @param a move details.
-     * @return True if no obstruction.
+     * @brief Checks if there is any obstruction in given direction.
+     * @param a MoveUtils object.
+     * @return True if no obstructions.
      */
-    bool horizontalMoveCheckOne(moveUtils a, Position);
+    bool horizontalMoveCheckOne(MoveUtils a, Position);
 
     /**
      * @brief Checks if all the given positions are of same color.
-     * @param a move details.
-     * @param inBetween Posistion in between pos1 and pos2.
-     * @return True if all same color
+     * @param a MoveUtils object.
+     * @param inBetween Posistion is in between pos1 and pos2 that can be found in MoveUtil object.
+     * @return True if all of them are of the same color.
      */
-    bool allSameColor(moveUtils a, Position inBetween);
+    bool allSameColor(MoveUtils a, Position inBetween);
 
     /**
      * @brief Validates a line move.
-     * @param a moveUtils.
+     * @param a MoveUtils object.
      * @return True if move is allowed.
      */
-    bool validateLineAndSameColor(moveUtils a);
+    bool validateLineAndSameColor(MoveUtils a);
 };
 
 #endif // GAME_H

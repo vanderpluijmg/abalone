@@ -1,8 +1,4 @@
 #include "player.h"
-#include "direction.h"
-#include "position.hpp"
-#include <string>
-#include <list>
 
 
 Player::Player (std::string name, Color color){

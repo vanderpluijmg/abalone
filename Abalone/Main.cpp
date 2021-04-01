@@ -10,7 +10,7 @@
 using namespace::std;
 
 int main (void) {
-    moveUtils a;
+    MoveUtils a;
     a = AbaPro::getCommand(""); //Direction verification.
     game game;
     cout<<game.validateLineAndSameColor(a);

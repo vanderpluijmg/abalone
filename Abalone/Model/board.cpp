@@ -1,5 +1,4 @@
 #include "board.h"
-#include "hexagon.hpp"
 
 Board::Board()
 {
@@ -11,8 +10,8 @@ void Board::getInitBoard()
         for (int x = 0; x < 9; x++)
         {
             if ((y == 0 && (x == 4 || x == 5 || x == 6 || x == 7 || x == 8)) ||
-                (y == 1 && (x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8)) ||
-                (y == 2 && (x == 4 || x == 5 || x == 6)))
+                    (y == 1 && (x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8)) ||
+                    (y == 2 && (x == 4 || x == 5 || x == 6)))
             {
                 _gameBoard[y][x] = Hexagon(WHITE, x, y);
             }
@@ -85,14 +84,14 @@ std::string Board::toString()
             try
             {
                 if ((_gameBoard[y][x + 1].getMarbleColor() == EMPTY || _gameBoard[y][x + 1].getMarbleColor() == WHITE || _gameBoard[y][x + 1].getMarbleColor() == BLACK)
-                 && (_gameBoard[y][x].getMarbleColor() == EMPTY || _gameBoard[y][x].getMarbleColor() == WHITE || _gameBoard[y][x].getMarbleColor() == BLACK) && x + 1 < 9)
+                        && (_gameBoard[y][x].getMarbleColor() == EMPTY || _gameBoard[y][x].getMarbleColor() == WHITE || _gameBoard[y][x].getMarbleColor() == BLACK) && x + 1 < 9)
                 {
                     result.append(" ");
                 }
             }
             catch (const std::exception &e)
             {
-                 result.append("mm");
+                result.append("mm");
             }
         }
         result.append(addRightDecorations(y));

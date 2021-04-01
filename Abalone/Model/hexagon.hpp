@@ -4,6 +4,9 @@
 #include "position.hpp"
 #include "color.hpp"
 
+/**
+ * @brief The Hexagon class represents a cell on the game board.
+ */
 class Hexagon
 {
 private:
@@ -18,10 +21,10 @@ public:
     }
 
     /**
-     * @brief Hexagon
-     * @param color
-     * @param x
-     * @param y
+     * @brief Hexagon Constructor for a Hexagon ovject.
+     * @param color Determines if the is anything in given position or not.
+     * @param x Position on horizontal axis.
+     * @param y Position on vertical axis.
      */
     Hexagon(Color color, int x, int y)
     {

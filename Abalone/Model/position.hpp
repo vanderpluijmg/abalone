@@ -2,7 +2,9 @@
 #define POSITION_H
 #include "direction.h"
 #include "iostream"
-
+/**
+ * @brief The Position class represents the location of all the game board cells.
+ */
 class Position
 {
 private:
@@ -12,8 +14,8 @@ private:
 public:
     /**
      * @brief Position constructor
-     * @param x value of position.
-     * @param y value of position.
+     * @param x Position on the horizontal axis.
+     * @param y Position on vertical axis.
      */
     Position(int x = 0, int y = 0)
     {
@@ -41,18 +43,18 @@ public:
         return p;
     }
     /**
-     * @brief setter for position
-     * @param target First position
-     * @param source Last position
+     * @brief Setter for position
+     * @param target Position to modify.
+     * @param source Position to reproduce.
      */
     void static setPosition(Position &target, Position source){
-            target._x=source._x;
-            target._y=source._y;
-        }
+        target._x=source._x;
+        target._y=source._y;
+    }
 
     /**
-     * @brief setPosition
-     * @param source
+     * @brief setPosition sets the current position to the same as the one given as a parameter.
+     * @param source Position to reproduce.
      */
     void setPosition(Position source){
         _x = source._x;
@@ -61,8 +63,8 @@ public:
 
 
     /**
-     * @brief get's Row.
-     * @return Row.
+     * @brief Getter for vertical position.
+     * @return int Return vertical position.
      */
     int getY()
     {
@@ -70,8 +72,8 @@ public:
     }
 
     /**
-     * @brief get's Column.
-     * @return Col.
+     * @brief Getter for horizontal position.
+     * @return int Return horizontal position.
      */
     int getX()
     {
@@ -88,7 +90,7 @@ public:
         return stream << "Position = " << std::to_string(pos.getX()) << ", " << std::to_string(pos.getY());
     }
     bool operator==(const Position & rhs) const {
-       return (_x==rhs._x && _y==rhs._y);
+        return (_x==rhs._x && _y==rhs._y);
     }
 
 };

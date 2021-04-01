@@ -4,6 +4,9 @@
 #include "vector"
 #include "hexagon.hpp"
 
+/**
+ * @brief The Board class reprents the Board on which the game will be taking place.
+ */
 class Board
 {
 private:
@@ -16,21 +19,24 @@ public:
     Board();
 
     /**
-     * @brief Pseudo constructor for board.
+     * @brief getInitBoard Fills the board so that it corresponds to the game of Abalone.
+     * A board limited to 61 Positions and 14 pieces on each side.
      */
     void getInitBoard();
 
     /**
-     * @brief Gets all the hexagons on the board.
-     * @return Returns a vector of vector for 2 players.
+     * @brief getHexagon Gets the desired Hexagon by its position.
+     * @param x A given horizontal axis coordinate.
+     * @param y A given vertical axis coordinate.
+     * @return  The desired Hexagon, if there is any.
      */
     Hexagon getHexagon(int x, int y);
 
     /**
     * @brief Verifies if a neighbour of a specific position in a given Direction has the same Color.
     *
-    * @param position a given Position.
-    * @param direction a given direction to follow.
+    * @param position A given Position.
+    * @param direction A given direction to follow.
     * @return true if they are the same Color.
     * @return false if they are not of the same Color.
     */
@@ -39,35 +45,36 @@ public:
     /**
     * @brief Returns the Board as a string that can then be used to Display it in the terminal.
     *
-    * @return std::string the board as a String.
+    * @return std::string The game board as a String.
     */
     std::string toString();
 
     /**
-     * @brief addLeftDecorations
-     * @param y
-     * @return
+     * @brief Adds the proper decorations on the left side of the game board for it to be easier to understand for the player.
+     * @param y the line to decorate.
+     * @return a string to be added in the final presentation of the game board.
      */
     std::string addLeftDecorations(int y);
 
     /**
-     * @brief addRightDecorations
-     * @param y
-     * @return
+     * @brief Adds the proper decorations on the right side of the game board for it to be easier to understand for the player.
+     * @param y the line to decorate.
+     * @return a string to be added in the final presentation of the game board.
      */
     std::string addRightDecorations(int y);
 
     /**
      * @brief Checks if case is empty at a certain position.
      * @param p Position to check at.
-     * @return True if position is emtpy.
+     * @return true if position is emtpy.
+     * @return false otherwise.
      */
     bool isEmpty (Position p);
 
     /**
-     * @brief Gets color of position on board.
+     * @brief Gets color of a given Position from the game board if it exists.
      * @param p Position to get color from.
-     * @return Color of position
+     * @return Color of the desired Position
      */
     Color getColor(Position p);
 

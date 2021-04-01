@@ -5,17 +5,17 @@ game::game(){
     std::cout<<_board.toString();
 }
 
-bool game::validateMove(moveUtils a){
+bool game::validateMove(MoveUtils a){
     if (a.pos2.getX()==-15 && a.pos2.getY()==-15){
         if(validateLineAndSameColor(a))
             return true;
     } else if (game::validateLateralAndSameColor(a))
-            return true;
+        return true;
     return false;
 }
 
 
-bool game::validateLineAndSameColor(moveUtils a){
+bool game::validateLineAndSameColor(MoveUtils a){
     std::vector<Position> groupToMove (5);
     std::vector<Position> groupToDefend (5);
     int sizeGroupMove = 0;
@@ -40,7 +40,7 @@ bool game::validateLineAndSameColor(moveUtils a){
     return true;
 }
 
-bool game::validateLateralAndSameColor(moveUtils a){
+bool game::validateLateralAndSameColor(MoveUtils a){
     int deltaX;
     a.pos2.getX()>a.pos1.getX()? deltaX =2 : deltaX=-2;
     Position inBetweenExp ((a.pos1.getX()+(deltaX-1)),(a.pos2.getY()));
@@ -54,14 +54,14 @@ bool game::validateLateralAndSameColor(moveUtils a){
     return false;
 }
 
-bool game::horizontalMoveCheckOne(moveUtils a, Position inBetween){
+bool game::horizontalMoveCheckOne(MoveUtils a, Position inBetween){
     return (_board.isEmpty(a.pos1.next(a.dir))
             && (_board.isEmpty(a.pos2.next(a.dir)))
             && (_board.isEmpty(inBetween.next(a.dir))));
 }
-bool game::allSameColor(moveUtils a, Position inBetween){
+bool game::allSameColor(MoveUtils a, Position inBetween){
     return (((_board.getColor(a.pos1))
-            == (_board.getColor(a.pos2)))
+             == (_board.getColor(a.pos2)))
             == (_board.getColor(inBetween)));
 }
 

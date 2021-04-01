@@ -11,6 +11,7 @@ HEADERS += \
     Model/color.hpp \
     Model/direction.h \
     Model/hexagon.hpp \
+    Model/newDirection.h \
     Model/player.h \
     Model/position.hpp \
     Model/game.h \
