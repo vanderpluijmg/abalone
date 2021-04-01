@@ -50,6 +50,11 @@ public:
             target._y=source._y;
         }
 
+    void setPosition(Position target){
+        _x = target._x;
+        _y = target._y;
+    }
+
 
     /**
      * @brief get's Row.

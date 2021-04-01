@@ -17,6 +17,7 @@ struct moveUtils {
 
 class AbaPro{
 public:
+
     /**
     *@brief Interacts with user to get his move command.
     *@return String of command.

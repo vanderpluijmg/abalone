@@ -10,7 +10,8 @@
 using namespace::std;
 
 int main (void) {
-    Board efd;
-    efd.getInitBoard();
-    cout<<efd.toString();
+    moveUtils a;
+    a = AbaPro::getCommand("I8H7"); //Direction verification.
+    game game;
+    cout<<game.validateLineAndSameColor(a);
 }

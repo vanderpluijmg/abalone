@@ -43,10 +43,40 @@ public:
     */
     std::string toString();
 
+    /**
+     * @brief addLeftDecorations
+     * @param y
+     * @return
+     */
     std::string addLeftDecorations(int y);
+
+    /**
+     * @brief addRightDecorations
+     * @param y
+     * @return
+     */
     std::string addRightDecorations(int y);
 
-    static bool isEmpty (Position p);
+    /**
+     * @brief Checks if case is empty at a certain position.
+     * @param p Position to check at.
+     * @return True if position is emtpy.
+     */
+    bool isEmpty (Position p);
+
+    /**
+     * @brief Gets color of position on board.
+     * @param p Position to get color from.
+     * @return Color of position
+     */
+    Color getColor(Position p);
+
+    /**
+     * @brief Gets the opposite color of the current position.
+     * @param p Position to get opposite color from.
+     * @return The opposite color.
+     */
+    Color getOppositeColor(Position p);
 };
 
 #endif // BOARD_H

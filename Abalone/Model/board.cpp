@@ -217,7 +217,15 @@ std::string Board::addRightDecorations(int y)
 }
 
 bool Board::isEmpty(Position p){
-    return true;
+    return _gameBoard[p.getY()][p.getX()].getMarbleColor() == Color::EMPTY;
+}
+
+Color Board::getColor(Position p){
+    return _gameBoard[p.getY()][p.getX()].getMarbleColor();
+}
+
+Color Board::getOppositeColor(Position p){
+    return _gameBoard[p.getY()][p.getX()].getMarbleColor() == Color::BLACK ? Color::WHITE : Color::BLACK;
 }
 
 //pas encore fini faut ajouterles décorations autours
