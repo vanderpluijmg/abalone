@@ -11,7 +11,7 @@ using namespace::std;
 
 int main (void) {
     MoveUtils a;
-    a = AbaPro::getCommand("C3C5D3"); //Direction verification.
+    a = AbaPro::getCommand("I8H7"); //Direction verification.
     game game;
     cout<<game.validateLineAndSameColor(a);
 }
