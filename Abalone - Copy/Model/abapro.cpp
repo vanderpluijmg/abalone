@@ -39,7 +39,6 @@ MoveUtils AbaPro::getCommand(std::string move)
     }
     else {throw "Sorry you move is not valid";}
 }
-
 //Checks outer and inner limits of char and int
 bool AbaPro::parseString(const std::vector<std::string> &command){
     for (auto& x : command)
