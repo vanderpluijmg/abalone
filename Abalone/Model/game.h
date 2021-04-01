@@ -19,21 +19,21 @@ public:
      * @param a MoveUtils to get move details.
      * @return true if the desired move found in the MoveUtils object is allowed
      */
-    bool validateMove (MoveUtils a);
+    bool validateMove (const MoveUtils& a);
 
     /**
      * @brief Validates a lateral move.
      * @param a moveUtils.
      * @return true if move is allowed.
      */
-    bool validateLateralAndSameColor (MoveUtils a);
+    bool validateLateralAndSameColor (const MoveUtils& a);
 
     /**
      * @brief Checks if there is any obstruction in given direction.
      * @param a MoveUtils object.
      * @return True if no obstructions.
      */
-    bool horizontalMoveCheckOne(MoveUtils a, Position);
+    bool checkAllCaseEmtpy(const MoveUtils& a, Position);
 
     /**
      * @brief Checks if all the given positions are of same color.
@@ -41,14 +41,14 @@ public:
      * @param inBetween Posistion is in between pos1 and pos2 that can be found in MoveUtil object.
      * @return True if all of them are of the same color.
      */
-    bool allSameColor(MoveUtils a, Position inBetween);
+    bool allSameColor(const MoveUtils& a, Position inBetween);
 
     /**
      * @brief Validates a line move.
      * @param a MoveUtils object.
      * @return True if move is allowed.
      */
-    bool validateLineAndSameColor(MoveUtils a);
+    bool validateLineAndSameColor(const MoveUtils& a);
 };
 
 #endif // GAME_H

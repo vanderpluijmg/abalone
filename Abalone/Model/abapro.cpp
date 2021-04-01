@@ -26,27 +26,28 @@ MoveUtils AbaPro::getCommand(std::string move)
             if (i==2 || i==5)
                 move.insert(i, " ");
         AbaPro::split(move, " ", command);
-        parseString(command);
-        if (command.size()==2){
-            AbaPro::addPositionUtils(mv,getPosition(command[0]));
-            mv.dir = getDirection(mv.pos1, getPosition(command[1]));
-        } else {
-            AbaPro::addPositionUtils(mv,getPosition(command[0]));
-            AbaPro::addPositionUtils(mv,getPosition(command[1]));
-            mv.dir = getDirection(mv.pos1, getPosition(command[2]));
+        if (parseString(command)){
+            if (command.size()==2){
+                AbaPro::addPositionUtils(mv,getPosition(command[0]));
+                mv.dir = getDirection(mv.pos1, getPosition(command[1]));
+            } else {
+                AbaPro::addPositionUtils(mv,getPosition(command[0]));
+                AbaPro::addPositionUtils(mv,getPosition(command[1]));
+                mv.dir = getDirection(mv.pos1, getPosition(command[2]));
+            }
         }
         return mv;
     }
     else {throw "Sorry you move is not valid";}
 }
 
-//Checks outer and inner limits of char and int
 bool AbaPro::parseString(const std::vector<std::string> &command){
     for (auto& x : command)
-        if (!(std::isalpha(x[0]) && std::isdigit(x[1])))
+        if (!(std::isalpha(x[0]) || std::isdigit(x[1]) || (1<=x[1] && x[1]<=9)))
             return false;
-    return true;
+    return false;
 }
+
 
 Position AbaPro::getPosition(const std::string& command){
     char row = command[0];
@@ -62,7 +63,7 @@ Position AbaPro::getPosition(const std::string& command){
     case 'B': return Position(col--,7);
     case 'A': return Position(col--,8);
     }
-    return Position();
+    throw ("non valid row");
 }
 
 void AbaPro::addPositionUtils(MoveUtils& a, Position p){

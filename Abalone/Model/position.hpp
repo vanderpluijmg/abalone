@@ -27,9 +27,10 @@ public:
      * @brief Copy constructor of Position.
      * @param pos Position to copy.
      */
-    Position( Position &pos)
+    Position(const Position &pos)
     {
-        _y = pos._y, _x = pos._x;
+        _y = pos._y;
+        _x = pos._x;
     }
 
     /**
@@ -37,7 +38,7 @@ public:
      * @param direction Direction to go in.
      * @return new position.
      */
-    Position next(Direction direction)
+    Position next(Direction direction) const
     {
         Position p(getY() + direction.getDeltaX(), getX() + direction.getDeltaY());
         return p;
@@ -66,7 +67,7 @@ public:
      * @brief Getter for vertical position.
      * @return int Return vertical position.
      */
-    int getY()
+    int getY() const
     {
         return _y;
     }
@@ -75,7 +76,7 @@ public:
      * @brief Getter for horizontal position.
      * @return int Return horizontal position.
      */
-    int getX()
+    int getX() const
     {
         return _x;
     }

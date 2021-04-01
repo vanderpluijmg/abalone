@@ -13,5 +13,6 @@ int main (void) {
     MoveUtils a;
     a = AbaPro::getCommand("I8H7"); //Direction verification.
     game game;
-    cout<<game.validateLineAndSameColor(a);
+    bool ax = game.validateMove(a);
+    cout<<ax;
 }
