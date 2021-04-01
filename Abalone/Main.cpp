@@ -14,5 +14,5 @@ int main (void) {
     a = AbaPro::getCommand("I8H7"); //Direction verification.
     game game;
     bool ax = game.validateMove(a);
-    cout<<ax;
+    cout<<ax<<endl;
 }

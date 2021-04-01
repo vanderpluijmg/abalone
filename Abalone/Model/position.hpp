@@ -40,8 +40,7 @@ public:
      */
     Position next(Direction direction) const
     {
-        Position p(getY() + direction.getDeltaX(), getX() + direction.getDeltaY());
-        return p;
+        return Position(getY() + direction.getDeltaX(), getX() + direction.getDeltaY());
     }
     /**
      * @brief Setter for position

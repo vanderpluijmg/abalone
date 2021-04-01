@@ -23,7 +23,7 @@ bool game::validateLineAndSameColor(const MoveUtils& a){
     Position posMove = a.pos1;
     while (_board.getColor(posMove) == (_board.getColor(a.pos1))) {
         groupToMove[sizeGroupMove].setPosition(a.pos1);
-        posMove = posMove.next(a.dir);
+        posMove.setPosition(posMove.next(a.dir));
         sizeGroupMove++;
     }
     if (sizeGroupMove>3){
@@ -32,7 +32,7 @@ bool game::validateLineAndSameColor(const MoveUtils& a){
     Position posDefend = groupToMove[sizeGroupMove].next(a.dir);
     while (_board.getColor(posDefend) == (_board.getOppositeColor(a.pos1))) {
         groupToDefend[sizeGroupMove].setPosition(posDefend);
-        posDefend = posDefend.next(a.dir);
+        posDefend.setPosition(posDefend.next(a.dir));
         sizeGroupDefend++;
     }
     if (sizeGroupDefend >= sizeGroupMove)
