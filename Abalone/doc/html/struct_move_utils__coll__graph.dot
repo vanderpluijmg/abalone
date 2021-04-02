@@ -1,0 +1,11 @@
+digraph "MoveUtils"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="MoveUtils",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="All utils needed to preform a move."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" dir" ,fontname="Helvetica"];
+  Node2 [label="Direction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_direction.html",tooltip="The Direction class represents the axies in which a pawn can move."];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pos1\npos2" ,fontname="Helvetica"];
+  Node3 [label="Position",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_position.html",tooltip="The Position class represents the location of all the game board cells."];
+}
