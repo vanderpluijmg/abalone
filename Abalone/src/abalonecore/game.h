@@ -11,6 +11,8 @@ class Game
 {
 private:
     Board  _board;
+    int _piecesWhite=14;
+    int _piecesBlack=14;
 public:
     Game();
 
@@ -19,7 +21,7 @@ public:
      * @param a MoveUtils to get move details.
      * @return true if the desired move found in the MoveUtils object is allowed
      */
-    bool validateMove (const MoveUtils& a,Color player);
+    int validateMove (const MoveUtils& a,Color player);
 
     /**
      * @brief Validates a lateral move.
@@ -55,6 +57,12 @@ public:
      * @return A Board object.
      */
     Board getBoard();
+
+    void applyMove(MoveUtils moves,Color player);
+
+    void loseBall(Color playerl);
+
+    Color whoLost();
 };
 
 #endif // GAME_H

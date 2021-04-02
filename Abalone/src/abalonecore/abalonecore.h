@@ -2,22 +2,27 @@
 #define ABALONECORE_H
 #include "game.h"
 #include "../tui/tui.h"
+#include "abapro.h"
 
 class AbaloneCore{
 private:
+
     Game _game=Game();
+    TUI _tui;
     bool _end=false;
-    Color tour=WHITE;
+    Color _turn=WHITE;
+
 public:
+    AbaloneCore();
     void start();
 
-    bool turnPlay();
+    void turnPlay();
 
     bool getEndStatus();
 
-    void finish();
+    void finish(Color color);
 
-    void setTour();
+    void switchTurn();
 
     Color getTour();
 };

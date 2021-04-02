@@ -5,8 +5,10 @@
 
 
 class TUI{
-    void displayGameBoard(Game game);
-    void displayMessage(std::string message);
+public:
+     static void welcomeBanner();
+     static void displayGameBoard(Game game);
+     static void displayMessage(std::string message);
 };
 
 #endif // TUI_H

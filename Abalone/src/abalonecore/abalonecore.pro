@@ -12,7 +12,7 @@ HEADERS += \
     color.hpp \
     direction.h \
     hexagon.hpp \
-    player.h \
+   # player.h \
     position.hpp \
     game.h \
 
@@ -21,7 +21,7 @@ SOURCES += \
     abapro.cpp \
     board.cpp \
     direction.cpp \
-    player.cpp \
+    #player.cpp \
     game.cpp \
     
 DISTFILES += \
