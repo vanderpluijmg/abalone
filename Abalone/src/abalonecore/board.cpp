@@ -16,7 +16,7 @@ void Board::initGameBoard()
             {
                 _board[y][x] = Hexagon(WHITE, x, y);
             }
-            else if ((y == 6 && (x == 2 || x == 3 || x == 4)) ||
+            else if ((y == 6 && (x == 2 || x == 3 || x == 4)) ||(y==3 && x==4)|| (y==4 && x==3)||
                      (y == 7 && (x == 0 || x == 1 || x == 2 || x == 3 || x == 4 || x == 5)) ||
                      (y == 8 && (x == 0 || x == 1 || x == 2 || x == 3 || x == 4)))
             {
@@ -158,15 +158,14 @@ Color Board::getColor(Position p)
     else return OUTOFBOUND;
 }
 
-Color Board::getOppositeColor(Position p)
+Color Board::getOppositeColor(Color c)
 {
-    if(isOnBoard(p))
-    {
-        if(_board[p.getY()][p.getX()].getMarbleColor() == Color::BLACK) return WHITE;
-        else if(_board[p.getY()][p.getX()].getMarbleColor() == Color::WHITE) return BLACK;
-        else return EMPTY;
+    switch (c) {
+        case BLACK : return WHITE;
+        case WHITE : return BLACK;
+        case EMPTY : return EMPTY;
     }
-    else return OUTOFBOUND;
+    return OUTOFBOUND;
 }
 
 bool Board::isOnBoard(Position p)

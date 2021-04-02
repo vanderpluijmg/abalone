@@ -36,7 +36,7 @@ void AbaloneCore::switchTurn(){
     else _turn=WHITE;
 }
 
-Color AbaloneCore::getTour(){
+Color AbaloneCore::getReturn(){
     return _turn;
 }
 

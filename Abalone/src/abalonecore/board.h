@@ -78,11 +78,11 @@ public:
     Color getColor(Position p);
 
     /**
-     * @brief Gets the opposite color of the current position.
-     * @param p Position to get opposite color from.
+     * @brief Gets the opposite color of the current color.
+     * @param c Color to get opposite color from.
      * @return The opposite color.
      */
-    Color getOppositeColor(Position p);
+    Color getOppositeColor(Color c);
 
     /**
      * @brief isOnBoard verifies if a given position is on the game board.

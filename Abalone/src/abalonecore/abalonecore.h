@@ -4,27 +4,56 @@
 #include "../tui/tui.h"
 #include "abapro.h"
 
+/**
+ * @brief The AbaloneCore represents a Controller.
+ */
 class AbaloneCore{
 private:
 
     Game _game=Game();
     TUI _tui;
     bool _end=false;
-    Color _turn=WHITE;
+    Color _turn=BLACK;
 
 public:
+
+    /**
+     * @brief AbaloneCore default constructor.
+     */
     AbaloneCore();
+
+    /**
+     * @brief Pseudo-Constructor for AbaCore.
+     */
     void  start();
 
+    /**
+     * @brief Defines how a player should play his turn.
+     */
     void turnPlay();
 
+    /**
+     * @brief Getter for _end variable.
+     * @return End variable value.
+     */
     bool getEndStatus();
 
+    /**
+     * @brief Determines how a players looses.
+     * @param color Color of player that lost.
+     */
     void finish(Color color);
 
+    /**
+     * @brief Switches turn of players.
+     */
     void switchTurn();
 
-    Color getTour();
+    /**
+     * @brief Getter for return variable.
+     * @return
+     */
+    Color getReturn();
 };
 
 #endif // ABALONECORE_H
