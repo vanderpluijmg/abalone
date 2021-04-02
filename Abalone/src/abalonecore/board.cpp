@@ -87,7 +87,8 @@ std::string Board::toString()
             {
                 if((isEmpty(Position(x+1,y))||getColor(Position(x+1,y))==WHITE||getColor(Position(x+1,y))==BLACK) && (isEmpty(Position(x,y))||getColor(Position(x,y))==WHITE||getColor(Position(x,y))==BLACK) && x + 1 < 9)
                 {
-                    result.append(" ");
+                    if(y==8){result.append("_");}
+                    else result.append(" ");
                 }
             }
             catch (const std::exception &e)
@@ -98,8 +99,8 @@ std::string Board::toString()
         result.append(addRightDecorations(y));
         result.append("\n");
     }
-    result.append("           _ _ _ _\n");
-    result.append("          1 2 3 4 5\n");
+    result.append("          \\ \\ \\ \\ \\ 6\n");
+    result.append("           1 2 3 4 5\n");
     return result;
 }
 
@@ -137,10 +138,10 @@ std::string Board::addRightDecorations(int y)
     case 2: {result.append("\\"); break;}
     case 3: {result.append("\\"); break;}
     case 4: {result.append(")"); break;}
-    case 5: {result.append("/ 9"); break;}
-    case 6: {result.append("/ 8"); break;}
-    case 7: {result.append("/ 7"); break;}
-    case 8: {result.append("/ 6"); break;}
+    case 5: {result.append("/\\"); break;}
+    case 6: {result.append("/\\ 9"); break;}
+    case 7: {result.append("/\\ 8"); break;}
+    case 8: {result.append("/\\ 7"); break;}
     default: break;
     }
     return result;
