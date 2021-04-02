@@ -164,6 +164,7 @@ Color Board::getOppositeColor(Color c)
         case BLACK : return WHITE;
         case WHITE : return BLACK;
         case EMPTY : return EMPTY;
+    case OUTOFBOUND : return OUTOFBOUND;
     }
     return OUTOFBOUND;
 }
