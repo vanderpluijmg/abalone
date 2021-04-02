@@ -16,7 +16,7 @@ void Board::initGameBoard()
             {
                 _board[y][x] = Hexagon(WHITE, x, y);
             }
-            else if ((y == 6 && (x == 2 || x == 3 || x == 4)) ||(y==3 && x==4)|| (y==4 && x==3)||
+            else if ((y == 6 && (x == 2 || x == 3 || x == 4)) ||
                      (y == 7 && (x == 0 || x == 1 || x == 2 || x == 3 || x == 4 || x == 5)) ||
                      (y == 8 && (x == 0 || x == 1 || x == 2 || x == 3 || x == 4)))
             {
