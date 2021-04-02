@@ -23,10 +23,6 @@ var dir_43e4176278cedc844b8407bac23ee66c =
     [ "hexagon.hpp", "hexagon_8hpp.html", [
       [ "Hexagon", "class_hexagon.html", "class_hexagon" ]
     ] ],
-    [ "player.cpp", "player_8cpp.html", null ],
-    [ "player.h", "player_8h.html", [
-      [ "Player", "class_player.html", "class_player" ]
-    ] ],
     [ "position.hpp", "position_8hpp.html", [
       [ "Position", "class_position.html", "class_position" ]
     ] ]

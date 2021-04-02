@@ -7,7 +7,6 @@ var annotated_dup =
     [ "Game", "class_game.html", "class_game" ],
     [ "Hexagon", "class_hexagon.html", "class_hexagon" ],
     [ "MoveUtils", "struct_move_utils.html", "struct_move_utils" ],
-    [ "Player", "class_player.html", "class_player" ],
     [ "Position", "class_position.html", "class_position" ],
     [ "TUI", "class_t_u_i.html", null ]
 ];
