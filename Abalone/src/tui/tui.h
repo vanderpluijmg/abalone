@@ -1,7 +1,7 @@
 #ifndef TUI_H
 #define TUI_H
 #include <iostream>
-#include "../abalonecore/game.h"
+#include "game.h"
 
 
 class TUI{

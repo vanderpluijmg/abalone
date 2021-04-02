@@ -23,7 +23,7 @@ void AbaloneCore::turnPlay(){
         MoveUtils possibleMove = AbaPro::getCommand(command);//extraire le  mouvement
         movedWell=_game.applyMove(possibleMove,_turn);//valider si le mouvement a bien ete fait sinon relance la boucle
         if(!movedWell)TUI::displayMessage("Wrong entry");}
-        catch (error_t){
+        catch (std::exception& e){
             TUI::displayMessage("Failed attempt");
         }
     }

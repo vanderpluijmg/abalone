@@ -59,17 +59,55 @@ public:
      */
     Board getBoard();
 
+    /**
+     * @brief Applies a move to a player.
+     * @param moves Move to apply.
+     * @param player Player to apply moves too.
+     * @return True if move has been applied.
+     */
     bool applyMove(MoveUtils moves,Color player);
 
+    /**
+     * @brief loseBall Adds a lost ball to a player.
+     * @param playerl Color of player who lost his ball.
+     */
     void loseBall(Color playerl);
 
+    /**
+     * @brief Determines who lost.
+     * @return Color of player if someone lost.
+     */
     Color whoLost();
 
+    /**
+     * @brief Applies a linear move.
+     * @param a Moves to apply.
+     * @param color Color to apply moves too.
+     * @return True if move has been applied.
+     */
     bool applyMoveLinear(const MoveUtils& a,Color color);
+
+    /**
+     * @brief Applies a lateral move.
+     * @param a Moves to apply.
+     * @param color Color to apply moves too.
+     * @return True if move has been applied.
+     */
     bool applyMoveLateral(const MoveUtils& a,Color color);
 
+    /**
+     * @brief Finds position between 2 positions
+     * @param a Positions to get inBetween from.
+     * @return Position that is in between
+     */
     Position findPositionBetween(const MoveUtils& a);
-     Direction findDirectionBetween(const MoveUtils& a);
+
+    /**
+     * @brief Gets direction between 2 positions.
+     * @param a utils to get directions too.
+     * @return Direction.
+     */
+    Direction findDirectionBetween(const MoveUtils& a);
 
 };
 
