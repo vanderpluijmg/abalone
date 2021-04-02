@@ -7,7 +7,7 @@ void TUI::welcomeBanner(){
 }
 
 void TUI::displayGameBoard(Game game){
-    std::cout<<game.getBoard().toString()<<std::endl;
+    std::cout<<game.getBoard().toString();
 }
 
 void TUI::displayMessage(std::string message){

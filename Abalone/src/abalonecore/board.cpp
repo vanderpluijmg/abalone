@@ -41,7 +41,7 @@ void Board::initGameBoard()
     }
 }
 
-Hexagon Board::getHexagon(int x, int y)
+Hexagon& Board::getHexagon(int x, int y)
 {
     return _board[y][x];
 }

@@ -30,7 +30,7 @@ public:
      * @param y A given vertical axis coordinate.
      * @return  The desired Hexagon, if there is any.
      */
-    Hexagon getHexagon(int x, int y);
+    Hexagon& getHexagon(int x, int y);
 
     /**
     * @brief Verifies if a neighbour of a specific position in a given Direction has the same Color.

@@ -14,7 +14,7 @@ private:
 
 public:
     AbaloneCore();
-    void start();
+    void  start();
 
     void turnPlay();
 

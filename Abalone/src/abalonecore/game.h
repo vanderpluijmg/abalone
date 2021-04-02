@@ -10,7 +10,7 @@
 class Game
 {
 private:
-    Board  _board;
+    Board  _board = Board();
     int _piecesWhite=14;
     int _piecesBlack=14;
 
@@ -65,8 +65,11 @@ public:
 
     Color whoLost();
 
-    bool applyMoveLinear(const MoveUtils& a);
-    bool applyMoveLateral(const MoveUtils& a);
+    bool applyMoveLinear(const MoveUtils& a,Color color);
+    bool applyMoveLateral(const MoveUtils& a,Color color);
+
+    Position findPositionBetween(const MoveUtils& a);
+     Direction findDirectionBetween(const MoveUtils& a);
 
 };
 

@@ -9,6 +9,6 @@ HEADERS += \
     tui.h
 SOURCES += \
     tui.cpp\
-   		main.cpp 
+    main.cpp
 
 

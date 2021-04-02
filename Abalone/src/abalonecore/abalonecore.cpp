@@ -4,7 +4,7 @@ AbaloneCore::AbaloneCore(){
 
 void AbaloneCore::start(){
     TUI::welcomeBanner();
-    while(_end==false){
+    while(_end==0){
         TUI::displayGameBoard(_game);
         turnPlay();
 
