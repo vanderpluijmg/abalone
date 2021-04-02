@@ -3,15 +3,23 @@
 #include "game.h"
 #include "../tui/tui.h"
 
-class Controller{
+class AbaloneCore{
 private:
     Game _game=Game();
-    bool _finished=false;
-    Color tour=BLACK;
+    bool _end=false;
+    Color tour=WHITE;
 public:
     void start();
 
+    bool turnPlay();
 
+    bool getEndStatus();
+
+    void finish();
+
+    void setTour();
+
+    Color getTour();
 };
 
 #endif // ABALONECORE_H
