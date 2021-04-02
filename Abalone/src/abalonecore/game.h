@@ -58,7 +58,7 @@ public:
      */
     Board getBoard();
 
-    void applyMove(MoveUtils moves,Color player);
+    bool applyMove(MoveUtils moves,Color player);
 
     void loseBall(Color playerl);
 

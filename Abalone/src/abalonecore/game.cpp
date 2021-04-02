@@ -32,8 +32,8 @@ bool Game::validateLineAndSameColor(const MoveUtils& a){
     if(_board.getColor(posMove)==OUTOFBOUND)return true;
 
     //else
-    std::vector<Position> attackGroup = {Position(0,0),Position(0,0),Position(0,0),Position(0,0),Position(0,0)};
-    std::vector<Position> defenseGroup = {Position(0,0),Position(0,0),Position(0,0),Position(0,0),Position(0,0)};
+    std::vector<Position> attackGroup (5,Position());
+    std::vector<Position> defenseGroup (5,Position());
     int sizeAttackGroup = 1;
     int sizeDefendGroup = 0;
     Color friendColor = _board.getColor(a.pos1);
@@ -114,16 +114,19 @@ Board Game::getBoard(){
     return _board;
 }
 
-void Game::applyMove(MoveUtils moves,Color player){
+bool Game::applyMove(MoveUtils moves,Color player){
     //utilise validate Move et faudra faire les methodes des  moves par rapport au numero envoye
-    moves.dir;
-    player;
+    int optionMove=validateMove(moves,player);
+    switch (optionMove) {
+    case 0 : return true;
+
+    }
+    return false;
+
 }
 
 void Game::loseBall(Color playerl){
-    if(playerl==BLACK) {
-        _piecesBlack--;
-    } else _piecesWhite--;
+    (playerl==1==BLACK )? _piecesBlack--:_piecesWhite--;
 }
 
 

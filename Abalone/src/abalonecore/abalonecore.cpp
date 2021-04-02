@@ -12,10 +12,10 @@ void AbaloneCore::start(){
 void AbaloneCore::turnPlay(){
     bool movedWell = false;
     while(!movedWell){
-        //faire l'entree de l'utilisateur
-        //verifier avec validate move
-        //validate move renvoie un chiffre par rapport a quel type de move devra etre effectue
-        //movedWell=_game.applyMove();
+        std::string command="";
+        std::cin>>command;        //faire l'entree de l'utilisateur
+        MoveUtils possibleMove = AbaPro::getCommand(command);//extraire le  mouvement
+        movedWell=_game.applyMove(possibleMove,_turn);//valider si le mouvement a bien ete fait sinon relance la boucle
 }
         Color loser = _game.whoLost();
         if(loser != EMPTY);
