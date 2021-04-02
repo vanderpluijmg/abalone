@@ -2,10 +2,9 @@
 
 Game::Game(){
     _board.initGameBoard();
-    std::cout<<_board<<std::endl;
 }
 
-bool Game::validateMove(const MoveUtils& a)
+bool Game::validateMove(const MoveUtils& a,Color player)
 {
     if(a.pos1.getX()!=-1 && a.pos1.getY()!=-1){
         if (a.pos2.getX()==-1 && a.pos2.getY()==-1)

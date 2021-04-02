@@ -13,6 +13,7 @@ using namespace::std;
 int main (void) {
     MoveUtils a = AbaPro::getCommand("I8H7"); //Direction verification.
     Game af = Game();
+    cout<<af.getBoard().toString()<<endl;
     cout<<"aaaaaaaaaaaaaaaaaa"<<endl;
     cout<<af.getBoard().isOnBoard(Position(8,9))<<endl;
     cout<<af.getBoard().getColor(Position(8,9))<<endl;
@@ -20,7 +21,7 @@ int main (void) {
     cout<<a.pos1<<endl;
     cout<<a.pos2<<endl;
     cout<<a.dir<<endl;
-    cout<<af.validateMove(a)<<endl;
+    cout<<af.validateMove(a,BLACK)<<endl;
     cout<<"aaaaaaaaaaaaaaaaaa"<<endl;
     cout<<AbaPro::checkPositionsInCommand(std::vector<string>{"I1"})<<endl;
 

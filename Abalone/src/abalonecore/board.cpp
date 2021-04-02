@@ -56,6 +56,7 @@ bool Board::checkNeigbourSameColor(Position position, Direction direction)
 std::string Board::toString()
 {
     std::string result = "";
+    result.append("         Player 1\n");
     result.append("         - - - - -\n");
 
     for (int y = 0; y < 9; y++)
@@ -101,12 +102,8 @@ std::string Board::toString()
     }
     result.append("          \\ \\ \\ \\ \\ 6\n");
     result.append("           1 2 3 4 5\n");
+    result.append("         Player 2\n");
     return result;
-}
-
-std::ostream &operator<<(std::ostream &stream, Board &board)
-{
-    return stream <<board.toString();
 }
 
 std::string Board::addLeftDecorations(int y)

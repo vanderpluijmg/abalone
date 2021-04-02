@@ -6,6 +6,7 @@ CONFIG += staticlib
 include(../../config.pri)
 
 HEADERS += \
+    abalonecore.h \
     abapro.h \
     board.h \
     color.hpp \
@@ -16,6 +17,7 @@ HEADERS += \
     game.h \
 
 SOURCES += \
+    abalonecore.cpp \
     abapro.cpp \
     board.cpp \
     direction.cpp \

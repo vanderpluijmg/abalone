@@ -63,13 +63,6 @@ public:
     std::string addRightDecorations(int y);
 
     /**
-     * @brief Overload of osStream. For display purposes.
-     * @param stream Input.
-     * @return String of board.
-     */
-    friend std::ostream &operator<<(std::ostream &stream, Board &board);
-
-    /**
      * @brief Checks if case is empty at a certain position.
      * @param p Position to check at.
      * @return true if position is emtpy.

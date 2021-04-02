@@ -19,7 +19,7 @@ public:
      * @param a MoveUtils to get move details.
      * @return true if the desired move found in the MoveUtils object is allowed
      */
-    bool validateMove (const MoveUtils& a);
+    bool validateMove (const MoveUtils& a,Color player);
 
     /**
      * @brief Validates a lateral move.
