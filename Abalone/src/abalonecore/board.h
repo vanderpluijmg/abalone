@@ -10,7 +10,7 @@
 class Board
 {
 private:
-    Hexagon _gameBoard[9][9];
+    Hexagon _board[9][9];
 
 public:
     /**
@@ -19,10 +19,10 @@ public:
     Board();
 
     /**
-     * @brief getInitBoard Fills the board so that it corresponds to the game of Abalone.
+     * @brief initGameBoard Fills the board so that it corresponds to the game of Abalone.
      * A board limited to 61 Positions and 14 pieces on each side.
      */
-    void getInitBoard();
+    void initGameBoard();
 
     /**
      * @brief getHexagon Gets the desired Hexagon by its position.
@@ -34,7 +34,6 @@ public:
 
     /**
     * @brief Verifies if a neighbour of a specific position in a given Direction has the same Color.
-    *
     * @param position A given Position.
     * @param direction A given direction to follow.
     * @return true if they are the same Color.
@@ -42,9 +41,9 @@ public:
     */
     bool checkNeigbourSameColor(Position position, Direction direction);
 
+
     /**
     * @brief Returns the Board as a string that can then be used to Display it in the terminal.
-    *
     * @return std::string The game board as a String.
     */
     std::string toString();
@@ -62,6 +61,13 @@ public:
      * @return a string to be added in the final presentation of the game board.
      */
     std::string addRightDecorations(int y);
+
+    /**
+     * @brief Overload of osStream. For display purposes.
+     * @param stream Input.
+     * @return String of board.
+     */
+    friend std::ostream &operator<<(std::ostream &stream, Board &board);
 
     /**
      * @brief Checks if case is empty at a certain position.
@@ -84,6 +90,14 @@ public:
      * @return The opposite color.
      */
     Color getOppositeColor(Position p);
+
+    /**
+     * @brief isOnBoard verifies if a given position is on the game board.
+     * @param p A given position
+     * @return true if is on board.
+     * @return false if is not on board.
+     */
+    bool isOnBoard(Position p);
 };
 
 #endif // BOARD_H

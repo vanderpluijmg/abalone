@@ -8,6 +8,7 @@
 class Position
 {
 private:
+
     int _x;
     int _y;
 
@@ -38,29 +39,20 @@ public:
      * @param direction Direction to go in.
      * @return new position.
      */
-    Position next(Direction direction) const
+    Position next( Direction direction) const
     {
-        return Position(getY() + direction.getDeltaX(), getX() + direction.getDeltaY());
-    }
-    /**
-     * @brief Setter for position
-     * @param target Position to modify.
-     * @param source Position to reproduce.
-     */
-    void static setPosition(Position &target, Position source){
-        target._x=source._x;
-        target._y=source._y;
+        return Position(getX() + direction.getDeltaX(), getY() + direction.getDeltaY());
     }
 
-    /**
-     * @brief setPosition sets the current position to the same as the one given as a parameter.
-     * @param source Position to reproduce.
-     */
-    void setPosition(Position source){
-        _x = source._x;
-        _y = source._y;
-    }
-
+    //    /**
+    //     * @brief Setter for position
+    //     * @param target Position to modify.
+    //     * @param source Position to reproduce.
+    //     */
+    //    void static setPosition(Position &target, Position source){
+    //        target._x=source._x;
+    //        target._y=source._y;
+    //    }
 
     /**
      * @brief Getter for vertical position.
@@ -81,6 +73,16 @@ public:
     }
 
     /**
+     * @brief setPosition sets the current position to the same as the one given as a parameter.
+     * @param source Position to reproduce.
+     */
+    void setPosition( Position source)
+    {
+        _x = source._x;
+        _y = source._y;
+    }
+
+    /**
      * @brief Overload of osStream. For display purposes.
      * @param stream Input.
      * @return String of position.
@@ -89,7 +91,15 @@ public:
     {
         return stream << "Position = " << std::to_string(pos.getX()) << ", " << std::to_string(pos.getY());
     }
-    bool operator==(const Position & rhs) const {
+
+    /**
+     * @brief operator == Compares if 2 position have the same coordinates.
+     * @param rhs A position to compare.
+     * @return true if identical.
+     * @return false if different.
+     */
+    bool operator==(const Position & rhs) const
+    {
         return (_x==rhs._x && _y==rhs._y);
     }
 

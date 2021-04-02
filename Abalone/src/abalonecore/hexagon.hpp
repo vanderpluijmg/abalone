@@ -29,7 +29,7 @@ public:
     Hexagon(Color color, int x, int y)
     {
         _marbleColor = color;
-        _position = Position(x, y);
+        _position.setPosition(Position(x, y));
     }
 
     /**

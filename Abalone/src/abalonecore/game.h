@@ -2,17 +2,17 @@
 #define GAME_H
 
 #include <stdbool.h>
-#include <Model/abapro.h>
+#include "abapro.h"
 #include "board.h"
 /**
  * @brief The game class
  */
-class game
+class Game
 {
 private:
     Board  _board;
 public:
-    game();
+    Game();
 
     /**
      * @brief Validates a move.
@@ -49,6 +49,12 @@ public:
      * @return True if move is allowed.
      */
     bool validateLineAndSameColor(const MoveUtils& a);
+
+    /**
+     * @brief getBoard Getter for the game board.
+     * @return A Board object.
+     */
+    Board getBoard();
 };
 
 #endif // GAME_H
