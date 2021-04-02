@@ -10,13 +10,13 @@ int Game::validateMove(const MoveUtils& a,Color player)
     if(a.pos1.getX()!=-1 && a.pos1.getY()!=-1){
         if (a.pos2.getX()==-1 && a.pos2.getY()==-1)
         {
-            if( validateLineAndSameColor(a))
+            if( validateLinearAndSameColor(a))
                 return 1;
         }
         //in case of 2 pos but the same direction as pos2 is compared to pos1.
         else if(a.pos1.next(a.dir)==a.pos2)
         {
-            if( validateLineAndSameColor(a))
+            if( validateLinearAndSameColor(a))
                 return 1;
         }
         else if( Game::validateLateralAndSameColor(a))
@@ -25,7 +25,7 @@ int Game::validateMove(const MoveUtils& a,Color player)
     return 0;
 }
 
-bool Game::validateLineAndSameColor(const MoveUtils& a){
+bool Game::validateLinearAndSameColor(const MoveUtils& a){
 
     Position posMove = a.pos1.next(a.dir);
     //if next pos is OUTOFBOUND ball will move but will fall
@@ -118,15 +118,15 @@ bool Game::applyMove(MoveUtils moves,Color player){
     //utilise validate Move et faudra faire les methodes des  moves par rapport au numero envoye
     int optionMove=validateMove(moves,player);
     switch (optionMove) {
-    case 0 : return true;
-
+    case 0 : return false;
+    case 1: applyMoveLinear(moves);
+    case 2: applyMoveLateral(moves) ;
     }
     return false;
-
 }
 
 void Game::loseBall(Color playerl){
-    (playerl==1==BLACK )? _piecesBlack--:_piecesWhite--;
+    playerl==BLACK ? _piecesBlack--:_piecesWhite--;
 }
 
 
@@ -134,6 +134,21 @@ Color Game::whoLost(){
     if(_piecesBlack<=7)return BLACK;
     else if(_piecesWhite<=7)return WHITE;
     else return EMPTY;
+}
+
+bool Game::applyMoveLinear(const MoveUtils& a){
+    Position currentPos = a.pos1;
+    Position nextPos = a.pos1.next(a.dir);
+    Color actual=getBoard().getColor(a.pos1);
+    Color next = getBoard().getColor(a.pos1.next(a.dir));
+    bool cont = true;
+    while (cont){
+
+    }
+
+}
+bool Game::applyMoveLateral(const MoveUtils& a){
+
 }
 
 

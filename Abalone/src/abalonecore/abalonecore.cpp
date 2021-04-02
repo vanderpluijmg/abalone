@@ -4,22 +4,31 @@ AbaloneCore::AbaloneCore(){
 
 void AbaloneCore::start(){
     TUI::welcomeBanner();
-    while(_end!=true){
+    while(_end==false){
+        TUI::displayGameBoard(_game);
         turnPlay();
+
     }
+    TUI::displayMessage("endOfGame");
 }
 
 void AbaloneCore::turnPlay(){
     bool movedWell = false;
     while(!movedWell){
+        TUI::whoseTurn(_turn);
         std::string command="";
-        std::cin>>command;        //faire l'entree de l'utilisateur
+        TUI::displayMessage("");
+        std::cin>>command;
+        try{//faire l'entree de l'utilisateur
         MoveUtils possibleMove = AbaPro::getCommand(command);//extraire le  mouvement
         movedWell=_game.applyMove(possibleMove,_turn);//valider si le mouvement a bien ete fait sinon relance la boucle
-}
-        Color loser = _game.whoLost();
-        if(loser != EMPTY);
-        else switchTurn();
+        if(!movedWell)TUI::displayMessage("Wrong entry");}
+        catch (error_t){
+            TUI::displayMessage("Failed attempt");
+        }
+    }
+    Color loser = _game.whoLost();
+    loser != EMPTY? finish(loser) : switchTurn();
 }
 
 void AbaloneCore::switchTurn(){

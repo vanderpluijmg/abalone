@@ -13,6 +13,7 @@ private:
     Board  _board;
     int _piecesWhite=14;
     int _piecesBlack=14;
+
 public:
     Game();
 
@@ -50,7 +51,7 @@ public:
      * @param a MoveUtils object.
      * @return True if move is allowed.
      */
-    bool validateLineAndSameColor(const MoveUtils& a);
+    bool validateLinearAndSameColor(const MoveUtils& a);
 
     /**
      * @brief getBoard Getter for the game board.
@@ -63,6 +64,10 @@ public:
     void loseBall(Color playerl);
 
     Color whoLost();
+
+    bool applyMoveLinear(const MoveUtils& a);
+    bool applyMoveLateral(const MoveUtils& a);
+
 };
 
 #endif // GAME_H
