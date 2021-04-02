@@ -27,9 +27,4 @@ digraph "src/abalonecore/color.hpp"
   Node3 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node11 [label="src/abalonecore/board.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$board_8cpp.html",tooltip=" "];
   Node3 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node12 [label="src/abalonecore/player.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$player_8h.html",tooltip=" "];
-  Node12 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node13 [label="src/abalonecore/player.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$player_8cpp.html",tooltip=" "];
-  Node12 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }
