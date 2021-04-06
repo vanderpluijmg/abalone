@@ -30,7 +30,7 @@ public:
     /**
      * @brief Defines how a player should play his turn.
      */
-    void turnPlay();
+    void playTurn();
 
     /**
      * @brief Getter for _end variable.

@@ -25,12 +25,19 @@ public:
     void initGameBoard();
 
     /**
-     * @brief getHexagon Gets the desired Hexagon by its position.
+     * @brief getHexagon Gets the desired Hexagon by its x and y axies.
      * @param x A given horizontal axis coordinate.
      * @param y A given vertical axis coordinate.
      * @return  The desired Hexagon, if there is any.
      */
     Hexagon& getHexagon(int x, int y);
+
+    /**
+    * @brief getHexagon Gets the desired Hexagon by its position.
+    * @param Position to get Hexagon from.
+    * @return  The desired Hexagon, if there is any.
+    */
+    Hexagon& getHexagon(Position p);
 
     /**
     * @brief Verifies if a neighbour of a specific position in a given Direction has the same Color.

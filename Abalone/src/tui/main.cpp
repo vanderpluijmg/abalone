@@ -1,6 +1,5 @@
 #include "../abalonecore/abalonecore.h"
 #include "../abalonecore/direction.h"
-#include "../abalonecore/player.h"
 #include "../abalonecore/abapro.h"
 #include <iostream>
 #include <string>

@@ -47,13 +47,6 @@ public:
     bool allSameColor(const MoveUtils& a, Position inBetween);
 
     /**
-     * @brief Validates a line move.
-     * @param a MoveUtils object.
-     * @return True if move is allowed.
-     */
-    bool validateLinearAndSameColor(const MoveUtils& a);
-
-    /**
      * @brief getBoard Getter for the game board.
      * @return A Board object.
      */
@@ -80,12 +73,40 @@ public:
     Color whoLost();
 
     /**
+     * @brief Creates a vector of all balls that are implicated in the move.
+     * @param Position of first ball to move.
+     * @param playerColor Color of first ball.
+     * @param d Direction in which to go.
+     * @return  A vector of all balls that will move.
+     */
+    std::vector<Position> createAttackGroup(Position begin, Color playerColor, Direction d);
+
+    /**
+     * @brief Applies a linear move if move is valid.
+     * @param defenseGroup Vector of defense balls.
+     * @param attackGroup Vector of attack balls.
+     * @param d Direction in which to move.
+     * @param playerColor Color of player that is moving
+     * @return True if move is applied.
+     */
+    bool applyLinearMove (std::vector<Position> defenseGroup, std::vector<Position> attackGroup, Direction d, Color playerColor);
+
+    /**
      * @brief Applies a linear move.
      * @param a Moves to apply.
      * @param color Color to apply moves too.
      * @return True if move has been applied.
      */
-    bool applyMoveLinear(const MoveUtils& a,Color color);
+    bool validateLinearAndSameColor(const MoveUtils& a);
+
+    /**
+     * @brief Creates defend group and applies move.
+     * @param a Getter for attacking moves.
+     * @param begin First position of defending group.
+     * @param playerColor Color of the defending player.
+     * @return True if move can be done and has been applied.
+     */
+    bool createDefendGroup(const MoveUtils& a, Position begin, Color playerColor, std::vector<Position>);
 
     /**
      * @brief Applies a lateral move.
@@ -93,7 +114,7 @@ public:
      * @param color Color to apply moves too.
      * @return True if move has been applied.
      */
-    bool applyMoveLateral(const MoveUtils& a,Color color);
+    bool applyLateralMove(const MoveUtils& a,Color color, Position);
 
     /**
      * @brief Finds position between 2 positions
@@ -101,13 +122,6 @@ public:
      * @return Position that is in between
      */
     Position findPositionBetween(const MoveUtils& a);
-
-    /**
-     * @brief Gets direction between 2 positions.
-     * @param a utils to get directions too.
-     * @return Direction.
-     */
-    Direction findDirectionBetween(const MoveUtils& a);
 
 };
 

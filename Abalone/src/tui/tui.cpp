@@ -14,9 +14,14 @@ void TUI::displayMessage(std::string message){
     std::cout<<message<<std::endl;
 }
 
-void TUI::whoseTurn(Color color){
+void TUI::getPlayerTurn(Color color){
     std::string turn = "";
-    if(color == WHITE) turn.append("Player 1");
-    else turn.append("Player 2");
-    TUI::displayMessage(turn+" has to play");
+    color == WHITE? turn.append("Player 1") : turn.append("Player 2");
+    TUI::displayMessage("It is " +turn+"'s to play");
+}
+
+std::string TUI::askEntry (){
+    std::string command="";
+    std::cin>> command;
+    return command;
 }

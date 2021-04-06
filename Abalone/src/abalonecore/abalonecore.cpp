@@ -1,4 +1,5 @@
 #include "abalonecore.h"
+
 AbaloneCore::AbaloneCore(){
 }
 
@@ -6,34 +7,27 @@ void AbaloneCore::start(){
     TUI::welcomeBanner();
     while(_end==0){
         TUI::displayGameBoard(_game);
-        turnPlay();
-
+        playTurn();
     }
-    TUI::displayMessage("endOfGame");
+    TUI::displayMessage("End of game");
 }
 
-void AbaloneCore::turnPlay(){
-    bool movedWell = false;
-    while(!movedWell){
-        TUI::whoseTurn(_turn);
-        std::string command="";
+void AbaloneCore::playTurn(){
+    bool moveApproved = false;
+    while(!moveApproved){
+        TUI::getPlayerTurn(_turn);
         TUI::displayMessage("");
-        std::cin>>command;
-        try{//faire l'entree de l'utilisateur
-        MoveUtils possibleMove = AbaPro::getCommand(command);//extraire le  mouvement
-        movedWell=_game.applyMove(possibleMove,_turn);//valider si le mouvement a bien ete fait sinon relance la boucle
-        if(!movedWell)TUI::displayMessage("Wrong entry");}
-        catch (std::exception& e){
-            TUI::displayMessage("Failed attempt");
-        }
+        MoveUtils givenMove = AbaPro::getCommand(TUI::askEntry());
+        moveApproved=_game.applyMove(givenMove,_turn);
+        if(!moveApproved)
+            TUI::displayMessage("Wrong entry");
     }
     Color loser = _game.whoLost();
-    loser != EMPTY? finish(loser) : switchTurn();
+    loser==EMPTY?switchTurn():finish(loser);
 }
 
 void AbaloneCore::switchTurn(){
-    if(_turn==WHITE)_turn=BLACK;
-    else _turn=WHITE;
+    _turn==WHITE? _turn=BLACK : _turn=WHITE;
 }
 
 Color AbaloneCore::getReturn(){
@@ -46,8 +40,7 @@ bool AbaloneCore::getEndStatus(){
 
 void AbaloneCore::finish(Color color){
     std::string loser = "";
-    if(color == WHITE) loser.append("Player 1");
-    else loser.append("Player 2");
-    TUI::displayMessage(loser+" lost the game !");
+    color == WHITE? loser.append("Player 1") : loser.append("Player 2");
+    TUI::displayMessage(loser+" has lost the game !");
     _end=true;
 }

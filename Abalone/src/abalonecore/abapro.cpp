@@ -105,10 +105,6 @@ Position AbaPro::getPosition(const std::string& command)
     throw "erreur with translating user given position into a valid position";
 }
 
-//Must give correct direction and check it first to see if valid.
-//C3C5D3  // 2 6 // 2 5
-//I8H7
-//if return direction = init.next ok
 Direction AbaPro::getDirection(Position init, Position final)
 {
     Direction end = Direction((final.getX()-init.getX()),(final.getY()-init.getY()));

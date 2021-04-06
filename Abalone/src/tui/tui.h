@@ -29,7 +29,13 @@ public:
      * @brief Determines who's turn it is.
      * @param color to get opposite player.
      */
-    static void whoseTurn(Color color);
+    static void getPlayerTurn(Color color);
+
+    /**
+     * @brief Asks an entry to a user.
+     * @return Entry given by user.
+     */
+    static std::string askEntry();
 };
 
 #endif // TUI_H

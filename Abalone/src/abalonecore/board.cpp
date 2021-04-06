@@ -46,6 +46,10 @@ Hexagon& Board::getHexagon(int x, int y)
     return _board[y][x];
 }
 
+Hexagon& Board::getHexagon(Position p){
+    return _board[p.getY()][p.getX()];
+}
+
 bool Board::checkNeigbourSameColor(Position position, Direction direction)
 {
     Color origin = _board[position.getY()][position.getX()].getMarbleColor();
