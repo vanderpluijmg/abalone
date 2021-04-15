@@ -65,11 +65,6 @@ public:
     static void addPosAndDirToUtils (MoveUtils& a, Position p,Direction dir);
 
     /**
-     * @brief Adds 2 positions and a direction to the utils.
-     * @param a MoveUtils to which the position will be added to.
-     * @param p1 A given Position to add to the MoveUtils object.
-     */
-    /**
      * @brief add2PosAndDirToUtils Adds 2 positions and a direction to the utils.
      * @param a MoveUtils to which the positions will be added to.
      * @param p1 A given Position to add to the MoveUtils object.
