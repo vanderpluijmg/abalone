@@ -14,7 +14,7 @@ CORELIBMODE = staticlib
 	include($${PWD}/src/abalonecore/abalonecore.pri)
 }
 
-QMAKE_CXXFLAGS += -Wall
+QMAKE_CXXFLAGS += -Wall -Wextra -pedantic
 lessThan(QT_MAJOR_VERSION, 5) {
     error("Use Qt 5 or newer")
 }

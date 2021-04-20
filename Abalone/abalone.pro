@@ -7,4 +7,5 @@ SUBDIRS += \
 # Note that the / was replaced by - in the target name
 src-tui.depends = src/abalonecore
 tests.depends = src/abalonecore
-OTHER_FILES += config.pri
+OTHER_FILES += config.pri\
+                Doxyfile

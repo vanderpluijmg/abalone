@@ -11,4 +11,5 @@ win32-g++* {
 
 include(../config.pri)
 
-SOURCES +=     main.cpp     tst_position.cpp
+SOURCES +=     main.cpp\
+               tst_position.cpp
