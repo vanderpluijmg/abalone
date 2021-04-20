@@ -8,13 +8,14 @@ CONFIG -= debug_and_release debug_and_release_target
 INCLUDEPATH += $${PWD}/libs/
 
 #Or sharedlib
-CORELIBMODE = staticlib
+CORELIBMODE=staticlib
 
 !equals(TARGET, abalonecore) {
 	include($${PWD}/src/abalonecore/abalonecore.pri)
 }
 
 QMAKE_CXXFLAGS += -Wall -Wextra -pedantic
+
 lessThan(QT_MAJOR_VERSION, 5) {
     error("Use Qt 5 or newer")
 }
