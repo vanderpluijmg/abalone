@@ -1,10 +1,10 @@
-#include "../abalonecore/abalonecore.h"
-#include "../abalonecore/direction.h"
-#include "../abalonecore/abapro.h"
+#include "abalonecore.h"
+#include "direction.h"
+#include "abapro.h"
 #include <iostream>
 #include <string>
-#include "../abalonecore/game.h"
-#include "../abalonecore/board.h"
+#include "game.h"
+#include "board.h"
 
 using namespace std;
 int main (void) {
