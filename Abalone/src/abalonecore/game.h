@@ -106,7 +106,7 @@ public:
      * @param playerColor Color of the defending player.
      * @return True if move can be done and has been applied.
      */
-    bool createDefendGroup(const MoveUtils& a, Position begin, Color playerColor, std::vector<Position>);
+    bool createDefendGroup(const MoveUtils& a, Position begin, Color playerColor, const std::vector<Position>&);
 
     /**
      * @brief Applies a lateral move.

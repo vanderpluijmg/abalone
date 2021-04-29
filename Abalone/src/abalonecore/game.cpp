@@ -86,7 +86,7 @@ std::vector<Position> Game::createAttackGroup(Position begin, Color playerColor,
     return attackGroup;
 }
 
-bool Game::createDefendGroup(const MoveUtils& a,Position begin, Color defendColor, std::vector<Position> attackGroup){
+bool Game::createDefendGroup(const MoveUtils& a,Position begin, Color defendColor, const std::vector<Position>& attackGroup){
     std::vector<Position> defendGroup (5,Position());
     int sizeGroup = 0;
     if(_board.getColor(begin)==EMPTY){
@@ -106,18 +106,21 @@ bool Game::createDefendGroup(const MoveUtils& a,Position begin, Color defendColo
             _board.getHexagon(attackGroup[0]).setEmpty();
             _board.getHexagon(defendGroup[0]).setMarbleColor(_board.getOppositeColor(defendColor));
         }
+        begin = begin.next(a.dir);
     }
     defendGroup.resize(sizeGroup);
     if (attackGroup.size()>defendGroup.size())
-        return applyLinearMove(defendGroup, attackGroup, a.dir, _board.getOppositeColor(defendColor));
+        if (applyLinearMove(defendGroup, attackGroup, a.dir, _board.getOppositeColor(defendColor))==true)
+            return true;
     return false;
 }
 
 bool Game::applyLinearMove(std::vector<Position> defenseGroup, std::vector<Position> attackGroup, Direction d, Color playerColor){
-    switch (attackGroup.size()) {
+    switch (defenseGroup.size()) {
     case 1 : _board.getHexagon(defenseGroup[0]).setMarbleColor(_board.getOppositeColor(playerColor));
         _board.getHexagon(defenseGroup[0]).setMarbleColor(playerColor);
         _board.getHexagon(attackGroup[0]).setMarbleColor(EMPTY);
+        _board.getHexagon(defenseGroup[0].next(d)).setMarbleColor(_board.getOppositeColor(playerColor));
         return true;
     case 2 :
         _board.getHexagon(defenseGroup[0]).setMarbleColor(playerColor);
