@@ -2,7 +2,8 @@ TEMPLATE = subdirs
 SUBDIRS += \
     src/abalonecore \
     src/tui \
-<<<<<<< HEAD
+
+<<<<<<<HEAD
 =======
     gui \
 
