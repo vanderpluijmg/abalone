@@ -1,10 +1,13 @@
-#ifndef HEXACELL_H
-#define HEXACELL_H
+#ifndef BALL_H
+#define BALL_H
 
 #include <QGraphicsPolygonItem>
 #include <QPolygonF>
 #include <string>
 #include <QPointF>
+#include "../abalonecore/color.hpp"
+#include "point.hpp"
+
 
 class QPainter;
 class QStyleOptionGraphicsItem;
@@ -13,20 +16,19 @@ class QGraphicsSceneHoverEvent;
 class QGraphicsSceneMouseEvent;
 class QGraphicsSceneWheelEvent;
 
-class HexaCell  : public QGraphicsPolygonItem
+class Ball  : public QGraphicsPolygonItem
 {
     static const double zValMax; //z-val of selected items
     double zval; //z-val at instanciation
 
     protected:
-        double rad, dx, dy;//hexagon radius, coordinate (x,y) of center
+        point<int> pos;//hexagon radius, coordinate (x,y) of center
         bool mouseover, selected, moved;//mouse interaction booleans
+        Color color;
 
     public:
-        HexaCell(double rad = 100,
-                 double dx = 0,
-                 double dy = 0,
-                 QGraphicsItem * parent = 0);
+        Ball(int dx = 0,
+                 int dy = 0,Color color=BLACK);
 
         void paint(QPainter *painter,
                    const QStyleOptionGraphicsItem *option,
@@ -35,6 +37,7 @@ class HexaCell  : public QGraphicsPolygonItem
         inline QPointF coord(double x, double y) const;
 
         inline void setLocation(double x, double y);
+protected: double getDx();
 
     protected:
         void hoverEnterEvent(QGraphicsSceneHoverEvent * event);
@@ -45,4 +48,4 @@ class HexaCell  : public QGraphicsPolygonItem
         void wheelEvent(QGraphicsSceneWheelEvent * event);
 };
 
-#endif // HEXACELL_H
+#endif // BALL_H

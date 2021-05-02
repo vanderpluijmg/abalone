@@ -93,8 +93,8 @@ point<T> polar(const point<T>& p)
 }
 
 /**
- * Converts the given point (specified in polar coordinates) to 
- * a point expressed in cartesian coordinates.
+ * Converts the given point (specified in polar coordinates) to
+ * a point expressed in cartesian coordinates. Corresponds to the Abalone Board
  * @brief Converts the given point to cartesian coordinates
  * @param p the point to convert to cartesian coordinates
  * @return the cartesian expression of p
@@ -103,6 +103,28 @@ template<class T>
 point<T> cartesian(const point<T>& p)
 {
     return make_point(p.first * std::cos(p.second), p.first * std::sin(p.second));
+}
+
+/**
+ * Converts the given point (specified in polar coordinates) to
+ * a point expressed in cartesian coordinates. Corresponds to the Abalone Board.
+ * @brief Converts the given point to cartesian coordinates
+ * @param p the point to convert to cartesian coordinates
+ * @return the cartesian expression of p
+ */
+template<class T>
+point<T> cartesianForAbalone(point<T> p,int spacing)
+{
+    //Transformation vers position cartésiennes compréhensibles à partir des positions du plateau de jeu venant de la classe Board
+    double horizontalSpace = sqrt(3)*spacing;// space taken horizontally by a hexagon = the space between centers of two adjacent hexagons (same line)
+    double verticalSpace = -1.5*spacing;// space taken between two lines in terms of centers of hexagons
+    double horizontalPos = p.first;//Position compared to the first on the left of the line
+    double horizontalShift =(-8+((double)p.second/2))*horizontalSpace;// position of the one most on the leftcompared to center of gameboard
+    double verticalShift = (4-p.second)*verticalSpace;// position of line compared to center of gameboard
+    //Final Positions
+    double finalX = horizontalShift+horizontalSpace*horizontalPos;
+    double finalY = verticalShift;
+    return make_point(finalX, finalY);
 }
 
 /*
