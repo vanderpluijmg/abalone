@@ -35,7 +35,7 @@ class HexaCell  : public QGraphicsPolygonItem
         inline QPointF coord(double x, double y) const;
 
         inline void setLocation(double x, double y);
-protected: double getDx();
+protected: point<int> getPos();
 
     protected:
         void hoverEnterEvent(QGraphicsSceneHoverEvent * event);

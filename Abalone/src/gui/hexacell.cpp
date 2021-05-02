@@ -24,17 +24,6 @@ HexaCell::HexaCell( int dx, int dy)
 
     point<double> final = cartesianForAbalone(pos,rad);
 
-
-
-    //    //Transformation vers position cartésiennes compréhensibles à partir des positions du plateau de jeu venant de la classe Board
-    //    double horizontalSpace = sqrt(3)*rad;// space taken horizontally by a hexagon = the space between centers of two adjacent hexagons (same line)
-    //    double verticalSpace = -1.5*rad;// space taken between two lines in terms of centers of hexagons
-    //    double horizontalPos = dx;//Position compared to the first on the left of the line
-    //    double horizontalShift =(-8+((double)dy/2))*horizontalSpace;// position of the one most on the leftcompared to center of gameboard
-    //    double verticalShift = (4-dy)*verticalSpace;// position of line compared to center of gameboard
-    //    double finalX = horizontalShift+horizontalSpace*horizontalPos;
-    //    double finalY = verticalShift;
-
     QPolygonF polygon;
     auto&& corners = orbit(final,6, rad, piOver6);
     for(auto& p : corners)
@@ -42,8 +31,8 @@ HexaCell::HexaCell( int dx, int dy)
 
     setPolygon(polygon);
 }
-double HexaCell::getDx(){
-    return this->pos.first;
+point<int> HexaCell::getPos(){
+    return this->pos;
 }
 
 

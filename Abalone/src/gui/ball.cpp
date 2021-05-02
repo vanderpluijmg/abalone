@@ -35,8 +35,8 @@ Ball::Ball( int dx, int dy,Color color)
 
     setPolygon(polygon);
 }
-double Ball::getDx(){
-    return this->pos.first;
+point<int> Ball::getPos(){
+    return this->pos;
 }
 
 

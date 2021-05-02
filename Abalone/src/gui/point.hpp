@@ -20,7 +20,7 @@ using point = std::pair<T,T>;
  */
 using point2d = point<double>;
 
-/*
+/**
  * An alias for std::make_pair<T,T>, to create points.
  * @brief An alias for std::make_pair<T,T>, to create points.
  * @param t1 the first coordinate of the point to build
@@ -63,7 +63,7 @@ R dist(const point<T>& p1, const point<T>& p2)
     return std::hypot(p1.first - p2.first, p1.second - p2.second);
 }
 
-/*
+/**
  * Returns the Manhattan distance between two points p1 and p2.
  * @brief Returns the Manhattan distance between two points p1 and p2.
  * @param p1 a first point
@@ -127,7 +127,7 @@ point<T> cartesianForAbalone(point<T> p,int spacing)
     return make_point(finalX, finalY);
 }
 
-/*
+/**
  * Translates the polar point (mod, arg) by the cartesian vector (p.first, p.second).
  * <p>
  * The result is expressed in cartesian coordinates.
