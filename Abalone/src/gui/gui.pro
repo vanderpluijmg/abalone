@@ -28,6 +28,7 @@ SOURCES += \
 
 HEADERS += \
     ball.h \
+    graphics_scene.hpp \
     hexacell.h \
     mainwindow.h \
     point.hpp
