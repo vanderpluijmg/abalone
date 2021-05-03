@@ -22,12 +22,17 @@ MainWindow::MainWindow(QWidget *parent)
     addGameBoardAbalone(game.getBoard(),background);
     addBallsAbalone(game.getBoard(),foreground);
 
-    foreground->setBackgroundBrush(Qt::gray);
+    background->setBackgroundBrush(Qt::gray);
+    delete foreground->items().at(27);
 
-    QGraphicsView * view = new QGraphicsView(foreground);
-    view->setScene(foreground);
-    foreground->set_background_scene(background);
 
+   QGraphicsView * view = new QGraphicsView(background);
+    background->set_background_scene(foreground);
+    QString matchText = "Player 1 vs Player 2";
+    QGraphicsTextItem * match = new QGraphicsTextItem();
+    match->setPlainText(matchText);
+    match->setPos(425, 0);
+    foreground->addItem(match);
     view->setRenderHint(QPainter::Antialiasing);
     view->setRenderHint(QPainter::TextAntialiasing);
     view->setCacheMode(QGraphicsView::CacheBackground);

@@ -48,7 +48,7 @@ void HexaCell::paint(QPainter *painter,
         painter->setPen(pen);
 
         QBrush brush;
-        brush.setColor(Qt::yellow);
+        brush.setColor(Qt::transparent);
         brush.setStyle(Qt::SolidPattern);
 
         painter->setBrush(brush);
@@ -59,7 +59,7 @@ void HexaCell::paint(QPainter *painter,
         painter->setPen(pen);
 
         QBrush brush;
-        brush.setColor(Qt::green);
+        brush.setColor(Qt::transparent);
         brush.setStyle(Qt::SolidPattern);
 
         painter->setBrush(brush);
@@ -70,7 +70,7 @@ void HexaCell::paint(QPainter *painter,
         painter->setPen(pen);
 
         QBrush brush;
-        brush.setColor(Qt::cyan);
+        brush.setColor(Qt::transparent);
         brush.setStyle(Qt::SolidPattern);
 
         painter->setBrush(brush);

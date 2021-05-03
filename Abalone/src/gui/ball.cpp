@@ -20,7 +20,7 @@ Ball::Ball( int dx, int dy,Color color)
 {
     this->setAcceptHoverEvents(true);
     zval = zValue();
-    static const double piOver6 = atan(1) * 4/6;
+    static const double piOver6 = atan(1) * 3/6;
 
     //Paramètres utiles au positionnement et aux dessins
     double radCell = 50;
@@ -29,7 +29,7 @@ Ball::Ball( int dx, int dy,Color color)
     point<double> final = cartesianForAbalone(pos,radCell);
 
     QPolygonF polygon;
-    auto&& corners = orbit(final,100, radBall, piOver6);
+    auto&& corners = orbit(final,350, radBall, piOver6);
     for(auto& p : corners)
         polygon << QPointF(p.first, p.second);
 
