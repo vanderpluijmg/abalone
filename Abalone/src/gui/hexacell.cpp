@@ -12,9 +12,10 @@
 
 double const HexaCell::zValMax = 10000;//arbitrary
 
-HexaCell::HexaCell( int dx, int dy)
+HexaCell::HexaCell( int dx, int dy,Qt::GlobalColor color)
     : QGraphicsPolygonItem(nullptr),
       pos(make_point(dx,dy)),
+      color(color),
       mouseover(false), selected(false), moved(false)
 {this->setAcceptHoverEvents(true);
     zval = zValue();
@@ -48,7 +49,7 @@ void HexaCell::paint(QPainter *painter,
         painter->setPen(pen);
 
         QBrush brush;
-        brush.setColor(Qt::transparent);
+        brush.setColor(this->color);
         brush.setStyle(Qt::SolidPattern);
 
         painter->setBrush(brush);
@@ -59,7 +60,7 @@ void HexaCell::paint(QPainter *painter,
         painter->setPen(pen);
 
         QBrush brush;
-        brush.setColor(Qt::transparent);
+        brush.setColor(this->color);
         brush.setStyle(Qt::SolidPattern);
 
         painter->setBrush(brush);
@@ -70,7 +71,7 @@ void HexaCell::paint(QPainter *painter,
         painter->setPen(pen);
 
         QBrush brush;
-        brush.setColor(Qt::transparent);
+        brush.setColor(color);
         brush.setStyle(Qt::SolidPattern);
 
         painter->setBrush(brush);

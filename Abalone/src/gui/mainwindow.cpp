@@ -15,19 +15,19 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     graphics_scene  * foreground = new graphics_scene();
+    graphics_scene  * balls = new graphics_scene();
     graphics_scene  * background = new graphics_scene();
 
     Game game = Game();
 
-    addGameBoardAbalone(game.getBoard(),background);
-    addBallsAbalone(game.getBoard(),foreground);
+    addGameBoardAbalone(game.getBoard(),background,Qt::gray);
+    addBallsAbalone(game.getBoard(),balls);
+    addGameBoardAbalone(game.getBoard(),foreground,Qt::transparent);
 
-    background->setBackgroundBrush(Qt::gray);
-    delete foreground->items().at(27);
+    QGraphicsView * view = new QGraphicsView(foreground);
+    foreground->set_background_scene(balls);
+    balls->set_background_scene(background);
 
-
-   QGraphicsView * view = new QGraphicsView(background);
-    background->set_background_scene(foreground);
     QString matchText = "Player 1 vs Player 2";
     QGraphicsTextItem * match = new QGraphicsTextItem();
     match->setPlainText(matchText);
@@ -50,11 +50,11 @@ MainWindow::~MainWindow()
 {
 }
 
-void MainWindow::addGameBoardAbalone(Board board, graphics_scene  * scene){
+void MainWindow::addGameBoardAbalone(Board board, graphics_scene  * scene,Qt::GlobalColor color){
     for (int i = 0; i < 9; i++) {
         for (int j = 0;j<9 ; j++) {
             if(board.isOnBoard(Position(j,i))){
-                scene->addItem(new HexaCell( j, i));
+                scene->addItem(new HexaCell( j, i,color));
             }
         }
     }

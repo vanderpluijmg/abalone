@@ -20,7 +20,7 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    void addGameBoardAbalone(Board board, graphics_scene  * scene);
+    void addGameBoardAbalone(Board board, graphics_scene  * scene,Qt::GlobalColor color);
     void addBallsAbalone(Board board, graphics_scene  * scene);
     ~MainWindow();
 };

@@ -22,11 +22,13 @@ class HexaCell  : public QGraphicsPolygonItem
 
     protected:
         point<int> pos;//hexagon radius, coordinate (x,y) of center
+        Qt::GlobalColor color;
         bool mouseover, selected, moved;//mouse interaction booleans
 
     public:
         HexaCell(int dx = 0,
-                 int dy = 0);
+                 int dy = 0,
+                 Qt::GlobalColor color = Qt::black);
 
         void paint(QPainter *painter,
                    const QStyleOptionGraphicsItem *option,
