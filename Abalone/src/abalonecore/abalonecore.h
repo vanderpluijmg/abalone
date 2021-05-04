@@ -13,7 +13,7 @@ private:
     Game _game=Game();
     TUI _tui;
     bool _end=false;
-    Color _turn=BLACK;
+    Color _turn=WHITE;
 
 public:
 

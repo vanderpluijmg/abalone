@@ -8,7 +8,8 @@ bool Game::applyMove(MoveUtils moves,Color player) {
 }
 
 int Game::validateMove(const MoveUtils& a,Color player) {
-    if((_board.getColor(a.pos1)!=player) || (a.pos1.getX()==-1 && a.pos1.getY()==-1))
+    if((_board.getColor(a.pos1)!=player))
+            if((a.pos1.getX()==-1 && a.pos1.getY()==-1))
         return false;
     return a.pos2.getX()==-1 && a.pos2.getY()==-1?
                 validateLinearAndSameColor(a) : validateLateralAndSameColor(a);
@@ -46,9 +47,7 @@ bool Game::checkAllCaseEmtpy(const MoveUtils& a, Position inBetween){
 }
 
 bool Game::allSameColor(const MoveUtils& a, Position inBetween){
-    return (((_board.getColor(a.pos1))
-             == (_board.getColor(a.pos2)))
-            == (_board.getColor(inBetween)));
+    return ((_board.getColor(a.pos1) == _board.getColor(a.pos2))&&(_board.getColor(a.pos2) == _board.getColor(inBetween)));
 }
 
 Board Game::getBoard(){
@@ -120,12 +119,14 @@ bool Game::applyLinearMove(std::vector<Position> defenseGroup, std::vector<Posit
     case 1 : _board.getHexagon(defenseGroup[0]).setMarbleColor(_board.getOppositeColor(playerColor));
         _board.getHexagon(defenseGroup[0]).setMarbleColor(playerColor);
         _board.getHexagon(attackGroup[0]).setMarbleColor(EMPTY);
-        _board.getHexagon(defenseGroup[0].next(d)).setMarbleColor(_board.getOppositeColor(playerColor));
+        if(_board.isOnBoard(defenseGroup[0].next(d)))
+            _board.getHexagon(defenseGroup[0].next(d)).setMarbleColor(_board.getOppositeColor(playerColor));
         return true;
     case 2 :
         _board.getHexagon(defenseGroup[0]).setMarbleColor(playerColor);
-        _board.getHexagon(defenseGroup[1].next(d)).setMarbleColor(_board.getOppositeColor(playerColor));
         _board.getHexagon(attackGroup[0]).setMarbleColor(EMPTY);
+        if(_board.isOnBoard(defenseGroup[1].next(d)))
+            _board.getHexagon(defenseGroup[1].next(d)).setMarbleColor(_board.getOppositeColor(playerColor));
         return true;
     case 3: return false;
     }
