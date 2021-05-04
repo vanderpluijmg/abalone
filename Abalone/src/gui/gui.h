@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef GUI_H
+#define GUI_H
 
 #include <QGraphicsScene>
 #include <QMainWindow>
@@ -14,14 +14,20 @@
 #include "point.hpp"
 #include "graphics_scene.hpp"
 
-class MainWindow : public QMainWindow
+class GUI : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    GUI(QWidget *parent = nullptr,Game*g=nullptr);
     void addGameBoardAbalone(Board board, graphics_scene  * scene,Qt::GlobalColor color);
     void addBallsAbalone(Board board, graphics_scene  * scene);
-    ~MainWindow();
+    void ballsUpdate();
+    ~GUI();
+protected:
+    graphics_scene  * foreground = new graphics_scene();
+    graphics_scene  * balls = new graphics_scene();
+    graphics_scene  * background = new graphics_scene();
+    Game *game;
 };
-#endif // MAINWINDOW_H
+#endif // GUI_H

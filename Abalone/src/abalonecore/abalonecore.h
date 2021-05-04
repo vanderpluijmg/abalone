@@ -11,7 +11,6 @@ class AbaloneCore{
 private:
 
     Game _game=Game();
-    TUI _tui;
     bool _end=false;
     Color _turn=WHITE;
 
@@ -54,6 +53,10 @@ public:
      * @return
      */
     Color getReturn();
+
+    Game getGame(){
+        return this->_game;
+    }
 };
 
 #endif // ABALONECORE_H

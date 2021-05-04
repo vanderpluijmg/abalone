@@ -22,15 +22,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     ball.cpp \
+    gui.cpp \
     hexacell.cpp \
-    main.cpp \
-    mainwindow.cpp
+    main.cpp
 
 HEADERS += \
     ball.h \
     graphics_scene.hpp \
+    gui.h \
     hexacell.h \
-    mainwindow.h \
     point.hpp
 
 # Default rules for deployment.

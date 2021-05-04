@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "gui.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -10,24 +10,20 @@
 #include "ball.h"
 #include "point.hpp"
 
-
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+/**
+ * @brief Graphical User Interface.
+ */
+GUI::GUI(QWidget *parent,Game* game)
+    : QMainWindow(parent),    game(game)
 {
-    graphics_scene  * foreground = new graphics_scene();
-    graphics_scene  * balls = new graphics_scene();
-    graphics_scene  * background = new graphics_scene();
-
-    Game game = Game();
-
-    addGameBoardAbalone(game.getBoard(),background,Qt::gray);
-    addBallsAbalone(game.getBoard(),balls);
-    addGameBoardAbalone(game.getBoard(),foreground,Qt::transparent);
+    addGameBoardAbalone(game->getBoard(),background,Qt::gray);
+    addBallsAbalone(game->getBoard(),balls);
+    addGameBoardAbalone(game->getBoard(),foreground,Qt::transparent);
 
     QGraphicsView * view = new QGraphicsView(foreground);
     foreground->set_background_scene(balls);
     balls->set_background_scene(background);
-
+    ballsUpdate();
     QString matchText = "Player 1 vs Player 2";
     QGraphicsTextItem * match = new QGraphicsTextItem();
     match->setPlainText(matchText);
@@ -46,11 +42,11 @@ MainWindow::MainWindow(QWidget *parent)
     this->setCentralWidget(view);
 }
 
-MainWindow::~MainWindow()
+GUI::~GUI()
 {
 }
 
-void MainWindow::addGameBoardAbalone(Board board, graphics_scene  * scene,Qt::GlobalColor color){
+void GUI::addGameBoardAbalone(Board board, graphics_scene  * scene,Qt::GlobalColor color){
     for (int i = 0; i < 9; i++) {
         for (int j = 0;j<9 ; j++) {
             if(board.isOnBoard(Position(j,i))){
@@ -60,7 +56,7 @@ void MainWindow::addGameBoardAbalone(Board board, graphics_scene  * scene,Qt::Gl
     }
 }
 
-void MainWindow::addBallsAbalone(Board board, graphics_scene  * scene){
+void GUI::addBallsAbalone(Board board, graphics_scene  * scene){
     for (int i = 0; i < 9; i++) {
         for (int j = 0;j<9 ; j++) {
             if(board.isOnBoard(Position(j,i))){
@@ -70,4 +66,14 @@ void MainWindow::addBallsAbalone(Board board, graphics_scene  * scene){
             }
         }
     }
+}
+void GUI::ballsUpdate(){
+    for(int i =balls->items().size()-1;i>=0;i--){
+        {
+            delete this->balls->items().at(i);
+        }
+    }
+
+    std::cout<<game->getBoard().toString()<<std::endl;
+    addBallsAbalone(game->getBoard(),balls);
 }
