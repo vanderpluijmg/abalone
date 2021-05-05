@@ -17,37 +17,52 @@ int Game::validateMove(const MoveUtils& a,Color player) {
 
 bool Game::validateLateralAndSameColor(const MoveUtils& a){
     int deltaX;
+    Position inBetweenExp (0,-5);
     a.pos2.getX()>a.pos1.getX()? deltaX =2 : deltaX=-2;
-    Position inBetweenExp ((a.pos1.getX()+(deltaX-1)),(a.pos2.getY()));
-    if (a.pos1.getY() == a.pos2.getY())
-        if (((a.pos1.getX()+deltaX)==a.pos2.getX()))
-            if (((a.pos1.getX()+1) ==(inBetweenExp.getX())))
-                if ((inBetweenExp.getX()) == (a.pos2.getX()-1))
-                    if (allSameColor(a,inBetweenExp))
-                        if ((checkAllCaseEmtpy(a, inBetweenExp))){
-                            return applyLateralMove(a, _board.getColor(a.pos1), inBetweenExp);
-                        }
+    if ((a.pos1.getX()+1 != a.pos2.getX()) && (a.pos1.getX()-1 != a.pos2.getX())){
+        inBetweenExp.setPosition((a.pos1.getX()+(deltaX-1)),(a.pos2.getY()));
+        if (a.pos1.getY() == a.pos2.getY())
+            if (((a.pos1.getX()+deltaX)==a.pos2.getX()))
+                if (((a.pos1.getX()+1) ==(inBetweenExp.getX())))
+                    if ((inBetweenExp.getX()) == (a.pos2.getX()-1))
+                        if (allSameColor(a,inBetweenExp))
+                            if ((checkAllCaseEmtpy(a, inBetweenExp))){
+                                return applyLateralMove(a, _board.getColor(a.pos1), inBetweenExp);
+                            }
+    }
+    else {
+        if (a.pos1.getY() == a.pos2.getY())
+            if (((a.pos1.getX()+1)==a.pos2.getX()))
+                if (allSameColor(a,inBetweenExp))
+                    if ((checkAllCaseEmtpy(a, inBetweenExp))){
+                         return applyLateralMove(a, _board.getColor(a.pos1), inBetweenExp);
+                    }
+    }
     return false;
 }
 
 bool Game::applyLateralMove(const MoveUtils& a,Color color, Position inBetweenExp){
+    if (!(inBetweenExp == Position(0,-5))){
+        _board.getHexagon(inBetweenExp.next(a.dir)).setMarbleColor(color);
+        _board.getHexagon(inBetweenExp).setMarbleColor(EMPTY);
+    }
     _board.getHexagon(a.pos1.next(a.dir)).setMarbleColor(color);
     _board.getHexagon(a.pos2.next(a.dir)).setMarbleColor(color);
-    _board.getHexagon(inBetweenExp.next(a.dir)).setMarbleColor(color);
     _board.getHexagon(a.pos1).setMarbleColor(EMPTY);
     _board.getHexagon(a.pos2).setMarbleColor(EMPTY);
-    _board.getHexagon(inBetweenExp).setMarbleColor(EMPTY);
     return true;
 }
 
-bool Game::checkAllCaseEmtpy(const MoveUtils& a, Position inBetween){
-    return (_board.isEmpty(a.pos1.next(a.dir))
-            && _board.isEmpty(a.pos2.next(a.dir))
-            && _board.isEmpty(inBetween.next(a.dir)));
+bool Game::checkAllCaseEmtpy(const MoveUtils& a, Position inBetweenExp){
+    return !(inBetweenExp == Position(0,-5))?
+    (_board.isEmpty(a.pos1.next(a.dir)) && _board.isEmpty(a.pos2.next(a.dir)) && _board.isEmpty(inBetweenExp.next(a.dir))) :
+    (_board.isEmpty(a.pos1.next(a.dir)) && _board.isEmpty(a.pos2.next(a.dir)));
 }
 
 bool Game::allSameColor(const MoveUtils& a, Position inBetween){
-    return ((_board.getColor(a.pos1) == _board.getColor(a.pos2))&&(_board.getColor(a.pos2) == _board.getColor(inBetween)));
+    return inBetween == Position(0,-5) ?
+        (_board.getColor(a.pos1) == _board.getColor(a.pos2)) :
+    ((_board.getColor(a.pos1) == _board.getColor(a.pos2))&&(_board.getColor(a.pos2) == _board.getColor(inBetween)));
 }
 
 Board Game::getBoard(){

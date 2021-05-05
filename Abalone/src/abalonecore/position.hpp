@@ -82,6 +82,12 @@ public:
         _y = source._y;
     }
 
+    void setPosition (int x, int y)
+    {
+        _x= x;
+        _y=y;
+    }
+
     /**
      * @brief Overload of osStream. For display purposes.
      * @param stream Input.
@@ -101,6 +107,11 @@ public:
     bool operator==(const Position & rhs) const
     {
         return (_x==rhs._x && _y==rhs._y);
+    }
+
+    bool operator !=(const Position & rhs) const
+    {
+        return (*this == rhs);
     }
 
 };
