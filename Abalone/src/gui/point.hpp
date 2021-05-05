@@ -7,7 +7,7 @@
 #include <vector>
 
 /**
- * An alias for a pair of elements of the same type. The point (1,1) can be 
+ * An alias for a pair of elements of the same type. The point (1,1) can be
  * built as <code>point<double> p {1,-1}</code>.
  * @brief An alias for a pair of elements of the same type.
  */
@@ -34,7 +34,7 @@ auto make_point(T&& t1, T&& t2)
 }
 
 /**
- * Returns true if two given points coincide up to a precision, returns 
+ * Returns true if two given points coincide up to a precision, returns
  * false otherwise.
  * <p>
  * More precisely, (x1, y1) == (x2, y2) up to a precision E
@@ -46,8 +46,8 @@ auto make_point(T&& t1, T&& t2)
 template<class T>
 bool coincide(const point<T>& p1, const point<T>& p2, T precision = 10E-9L)
 {
-    return std::abs(p1.first - p2.first) < precision 
-        && std::abs(p1.second - p2.second) < precision;   
+    return std::abs(p1.first - p2.first) < precision
+            && std::abs(p1.second - p2.second) < precision;
 }
 
 /**
@@ -77,15 +77,15 @@ R manhattan(const point<T>& p1, const point<T>& p2)
 }
 
 /**
- * Converts the given point (specified in cartesian coordinates) to 
+ * Converts the given point (specified in cartesian coordinates) to
  * a point expressed in polar coordinates.
  * <p>
- * Note that the argument (in radians) of the returned polar point will 
+ * Note that the argument (in radians) of the returned polar point will
  * always lie in [-pi, pi]
  * @brief Converts the given point to polar coordinates
  * @param p the point to convert to polar coordinates
  * @return the polar expression of p
- */ 
+ */
 template<class T>
 point<T> polar(const point<T>& p)
 {
@@ -148,15 +148,15 @@ point<T> polar_translate(const point<T>& p, const T& mod, const T& arg)
  * Creates an orbit of n points symetrically spread around some coordinate,
  * starting from an optional angle shift.
  * <p>
- * For instance, <code>orbit({1,1}, 6, 2., (3.141592654 / 4));</code> creates 
- * 6 points around the coordinate (1,1), spreaded symetrically as a regular 
+ * For instance, <code>orbit({1,1}, 6, 2., (3.141592654 / 4));</code> creates
+ * 6 points around the coordinate (1,1), spreaded symetrically as a regular
  * hexagon, the first point starting at an amplitude of pi/4.
  * <p>
  * The created points are all expressed in cartesian coordinates
  * @param p the point to orbit around
  * @param n the number of points in the orbit
  * @param radius the radius of the orbit
- * @param arg_shit the starting angle of the first orbiting point, 
+ * @param arg_shit the starting angle of the first orbiting point,
  * specified in radians
  * @return a std::vector of n orbiting points
  */
@@ -165,7 +165,7 @@ auto orbit(const point<T>& p, unsigned n, T radius, T arg_shift = 0)
 {
     static constexpr T PI = atan(1) * 4;
     
-    T angle = 2 * PI / n;    
+    T angle = 2 * PI / n;
     std::vector<point<T>> points(n);
     for(unsigned i = 0; i < n; i++)
         points[i] = polar_translate(p, radius, arg_shift + i * angle);

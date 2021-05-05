@@ -21,31 +21,20 @@ class Ball  : public QGraphicsPolygonItem
     static const double zValMax; //z-val of selected items
     double zval; //z-val at instanciation
 
-    protected:
-        point<int> pos;//hexagon radius, coordinate (x,y) of center
-        bool mouseover, selected, moved;//mouse interaction booleans
-        Color color;
+protected:
+    point<int> pos;//hexagon radius, coordinate (x,y) of center
+    double rad;//size of the Ball
+    Color color;//Color to paint the ball in
+public:
+    Ball(int dx = 0,
+         int dy = 0,
+         double rad=50,
+         Color color=BLACK);
 
-    public:
-        Ball(int dx = 0,
-                 int dy = 0,Color color=BLACK);
-
-        void paint(QPainter *painter,
-                   const QStyleOptionGraphicsItem *option,
-                   QWidget *widget);
-
-        inline QPointF coord(double x, double y) const;
-
-        inline void setLocation(double x, double y);
-protected: point<int> getPos();
-
-    protected:
-        void hoverEnterEvent(QGraphicsSceneHoverEvent * event);
-        void hoverLeaveEvent(QGraphicsSceneHoverEvent * event);
-        void mousePressEvent(QGraphicsSceneMouseEvent * event);
-        void mouseReleaseEvent(QGraphicsSceneMouseEvent * event);
-        void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
-        void wheelEvent(QGraphicsSceneWheelEvent * event);
+    void paint(QPainter *painter,
+               const QStyleOptionGraphicsItem *option,
+               QWidget *widget);
+    point<int> getPos();
 };
 
 #endif // BALL_H

@@ -12,10 +12,10 @@
 
 double const Ball::zValMax = 10000;//arbitrary
 
-Ball::Ball( int dx, int dy,Color color)
+Ball::Ball( int dx, int dy,double rad,Color color)
     : QGraphicsPolygonItem(nullptr),
       pos(make_point(dx,dy)),
-      mouseover(false), selected(false), moved(false),
+      rad(rad),
       color(color)
 {
     this->setAcceptHoverEvents(true);
@@ -23,8 +23,8 @@ Ball::Ball( int dx, int dy,Color color)
     static const double piOver6 = atan(1) * 3/6;
 
     //Paramètres utiles au positionnement et aux dessins
-    double radCell = 50;
-    double radBall = 20;
+    double radCell = rad;
+    double radBall = rad*2/5;
 
     point<double> final = cartesianForAbalone(pos,radCell);
 
@@ -46,83 +46,26 @@ void Ball::paint(QPainter *painter,
                  const QStyleOptionGraphicsItem *option,
                  QWidget *widget)
 {
-    if(selected)
-    {
-        QPen pen(Qt::blue, 5);
+
+
+    QBrush brush;
+    if(this->color==BLACK){
+        QPen pen(Qt::black, 1);
         painter->setPen(pen);
-
-        QBrush brush;
-        brush.setColor(Qt::yellow);
-        brush.setStyle(Qt::SolidPattern);
-
-        painter->setBrush(brush);
+        brush.setColor(Qt::black);
     }
-    else if(mouseover)
-    {
-        QPen pen(Qt::blue, 1);
+    if(this->color==WHITE){
+        QPen pen(Qt::white, 1);
         painter->setPen(pen);
-
-        QBrush brush;
-        brush.setColor(Qt::green);
-        brush.setStyle(Qt::SolidPattern);
-
-        painter->setBrush(brush);
+        brush.setColor(Qt::white);
     }
-    else
-    {
-        QPen pen(Qt::blue, 1);
-        painter->setPen(pen);
+    brush.setStyle(Qt::SolidPattern);
 
-        QBrush brush;
-        if(this->color==BLACK)brush.setColor(Qt::black);
-        if(this->color==WHITE)brush.setColor(Qt::white);
-        brush.setStyle(Qt::SolidPattern);
+    painter->setBrush(brush);
 
-        painter->setBrush(brush);
-    }
 
     painter->drawPolygon(polygon());
 }
 
-void Ball::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
-{
-    mouseover = true;
-    update();
-}
-
-void Ball::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
-{
-    mouseover = false;
-    update();
-}
-
-void Ball::mousePressEvent(QGraphicsSceneMouseEvent * event)
-{
-    moved = false;
-    selected = !selected; //I'd like to put this in "released"
-    std::cout<<pos.first<<"   "<<pos.second<<std::endl;
-    update();
-
-    //relaunches the event in order to allow dragging
-    QGraphicsItem::mousePressEvent(event);
-}
-
-void Ball::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
-{
-    //why isn't this ever fired ?
-}
-
-void Ball::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
-{
-    moved = true;
-}
-
-void Ball::wheelEvent(QGraphicsSceneWheelEvent *event)
-{
-    //write stuff here
-    //rad +/-= 10 ?
-
-    QGraphicsItem::wheelEvent(event);
-}
 #pragma GCC diagnostic pop
 

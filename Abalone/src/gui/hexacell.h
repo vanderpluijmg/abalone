@@ -6,6 +6,7 @@
 #include <string>
 #include <QPointF>
 #include "point.hpp"
+#include "gui.h"
 
 
 class QPainter;
@@ -20,32 +21,30 @@ class HexaCell  : public QGraphicsPolygonItem
     static const double zValMax; //z-val of selected items
     double zval; //z-val at instanciation
 
-    protected:
-        point<int> pos;//hexagon radius, coordinate (x,y) of center
-        Qt::GlobalColor color;
-        bool mouseover, selected, moved;//mouse interaction booleans
+protected:
+    point<int> pos;//hexagon radius, coordinate (x,y) of center
+    double rad; //size of hexagn
+    Qt::GlobalColor color; //color to paint hexgon
+    GUI *_gui=nullptr; //where it appears
 
-    public:
-        HexaCell(int dx = 0,
-                 int dy = 0,
-                 Qt::GlobalColor color = Qt::black);
+public:
+    HexaCell(int dx = 0,
+             int dy = 0,
+             double rad=50,
+             GUI* _gui=nullptr,
+             Qt::GlobalColor color = Qt::black);
 
-        void paint(QPainter *painter,
-                   const QStyleOptionGraphicsItem *option,
-                   QWidget *widget);
+    void paint(QPainter *painter,
+               const QStyleOptionGraphicsItem *option,
+               QWidget *widget);
 
-        inline QPointF coord(double x, double y) const;
+    inline QPointF coord(double x, double y) const;
 
-        inline void setLocation(double x, double y);
-protected: point<int> getPos();
+    inline void setLocation(double x, double y);
+    point<int> getPos();
 
-    protected:
-        void hoverEnterEvent(QGraphicsSceneHoverEvent * event);
-        void hoverLeaveEvent(QGraphicsSceneHoverEvent * event);
-        void mousePressEvent(QGraphicsSceneMouseEvent * event);
-        void mouseReleaseEvent(QGraphicsSceneMouseEvent * event);
-        void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
-        void wheelEvent(QGraphicsSceneWheelEvent * event);
+protected:
+    void mousePressEvent(QGraphicsSceneMouseEvent * event);
 };
 
 #endif // HEXACELL_H
