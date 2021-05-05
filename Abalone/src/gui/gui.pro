@@ -6,7 +6,7 @@ CONFIG += c++17
 QMAKE_CXXFLAGS += -Wpedantic -Werror
 
 
-include (../config.pri)
+include (../../config.pri)
 
 
 # The following define makes your compiler emit warnings if you use
@@ -21,13 +21,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ball.cpp \
+    gui.cpp \
     hexacell.cpp \
-    main.cpp \
-    mainwindow.cpp
+    main.cpp
 
 HEADERS += \
+    ball.h \
+    graphics_scene.hpp \
+    gui.h \
     hexacell.h \
-    mainwindow.h \
     point.hpp
 
 # Default rules for deployment.
