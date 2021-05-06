@@ -104,8 +104,8 @@ std::string GUI::posToAbaString(point<int> pos){
 void GUI::addToCommandAndToBoxes(point<int> pos){
     if(this->firstPos.empty()){firstPos=this->posToAbaString(pos);command+=firstPos;}
     else if(this->secondPos.empty()){secondPos=this->posToAbaString(pos);command+=secondPos;}
-        else if(this->thirdPos.empty()){thirdPos=this->posToAbaString(pos);command+=thirdPos;}
-    else {resetCommand();firstPos=this->posToAbaString(pos);command=""+firstPos;}
+    else if(this->thirdPos.empty()){thirdPos=this->posToAbaString(pos);command+=thirdPos;}
+    else {resetCommand();firstPos=this->posToAbaString(pos);command=firstPos;}
     updateDisplay();
     update();
 
@@ -125,12 +125,14 @@ std::string GUI::getCommand(){
 
 void GUI::sendCommand(){
     bool moveApproved = true;
-        moveApproved=game->applyMove(AbaPro::getCommand(command),colorCurrPlayer);
-        if(!moveApproved)commandError("wrong move");
+    if(command!=""||command.length()>3){
+        moveApproved=game->applyMove(AbaPro::getCommand(command),WHITE);
+        if(!moveApproved)
+            commandError("wrong move");
+    }
     resetCommand();
     updateDisplay();
 }
-
 void GUI::commandError(std::string error){
     this->error=error;
     update();
