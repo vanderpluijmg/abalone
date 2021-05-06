@@ -21,6 +21,10 @@ GUI::GUI(QWidget *parent,Game* game,double rad)
       parent(parent),
       game(game),rad(rad)
 {
+    //ajout des démarquations
+    addMarking();
+    //ajout des boutons
+    addButtons();
     addGameBoardAbalone(game->getBoard(),background,Qt::gray);
     addBallsAbalone(game->getBoard(),balls);
     addGameBoardAbalone(game->getBoard(),foreground,Qt::transparent);
@@ -33,11 +37,6 @@ GUI::GUI(QWidget *parent,Game* game,double rad)
     QGraphicsView * view = new QGraphicsView(foreground);
     foreground->set_background_scene(balls);
     balls->set_background_scene(background);
-
-    //ajout des démarquations
-    addMarking();
-    //ajout des boutons
-    addButtons();
 
     updateDisplay();
     //paramètrage de la scene
@@ -81,12 +80,6 @@ void GUI::ballsUpdate(){
         }
     }
     addBallsAbalone(game->getBoard(),balls);
-}
-void GUI::foregroundUpdate(){
-    for(int i =foreground->items().size()-1;i>=0;i--)
-        delete this->foreground->items().at(i);
-    addGameBoardAbalone(game->getBoard(),foreground,Qt::transparent);
-    addButtons();
 }
 
 void GUI::addToCommandAndToBoxes(point<int> pos){
@@ -134,7 +127,6 @@ void GUI::commandError(std::string error){
     resetCommand();
     this->error=error;
     errorTurnItem->setPlainText(QString::fromStdString(error));
-    updateDisplay();
     update();
 }
 
@@ -225,14 +217,13 @@ void GUI::addMarking(){
     errorTurnItem->setPos(5.6*rad, rad*-1);
     errorTurnItem->setFont(fontMoves);
     background->addItem(errorTurnItem);
-
-    updateDisplay();
 }
 
 void GUI::addButtons(){
+    resetBt = new QPushButton();
+    sendBt = new QPushButton();
     //Bouton remise à 0 de la commande
-    QPushButton *resetBt = new QPushButton();
-    resetBt->setText("remise à 0");
+    resetBt->setText("Reset command");
     resetBt->setGeometry(6*rad,rad,3*rad,rad);
     connect(resetBt,SIGNAL(clicked()),SLOT(resetCommand()));
 
@@ -244,8 +235,7 @@ void GUI::addButtons(){
     resetBt->update();
 
     //Bouton envoi de la commande
-    QPushButton *sendBt = new QPushButton();
-    sendBt->setText("Envoi de la commande");
+    sendBt->setText("Send command");
     sendBt->setGeometry(6*rad,2.5*rad,3*rad,rad);
     connect(sendBt,SIGNAL(clicked()),SLOT(sendCommand()));
     //couleur send
@@ -257,7 +247,6 @@ void GUI::addButtons(){
 
     foreground->addWidget(resetBt);
     foreground->addWidget(sendBt);
-    updateDisplay();
 }
 
 void GUI::switchPlayerTurn(){
@@ -268,7 +257,6 @@ void GUI::switchPlayerTurn(){
         colorCurrPlayer=BLACK;
         playerTurnDisplayed="Player 2";
     }
-
 }
 void GUI::checkLoser(){
     if(game->whoLost()!=EMPTY){
@@ -280,8 +268,6 @@ void GUI::checkLoser(){
 
 void GUI::endGame(){
     resetCommand();
-
-
     QMessageBox::information(parent,("Game is over! "),  loser==BLACK?("Player 1 has won the game, well played!"):("Player 2 has won the game, well played!"));
     exit(0);
 }

@@ -8,6 +8,7 @@
 #include <QGraphicsView>
 #include <cmath>
 #include <QPen>
+#include <QPushButton>
 
 #include "ball.h"
 #include "point.hpp"
@@ -24,7 +25,6 @@ public:
     void addGameBoardAbalone(Board board, graphics_scene  * scene,Qt::GlobalColor color);
     void addBallsAbalone(Board board, graphics_scene  * scene);
     void ballsUpdate();
-    void foregroundUpdate();
     void addToCommandAndToBoxes(point<int> pos);
     std::string getCommand();
     void commandError(std::string error);
@@ -54,7 +54,8 @@ protected:
     QGraphicsTextItem * errorItem = new QGraphicsTextItem();
     QGraphicsTextItem * playerTurnItem = new QGraphicsTextItem();
     QGraphicsTextItem * errorTurnItem = new QGraphicsTextItem();
-
+    QPushButton *resetBt = nullptr;
+    QPushButton *sendBt = nullptr;
     double rad;
     Color colorCurrPlayer=WHITE;
     Color  loser = EMPTY;

@@ -17,13 +17,11 @@ class HexaCell  : public QGraphicsPolygonItem
 {
     static const double zValMax; //z-val of selected items
     double zval; //z-val at instanciation
-
 protected:
     point<int> pos;//hexagon radius, coordinate (x,y) of center
     double rad; //size of hexagn
     Qt::GlobalColor color; //color to paint hexgon
     GUI *_gui=nullptr; //where it appears
-
 public:
     HexaCell(int dx = 0,
              int dy = 0,

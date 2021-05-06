@@ -45,19 +45,20 @@ void HexaCell::paint(QPainter *painter,
                      const QStyleOptionGraphicsItem *option,
                      QWidget *widget)
 {
-
     QPen pen(Qt::black, 1);
     painter->setPen(pen);
     QBrush brush;
     brush.setColor(color);
     brush.setStyle(Qt::SolidPattern);
     painter->setBrush(brush);
+
     painter->drawPolygon(polygon());
 }
 
 void HexaCell::mousePressEvent(QGraphicsSceneMouseEvent * event)
 {
     _gui->addToCommandAndToBoxes(pos);
+    update();
 }
 
 #pragma GCC diagnostic pop
