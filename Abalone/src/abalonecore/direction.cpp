@@ -11,16 +11,22 @@ Direction::Direction (int deltaX, int deltaY)
     _deltaY=deltaY;
     if (_deltaX==1&&_deltaY==-1)
         _directionC = NORTHEAST;
+
     else if (_deltaX==0&&_deltaY==1)
         _directionC = SOUTHEAST;
+
     else if (_deltaX==-1&&_deltaY==1)
         _directionC = SOUTHWEST;
+
     else if (_deltaX==-1&&_deltaY==0)
         _directionC = WEST;
+
     else if (_deltaX==0&&_deltaY==-1)
         _directionC = NORTHWEST;
-    else if (_deltaX==0&&_deltaY==1)
+
+    else if (_deltaX==1&&_deltaY==0)
         _directionC = EAST;
+
     else setDirection(NONE);
 }
 
@@ -32,7 +38,7 @@ Direction::Direction( directionChoice directionC)
     case SOUTHWEST:{ _directionC=directionC; _deltaX=-1; _deltaY=1; break;}
     case WEST:{ _directionC=directionC; _deltaX=-1; _deltaY=0; break;}
     case NORTHWEST:{ _directionC=directionC; _deltaX=0; _deltaY=-1; break;}
-    case EAST:{ _directionC=directionC; _deltaX=1; _deltaY=0; break;}
+    case EAST:{ _directionC=directionC; _deltaX=0; _deltaY=1; break;}
     case NONE:{ _directionC=directionC; _deltaX=0;_deltaY=0;break;}
     }
 }

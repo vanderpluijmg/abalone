@@ -9,7 +9,6 @@ bool Game::applyMove(MoveUtils moves,Color player) {
 
 int Game::validateMove(const MoveUtils& a,Color player) {
     if((_board.getColor(a.pos1)!=player))
-            if((a.pos1.getX()==-1 && a.pos1.getY()==-1))
         return false;
     return a.pos2.getX()==-1 && a.pos2.getY()==-1?
                 validateLinearAndSameColor(a) : validateLateralAndSameColor(a);
