@@ -126,7 +126,7 @@ std::string GUI::getCommand(){
 void GUI::sendCommand(){
     bool moveApproved = true;
     if(command!=""||command.length()>3){
-        moveApproved=game->applyMove(AbaPro::getCommand(command),WHITE);
+        moveApproved=game->applyMove(AbaPro::getCommand(firstPos+secondPos+thirdPos),WHITE);
         if(!moveApproved)
             commandError("wrong move");
     }
