@@ -11,10 +11,7 @@
 
 class QPainter;
 class QStyleOptionGraphicsItem;
-class QWidget;
-class QGraphicsSceneHoverEvent;
 class QGraphicsSceneMouseEvent;
-class QGraphicsSceneWheelEvent;
 
 class HexaCell  : public QGraphicsPolygonItem
 {

@@ -24,7 +24,7 @@ public:
     void addGameBoardAbalone(Board board, graphics_scene  * scene,Qt::GlobalColor color);
     void addBallsAbalone(Board board, graphics_scene  * scene);
     void ballsUpdate();
-    std::string posToAbaString(point<int> pos);
+    void foregroundUpdate();
     void addToCommandAndToBoxes(point<int> pos);
     std::string getCommand();
     void commandError(std::string error);
@@ -32,9 +32,12 @@ public:
     void updateCommand();
     void addMarking();
     void addButtons();
-    void setPlayerTurn(Color color);
+    void switchPlayerTurn();
+    void checkLoser();
+    void endGame();
     ~GUI();
 protected:
+    QWidget *parent=nullptr;
     graphics_scene  * foreground = new graphics_scene();
     graphics_scene  * balls = new graphics_scene();
     graphics_scene  * background = new graphics_scene();
@@ -44,12 +47,17 @@ protected:
     std::string thirdPos="";
     std::string command="";
     std::string error="";
+    QString playerTurnDisplayed="Player 1";
     QGraphicsTextItem * pos1Item = new QGraphicsTextItem();
     QGraphicsTextItem * pos2Item = new QGraphicsTextItem();
     QGraphicsTextItem * pos3Item = new QGraphicsTextItem();
     QGraphicsTextItem * errorItem = new QGraphicsTextItem();
+    QGraphicsTextItem * playerTurnItem = new QGraphicsTextItem();
+    QGraphicsTextItem * errorTurnItem = new QGraphicsTextItem();
+
     double rad;
     Color colorCurrPlayer=WHITE;
+    Color  loser = EMPTY;
 private slots:
     void resetCommand();
     void sendCommand();

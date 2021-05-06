@@ -6,7 +6,9 @@
 #include <QPen>
 #include <QPushButton>
 #include <iostream>
+#include <QMessageBox>
 
+#include "../abalonecore/abapro.h"
 #include "hexacell.h"
 #include "ball.h"
 #include "point.hpp"
@@ -15,7 +17,9 @@
  * @brief Graphical User Interface.
  */
 GUI::GUI(QWidget *parent,Game* game,double rad)
-    : QMainWindow(parent),    game(game),rad(rad)
+    : QMainWindow(parent),
+      parent(parent),
+      game(game),rad(rad)
 {
     addGameBoardAbalone(game->getBoard(),background,Qt::gray);
     addBallsAbalone(game->getBoard(),balls);
@@ -53,27 +57,23 @@ GUI::~GUI()
 }
 
 void GUI::addGameBoardAbalone(Board board, graphics_scene  * scene,Qt::GlobalColor color){
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0;j<9 ; j++) {
+    for (int i = 0; i < 9; i++)
+        for (int j = 0;j<9 ; j++)
             if(board.isOnBoard(Position(j,i))){
                 scene->addItem(new HexaCell(j, i,rad,this,color));
-
             }
-        }
-    }
 }
 
 void GUI::addBallsAbalone(Board board, graphics_scene  * scene){
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0;j<9 ; j++) {
+    for (int i = 0; i < 9; i++)
+        for (int j = 0;j<9 ; j++)
             if(board.isOnBoard(Position(j,i))){
                 Color color = board.getColor(Position(j,i));
                 if (color == BLACK)scene->addItem(new Ball( j, i,rad,color));
                 if (color == WHITE)scene->addItem(new Ball( j, i,rad,color));
             }
-        }
-    }
 }
+
 void GUI::ballsUpdate(){
     for(int i =balls->items().size()-1;i>=0;i--){
         {
@@ -82,30 +82,19 @@ void GUI::ballsUpdate(){
     }
     addBallsAbalone(game->getBoard(),balls);
 }
-
-std::string GUI::posToAbaString(point<int> pos){
-    std::string posStr = "";
-    char row = pos.second;
-    int col = pos.first + 1;
-    switch (row){
-    case 0: {posStr+="I";posStr+=std::to_string(col);return posStr;};
-    case 1: {posStr+="H";posStr+=std::to_string(col);return posStr;};
-    case 2: {posStr+="G";posStr+=std::to_string(col);return posStr;};
-    case 3: {posStr+="F";posStr+=std::to_string(col);return posStr;};
-    case 4: {posStr+="E";posStr+=std::to_string(col);return posStr;};
-    case 5: {posStr+="D";posStr+=std::to_string(col);return posStr;};
-    case 6: {posStr+="C";posStr+=std::to_string(col);return posStr;};
-    case 7: {posStr+="B";posStr+=std::to_string(col);return posStr;};
-    case 8: {posStr+="A";posStr+=std::to_string(col);return posStr;};
-    }
-    return "";
+void GUI::foregroundUpdate(){
+    for(int i =foreground->items().size()-1;i>=0;i--)
+        delete this->foreground->items().at(i);
+    addGameBoardAbalone(game->getBoard(),foreground,Qt::transparent);
+    addButtons();
 }
 
 void GUI::addToCommandAndToBoxes(point<int> pos){
-    if(this->firstPos.empty()){firstPos=this->posToAbaString(pos);command+=firstPos;}
-    else if(this->secondPos.empty()){secondPos=this->posToAbaString(pos);command+=secondPos;}
-    else if(this->thirdPos.empty()){thirdPos=this->posToAbaString(pos);command+=thirdPos;}
-    else {resetCommand();firstPos=this->posToAbaString(pos);command=firstPos;}
+    if(error!="")error="";
+    if(this->firstPos.empty()){firstPos=AbaPro::posToAbaString(pos);command+=firstPos;}
+    else if(this->secondPos.empty()){secondPos=AbaPro::posToAbaString(pos);command+=secondPos;}
+    else if(this->thirdPos.empty()){thirdPos=AbaPro::posToAbaString(pos);command+=thirdPos;}
+    else {resetCommand();firstPos=AbaPro::posToAbaString(pos);command=firstPos;}
     updateDisplay();
     update();
 
@@ -116,6 +105,7 @@ void GUI::resetCommand(){
     firstPos="";
     secondPos="";
     thirdPos="";
+    error="";
     updateDisplay();
 }
 
@@ -127,16 +117,24 @@ void GUI::sendCommand(){
     bool moveApproved = true;
     if(command!=""||command.length()>3){
         MoveUtils a = AbaPro::getCommand(firstPos+secondPos+thirdPos);
-        std::cout<<a.dir;
-        moveApproved=game->applyMove(a,WHITE);
-        if(!moveApproved)
-            commandError("wrong move");
+        moveApproved=game->applyMove(a,colorCurrPlayer);
+        if(!moveApproved){
+            resetCommand();
+            commandError("Wrong movement");
+        }
+        else {
+            switchPlayerTurn();
+            resetCommand();
+        }
     }
-    resetCommand();
+    checkLoser();
     updateDisplay();
 }
 void GUI::commandError(std::string error){
+    resetCommand();
     this->error=error;
+    errorTurnItem->setPlainText(QString::fromStdString(error));
+    updateDisplay();
     update();
 }
 
@@ -145,6 +143,8 @@ void GUI::updateDisplay(){
     pos1Item->setPlainText(QString::fromStdString(firstPos));
     pos2Item->setPlainText(QString::fromStdString(secondPos));
     pos3Item->setPlainText(QString::fromStdString(thirdPos));
+    playerTurnItem->setPlainText(playerTurnDisplayed+" has to play!");
+    errorTurnItem->setPlainText(QString::fromStdString(error));
     resize(rad*22.5, rad*18-1);
     resize(rad*22.5, rad*18);
     update();
@@ -154,20 +154,20 @@ void GUI::addMarking(){
     QFont  font = QFont();//font for marking
     font.setPointSize(rad/3);
     //Texte pour player 1 et player 2
-    QString Player1Text = "Player 1";
-    QGraphicsTextItem * Player1Graph = new QGraphicsTextItem();
-    Player1Graph->setPlainText(Player1Text);
-    Player1Graph->boundingRect();
-    QString Player2Text = "Player 2";
-    QGraphicsTextItem * Player2Graph = new QGraphicsTextItem();
-    Player2Graph->setPlainText(Player2Text);
-    Player2Graph->boundingRect();
-    Player1Graph->setPos(-4.2*rad, rad*-8);
-    Player2Graph->setPos(-4.2*rad, rad*8);
-    Player1Graph->setFont(font);
-    Player2Graph->setFont(font);
-    background->addItem(Player1Graph);
-    background->addItem(Player2Graph);
+    QString player1Text = "Player 1";
+    QGraphicsTextItem * player1Graph = new QGraphicsTextItem();
+    player1Graph->setPlainText(player1Text);
+    player1Graph->boundingRect();
+    QString player2Text = "Player 2";
+    QGraphicsTextItem * player2Graph = new QGraphicsTextItem();
+    player2Graph->setPlainText(player2Text);
+    player2Graph->boundingRect();
+    player1Graph->setPos(-4.2*rad, rad*-8);
+    player2Graph->setPos(-4.2*rad, rad*8);
+    player1Graph->setFont(font);
+    player2Graph->setFont(font);
+    background->addItem(player1Graph);
+    background->addItem(player2Graph);
     //Ajout des démarquations
     for(int i = 0, j =4;i<9;i++){
         if(j>=0)j--;
@@ -203,15 +203,29 @@ void GUI::addMarking(){
     pos2Item->boundingRect();
     pos3Item->setPlainText(QString(""));
     pos3Item->boundingRect();
-    pos1Item->setPos(7*rad, rad*-4);
-    pos2Item->setPos(7*rad, rad*-2.5);
-    pos3Item->setPos(7*rad, rad*-1);
+    pos1Item->setPos(6.1*rad, rad*-1);
+    pos2Item->setPos(7.1*rad, rad*-1);
+    pos3Item->setPos(8.1*rad, rad*-1);
     pos1Item->setFont(fontMoves);
     pos2Item->setFont(fontMoves);
     pos3Item->setFont(fontMoves);
     background->addItem(pos1Item);
     background->addItem(pos2Item);
     background->addItem(pos3Item);
+    //Player turn display
+    playerTurnItem->setPlainText(playerTurnDisplayed+" has to play!");
+    playerTurnItem->boundingRect();
+    playerTurnItem->setPos(5.6*rad, rad*-2);
+    playerTurnItem->setFont(fontMoves);
+    background->addItem(playerTurnItem);
+
+    //error display
+    errorTurnItem->setPlainText("");
+    errorTurnItem->boundingRect();
+    errorTurnItem->setPos(5.6*rad, rad*-1);
+    errorTurnItem->setFont(fontMoves);
+    background->addItem(errorTurnItem);
+
     updateDisplay();
 }
 
@@ -245,8 +259,31 @@ void GUI::addButtons(){
     foreground->addWidget(sendBt);
     updateDisplay();
 }
-void GUI::setPlayerTurn(Color color){
-    colorCurrPlayer=color;
+
+void GUI::switchPlayerTurn(){
+    if(colorCurrPlayer==BLACK){
+        colorCurrPlayer=WHITE;
+        playerTurnDisplayed="Player 1";
+    } else {
+        colorCurrPlayer=BLACK;
+        playerTurnDisplayed="Player 2";
+    }
+
+}
+void GUI::checkLoser(){
+    if(game->whoLost()!=EMPTY){
+        loser=game->whoLost();
+        update();
+        endGame();
+    }
+}
+
+void GUI::endGame(){
+    resetCommand();
+
+
+    QMessageBox::information(parent,("Game is over! "),  loser==BLACK?("Player 1 has won the game, well played!"):("Player 2 has won the game, well played!"));
+    exit(0);
 }
 
 

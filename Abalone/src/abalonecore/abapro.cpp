@@ -113,3 +113,22 @@ Direction AbaPro::getDirection(Position init, Position final)
     }
     throw "error";
 }
+
+std::string AbaPro::posToAbaString(point<int> pos){
+    std::string posStr = "";
+    char row = pos.second;
+    int col = pos.first + 1;
+    switch (row){
+    case 0: {posStr+="I";posStr+=std::to_string(col);return posStr;};
+    case 1: {posStr+="H";posStr+=std::to_string(col);return posStr;};
+    case 2: {posStr+="G";posStr+=std::to_string(col);return posStr;};
+    case 3: {posStr+="F";posStr+=std::to_string(col);return posStr;};
+    case 4: {posStr+="E";posStr+=std::to_string(col);return posStr;};
+    case 5: {posStr+="D";posStr+=std::to_string(col);return posStr;};
+    case 6: {posStr+="C";posStr+=std::to_string(col);return posStr;};
+    case 7: {posStr+="B";posStr+=std::to_string(col);return posStr;};
+    case 8: {posStr+="A";posStr+=std::to_string(col);return posStr;};
+    }
+    return "";
+}
+

@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <string>
+#include "../gui/point.hpp"
 
 /**
  * @brief All utils needed to preform a move.
@@ -85,7 +86,8 @@ public:
      * @return Direction in wich to go to.
      */
     static Direction getDirection (Position init, Position final);
-
+//#todo
+    static std::string posToAbaString(point<int> pos);
 
 };
 

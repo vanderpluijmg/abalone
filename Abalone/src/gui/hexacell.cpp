@@ -57,7 +57,6 @@ void HexaCell::paint(QPainter *painter,
 
 void HexaCell::mousePressEvent(QGraphicsSceneMouseEvent * event)
 {
-    //std::cout<<this->pos.first<<"   "<<this->pos.second<<std::endl;
     _gui->addToCommandAndToBoxes(pos);
 }
 
