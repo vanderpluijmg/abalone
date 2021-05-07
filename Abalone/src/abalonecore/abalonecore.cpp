@@ -18,7 +18,9 @@ void AbaloneCore::playTurn(){
         TUI::getPlayerTurn(_turn);
         TUI::displayMessage("");
         MoveUtils givenMove = AbaPro::getCommand(TUI::askEntry());
-        moveApproved=_game.applyMove(givenMove,_turn);
+        if (givenMove.dir.getDirection() == NONE)
+            moveApproved = false;
+        else moveApproved=_game.applyMove(givenMove,_turn);
         if(!moveApproved)
             TUI::displayMessage("Wrong entry");
     }

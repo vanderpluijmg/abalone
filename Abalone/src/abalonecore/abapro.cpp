@@ -44,22 +44,22 @@ MoveUtils AbaPro::getCommand(std::string move)
     AbaPro::commandTok(move, command);
     if (checkPositionsInCommand(command))
     {
-        if (command.size()==2)
-        {
+        if (command.size()==2){
             Position pos = getPosition(command[0]);
             Direction dir = getDirection(pos, getPosition(command[1]));
             AbaPro::addPosAndDirToUtils(mvUtils,pos,dir);
-        } else
-        {
+            return mvUtils;
+        } else {
             Position pos1 = getPosition(command[0]);
             Position pos2 = getPosition(command[1]);
             Direction dir = getDirection(pos1, getPosition(command[2]));
             AbaPro::add2PosAndDirToUtils(mvUtils,pos1,pos2,dir);
+            return mvUtils;
         }
         return mvUtils;
     }
-    else {throw "Sorry you move is not valid";
-    }
+    else mvUtils.dir=Direction(0,0);
+    return mvUtils;
 }
 
 bool AbaPro::checkPositionsInCommand(const std::vector<std::string> &command)
@@ -108,10 +108,10 @@ Position AbaPro::getPosition(const std::string& command)
 Direction AbaPro::getDirection(Position init, Position final)
 {
     Direction end = Direction((final.getX()-init.getX()),(final.getY()-init.getY()));
-    if(end.getDirection()!=NONE){
+    if(end.getDeltaX()!=0 && end.getDeltaY()!=0){
         return end;
     }
-    throw "error";
+    return NONE;
 }
 
 std::string AbaPro::posToAbaString(point<int> pos){

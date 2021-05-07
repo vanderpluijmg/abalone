@@ -110,7 +110,9 @@ void GUI::sendCommand(){
     bool moveApproved = true;
     if(command!=""||command.length()>3){
         MoveUtils a = AbaPro::getCommand(firstPos+secondPos+thirdPos);
-        moveApproved=game->applyMove(a,colorCurrPlayer);
+        if (a.dir.getDirection() == NONE)
+            moveApproved = false;
+        else moveApproved=game->applyMove(a,colorCurrPlayer);
         if(!moveApproved){
             resetCommand();
             commandError("Wrong movement");
