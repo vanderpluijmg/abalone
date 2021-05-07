@@ -48,13 +48,12 @@ MoveUtils AbaPro::getCommand(std::string move)
             Position pos = getPosition(command[0]);
             Direction dir = getDirection(pos, getPosition(command[1]));
             AbaPro::addPosAndDirToUtils(mvUtils,pos,dir);
-            return mvUtils;
+
         } else {
             Position pos1 = getPosition(command[0]);
             Position pos2 = getPosition(command[1]);
             Direction dir = getDirection(pos1, getPosition(command[2]));
             AbaPro::add2PosAndDirToUtils(mvUtils,pos1,pos2,dir);
-            return mvUtils;
         }
         return mvUtils;
     }
@@ -108,10 +107,10 @@ Position AbaPro::getPosition(const std::string& command)
 Direction AbaPro::getDirection(Position init, Position final)
 {
     Direction end = Direction((final.getX()-init.getX()),(final.getY()-init.getY()));
-    if(end.getDeltaX()!=0 && end.getDeltaY()!=0){
-        return end;
+    if(end.getDeltaX()==0 && end.getDeltaY()==0){
+        return NONE;
     }
-    return NONE;
+    return end;
 }
 
 std::string AbaPro::posToAbaString(point<int> pos){
