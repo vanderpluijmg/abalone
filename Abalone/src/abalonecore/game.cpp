@@ -109,7 +109,6 @@ bool Game::createDefendGroup(const MoveUtils& a,Position begin, Color defendColo
     }
     else if(_board.getColor(begin)==OUTOFBOUND){
         _board.getHexagon(a.pos1).setMarbleColor(EMPTY);
-        loseBall(defendColor);
         return true;
     }
     while (_board.getColor(begin) == defendColor) {

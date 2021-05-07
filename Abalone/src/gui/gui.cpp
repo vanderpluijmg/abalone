@@ -7,7 +7,6 @@
 #include <QPushButton>
 #include <iostream>
 #include <QMessageBox>
-
 #include "../abalonecore/abapro.h"
 #include "hexacell.h"
 #include "ball.h"
@@ -108,7 +107,7 @@ std::string GUI::getCommand(){
 
 void GUI::sendCommand(){
     bool moveApproved = true;
-    if(command!=""||command.length()>3){
+    if(command!="" && secondPos!=""){
         MoveUtils a = AbaPro::getCommand(firstPos+secondPos+thirdPos);
         if (a.dir.getDeltaX() == 0 && a.dir.getDeltaY() == 0)
             moveApproved = false;

@@ -122,22 +122,33 @@ TEST_CASE("Regular movements pushings balls", "[moves][inbound][versus]"){
 TEST_CASE("Regular movements outofBounds", "[moves][outbound]"){
     SECTION("move ball out of bounds"){
         Game game=Game();
-        MoveUtils a = AbaPro::getCommand("I5H5");
+        MoveUtils a = AbaPro::getCommand("H6I7");
         game.applyMove(a,WHITE);
-        MoveUtils ab = AbaPro::getCommand("B5C5");
+        REQUIRE(game.getBoard().getColor(Position(5,1)) == EMPTY);
+        REQUIRE(game.getBoard().getColor(Position(6,0)) == WHITE);
+    }
+    SECTION("move 3 ball white out of bounds"){
+        Game game=Game();
+        MoveUtils a = AbaPro::getCommand("I5H4");
+        game.applyMove(a,WHITE);
+        MoveUtils ab = AbaPro::getCommand("A1B1");
         game.applyMove(ab,BLACK);
-        MoveUtils ac = AbaPro::getCommand("H5G5");
+        MoveUtils ac = AbaPro::getCommand("H4G3");
         game.applyMove(ac,WHITE);
-        MoveUtils ad = AbaPro::getCommand("C5D5");
+        MoveUtils ad = AbaPro::getCommand("B1C1");
         game.applyMove(ad,BLACK);
-        MoveUtils ae = AbaPro::getCommand("A2B2");
-        game.applyMove(ae,BLACK);
-        MoveUtils af = AbaPro::getCommand("G5F5");
-        game.applyMove(af,WHITE);
-
-        REQUIRE(game.getBoard().getColor(Position(4,2)) == EMPTY);
-        REQUIRE(game.getBoard().getColor(Position(4,5)) == WHITE);
-        REQUIRE(game.getBoard().getColor(Position(4,6)) == BLACK);
+        MoveUtils ae = AbaPro::getCommand("G3F2");
+        game.applyMove(ae,WHITE);
+        MoveUtils af = AbaPro::getCommand("C1D1");
+        game.applyMove(af,BLACK);
+        REQUIRE(game.getBoard().getColor(Position(0,4)) == BLACK);
+        REQUIRE(game.getBoard().getColor(Position(1,3)) == WHITE);
+    }
+    SECTION("move ball out of bounds"){
+        Game game=Game();
+        MoveUtils a = AbaPro::getCommand("G5H5");
+        game.applyMove(a,WHITE);
+        REQUIRE(game.getBoard().getColor(Position(2,4)) == EMPTY);
     }
 
 }

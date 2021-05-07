@@ -22,7 +22,20 @@ class GUI : public QMainWindow
 
 public:
     GUI(QWidget *parent = nullptr,Game*g=nullptr,double rad=50);
+
+    /**
+     * @brief Adds game board
+     * @param board Board to add game too.
+     * @param scene Scene to add board too.
+     * @param color Color to add.
+     */
     void addGameBoardAbalone(Board board, graphics_scene  * scene,Qt::GlobalColor color);
+
+    /**
+     * @brief Adds balls to scene.
+     * @param board Board to add balls to.
+     * @param scene Scene to add it to.
+     */
     void addBallsAbalone(Board board, graphics_scene  * scene);
 
     /**
@@ -30,7 +43,10 @@ public:
      */
     void ballsUpdate();
 
-
+    /**
+     * @brief Adds position to the GUI
+     * @param pos Position to add.
+     */
     void addToCommandAndToBoxes(point<int> pos);
 
     /**
@@ -54,7 +70,15 @@ public:
      * @brief Updates user command.
      */
     void updateCommand();
+
+    /**
+     * @brief Adds alls the decoration.
+     */
     void addMarking();
+
+    /**
+     * @brief Adds buttons to scene
+     */
     void addButtons();
 
     /**
