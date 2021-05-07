@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pos1_179',['pos1',['../struct_move_utils.html#a1858da4369e74777a5446e825590d7a7',1,'MoveUtils']]],
-  ['pos2_180',['pos2',['../struct_move_utils.html#adca502cf1ae041433d43bc1c6e22b51a',1,'MoveUtils']]]
+  ['background_301',['background',['../class_g_u_i.html#a2b8dfa810e546e5a4a1e86c649cd3714',1,'GUI']]],
+  ['balls_302',['balls',['../class_g_u_i.html#a31f12a2e8605db2074dfb9d996b0f155',1,'GUI']]]
 ];

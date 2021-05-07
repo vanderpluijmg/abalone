@@ -2,6 +2,9 @@
 #define GRAPHICS_SCENE_H
 //source_url = https://stackoverflow.com/questions/60770035/adding-multiple-qgraphicsscene-on-qgraphicsview
 #include <QGraphicsScene>
+/**
+ * @brief Class that lets us set a scene as a background for another scene.
+ */
 class graphics_scene: public QGraphicsScene {
     using super = QGraphicsScene;
 public:

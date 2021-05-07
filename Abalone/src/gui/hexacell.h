@@ -13,6 +13,9 @@ class QPainter;
 class QStyleOptionGraphicsItem;
 class QGraphicsSceneMouseEvent;
 
+/**
+ * @brief HexaCell represents a Cell which can contain a Ball in the game but as a graphic element in the GUI.
+ */
 class HexaCell  : public QGraphicsPolygonItem
 {
     static const double zValMax; //z-val of selected items

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_159',['main',['../main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.cpp']]]
+  ['loseball_266',['loseBall',['../class_game.html#a79dc00aaf063f60191f46d7add187467',1,'Game']]]
 ];

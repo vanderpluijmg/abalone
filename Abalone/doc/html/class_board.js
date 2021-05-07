@@ -6,6 +6,7 @@ var class_board =
     [ "checkNeigbourSameColor", "class_board.html#aea86fd0e982316a03abc78d042fc6bab", null ],
     [ "getColor", "class_board.html#a7a7523a0be3cf59e602e2a0247a6e6af", null ],
     [ "getHexagon", "class_board.html#a2a89a41c5c0628570c49ed4785473942", null ],
+    [ "getHexagon", "class_board.html#adf328ff80dfed816fd663c848f5865dc", null ],
     [ "getOppositeColor", "class_board.html#a2be6c803974a9a09ffa639e7f367b5df", null ],
     [ "initGameBoard", "class_board.html#aa9b6c4c3e948535332797b2213e00c94", null ],
     [ "isEmpty", "class_board.html#a1425229731653f528200521388ccdeec", null ],

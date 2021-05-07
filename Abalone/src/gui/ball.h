@@ -16,6 +16,9 @@ class QGraphicsSceneHoverEvent;
 class QGraphicsSceneMouseEvent;
 class QGraphicsSceneWheelEvent;
 
+/**
+ * @brief Ball represents a Ball in the game but as a graphic element in the GUI.
+ */
 class Ball  : public QGraphicsPolygonItem
 {
     static const double zValMax; //z-val of selected items

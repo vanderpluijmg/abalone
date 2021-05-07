@@ -15,7 +15,9 @@
 #include "graphics_scene.hpp"
 #include <list>
 
-
+/**
+ * @brief The Graphical presentation of the game. Serves for interactions between the user and the game.
+ */
 class GUI : public QMainWindow
 {
     Q_OBJECT

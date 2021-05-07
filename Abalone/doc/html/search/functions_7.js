@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['initgameboard_155',['initGameBoard',['../class_board.html#aa9b6c4c3e948535332797b2213e00c94',1,'Board']]],
-  ['isempty_156',['isEmpty',['../class_board.html#a1425229731653f528200521388ccdeec',1,'Board']]],
-  ['isonboard_157',['isOnBoard',['../class_board.html#a40e354f03cd3996a64f084b2781cd055',1,'Board']]]
+  ['hexacell_261',['HexaCell',['../class_hexa_cell.html#a618a99699a8bb0959a161f0b3b5ac5d4',1,'HexaCell']]],
+  ['hexagon_262',['Hexagon',['../class_hexagon.html#ab503950412a7f11dab9c697c45b614a2',1,'Hexagon::Hexagon()'],['../class_hexagon.html#a35322efc6f291fd5f457410191ac3b3a',1,'Hexagon::Hexagon(Color color, int x, int y)']]]
 ];

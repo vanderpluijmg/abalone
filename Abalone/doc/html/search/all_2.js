@@ -1,9 +1,13 @@
 var searchData=
 [
-  ['checkallcaseemtpy_18',['checkAllCaseEmtpy',['../class_game.html#ac97e70d931a3622e8bd730fb3e3ab6d8',1,'Game']]],
-  ['checkneigboursamecolor_19',['checkNeigbourSameColor',['../class_board.html#aea86fd0e982316a03abc78d042fc6bab',1,'Board']]],
-  ['checkpositionsincommand_20',['checkPositionsInCommand',['../class_aba_pro.html#ac218fb9ea1ce8f7c74549ab0b28e0ee3',1,'AbaPro']]],
-  ['color_21',['Color',['../color_8hpp.html#ab87bacfdad76e61b9412d7124be44c1c',1,'color.hpp']]],
-  ['color_2ehpp_22',['color.hpp',['../color_8hpp.html',1,'']]],
-  ['commandtok_23',['commandTok',['../class_aba_pro.html#ab58d696e0862a67d711fb4b0f3a37acb',1,'AbaPro']]]
+  ['background_21',['background',['../class_g_u_i.html#a2b8dfa810e546e5a4a1e86c649cd3714',1,'GUI']]],
+  ['ball_22',['Ball',['../class_ball.html',1,'Ball'],['../class_ball.html#a5aab2f6c0594e2df0511767346f84811',1,'Ball::Ball()']]],
+  ['ball_2ecpp_23',['ball.cpp',['../ball_8cpp.html',1,'']]],
+  ['ball_2eh_24',['ball.h',['../ball_8h.html',1,'']]],
+  ['balls_25',['balls',['../class_g_u_i.html#a31f12a2e8605db2074dfb9d996b0f155',1,'GUI']]],
+  ['ballsupdate_26',['ballsUpdate',['../class_g_u_i.html#a05383b14a7f01087219534eefcd17270',1,'GUI']]],
+  ['black_27',['BLACK',['../color_8hpp.html#ab87bacfdad76e61b9412d7124be44c1caf77fb67151d0c18d397069ad8c271ba3',1,'color.hpp']]],
+  ['board_28',['Board',['../class_board.html',1,'Board'],['../class_board.html#a9ee491d4fea680cf69b033374a9fdfcb',1,'Board::Board()']]],
+  ['board_2ecpp_29',['board.cpp',['../board_8cpp.html',1,'']]],
+  ['board_2eh_30',['board.h',['../board_8h.html',1,'']]]
 ];
